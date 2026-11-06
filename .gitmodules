@@ -1,0 +1,19 @@
+[submodule "ged"]
+	path = ged
+	url = git@github.com:a-coman/ged.git
+[submodule "graphdiff"]
+	path = graphdiff
+	url = git@github.com:a-coman/graphdiff.git
+[submodule "llm-evaluator"]
+	path = llm-evaluator
+	url = git@github.com:a-coman/llm-evaluator.git
+[submodule "llm-instancer"]
+	path = llm-instancer
+	url = git@github.com:a-coman/llm-instancer.git
+[submodule "llm-viewer"]
+	path = llm-viewer
+	url = git@github.com:a-coman/llm-viewer.git
+[submodule "use"]
+	path = use
+	url = git@github.com:a-coman/use.git
+	branch = headless-pdf-export

@@ -114,5 +114,35 @@ The dev server listens at `http://localhost:4321`. `npm run build` writes the si
 
 The page is availible online at: https://viewer.a-coman.dev/gpt_5_2/
 
+## How to contribute and download the repo
+
+As the repo is organized in different tools and repositories, with github submodules, the easiest way is:
+
+clone:
+```bash
+git clone --recurse-submodules git@github.com:a-coman/instagen.git
+```
+
+pull new updates:
+```bash
+git pull
+git submodule update --init --recursive
+```
+
+commit:
+```bash
+cd {repo}
+git switch main
+git pull
+{do things}
+git add .
+git commit -m "{commit}"
+git push
+cd ..
+git add {repo}
+git commit -m "Bump {repo}"
+git push
+```
+
 ## License
 **instagen** is licensed under the **MIT License** (see `LICENSE`). llm-instancer, llm-evaluator, ged, graphdiff, and llm-viewer are also MIT-licensed, each with its own `LICENSE` file. USE keeps its own license, the GNU GPL v2 (see `use/COPYING`), and so does each third-party library the tools depend on.
