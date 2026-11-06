@@ -58,6 +58,7 @@ mvn -q compile org.codehaus.mojo:exec-maven-plugin:3.5.0:java -Dexec.mainClass=e
 Class diagrams are read from `src/main/resources/models` and `src/main/resources/models-with-ocl`, the same copies llm-instancer uses.
 
 ## use
+[https://github.com/a-coman/use](https://github.com/a-coman/use)
 
 llm-instancer and llm-evaluator both run a modified build of [USE](https://github.com/useocl/use) 7.5.0. It is not an official release. It adds a headless `export` command, which writes an object diagram to PDF with auto-layout (`export --hierarchical`) and no GUI dialogs, so the stock USE releases cannot replace it. The source is at [a-coman/use](https://github.com/a-coman/use), cloned in `use`. We intend to contribute this change upstream.
 
@@ -101,6 +102,8 @@ python main.py --dataset /path/to/dataset
 
 [https://github.com/a-coman/llm-viewer](https://github.com/a-coman/llm-viewer)
 
+The page is availible online at: https://viewer.a-coman.dev/gpt_5_2/
+
 Static site for reading the generated instances next to the metrics from the tools above. 
 
 Requires Node.js. The dataset lives in `public/data/dataset`.
@@ -111,8 +114,6 @@ npm run dev
 ```
 
 The dev server listens at `http://localhost:4321`. `npm run build` writes the site to `dist/`. 
-
-The page is availible online at: https://viewer.a-coman.dev/gpt_5_2/
 
 ## How to contribute and download the repo
 
