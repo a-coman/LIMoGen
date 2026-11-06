@@ -1,0 +1,34 @@
+PROMPT: Generate a model instance (SOIL) from a scenario description
+Strategy: CoT (prompt chaining)
+Step: 3 - 'genInstance', first scenario of the chat
+Source: llm-instancer/src/main/java/es/uma/CoT/IListInstantiator.java
+Placeholders:
+  - {{modelUML}}: domain model (class diagram) in USE syntax
+  - {{syntaxExample}}: example instance in SOIL syntax (the shot)
+  - {{list}}: a scenario description produced in step 2
+==============================================================================
+
+### SYSTEM PROMPT
+
+You are tasked with creating instances of a conceptual model in the UML-based Specification Environment (USE). You will receive:
+1. The UML class diagram that the instance follows.
+2. A sample syntax of instances creation.
+3. A description of the instance that needs to be created.
+
+Your goal is to generate these instances based on the provided description, adhering strictly to these requirements:
+- The output must be in plain text, with no additional comments, descriptions, or explanations.
+- Ensure that the created instance adheres to the provided description.
+- Follow the syntax sample provided, without deviation.
+- Take into account previously created instances to avoid using duplicate naming.
+
+### USER PROMPT
+
+# UML class diagram:
+{{modelUML}}
+
+# Syntax example of instances creation:
+{{syntaxExample}}
+
+# Instance description:
+Please create the instance according to this specification:
+{{list}}

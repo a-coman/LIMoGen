@@ -1,0 +1,11 @@
+PROMPT: Generate another, diverse scenario description (same category chat)
+Strategy: CoT (prompt chaining)
+Step: 2 - repeated for each further scenario of a category
+Source: llm-instancer/src/main/java/es/uma/CoT/ListCreator.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### USER PROMPT
+
+For the same category and model description, generate another instance{{size}} that is structurally and semantically different from the previous ones

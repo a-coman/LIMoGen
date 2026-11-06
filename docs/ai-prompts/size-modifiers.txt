@@ -1,0 +1,14 @@
+PROMPT: Size modifiers (values substituted for {{size}})
+Strategy: IL and CoT (shared)
+Step: appended to the instance/scenario requests
+Source: llm-instancer/src/main/java/es/uma/Size.java
+==============================================================================
+
+### VALUES
+
+NONE     -> ""
+MINIMAL  -> " with 10 or more objects"
+SMALL    -> " with 20 or more objects"
+MEDIUM   -> " with 30 or more objects"
+LARGE    -> " with 40 or more objects"
+GIANT    -> " with 50 or more objects"

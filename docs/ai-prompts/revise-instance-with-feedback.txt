@@ -1,0 +1,14 @@
+PROMPT: Revise a tentative model instance using USE feedback (syntax / multiplicity / invariant errors)
+Strategy: IL and CoT (shared)
+Step: conformance check loop, up to maxChecks times after each failed USE check
+Source: llm-instancer/src/main/java/es/uma/Simple/Simple.java and CoT/CoT.java
+Placeholders:
+  - {{errors}}: error messages returned by USE
+==============================================================================
+
+### USER PROMPT
+
+The last output is partially incorrect: 
+{{errors}}
+
+Please provide the complete output corrected

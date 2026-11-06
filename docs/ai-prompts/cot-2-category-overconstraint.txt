@@ -1,0 +1,12 @@
+PROMPT: Category: Over-constraint detection (id 'invalid' in the code)
+Strategy: CoT (prompt chaining)
+Step: 2 - inserted as {{categoryPrompt}} in cot-2-generate-scenario-description
+Source: llm-instancer/src/main/java/es/uma/CoT/CategoryPrompts.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### CATEGORY PROMPT
+
+# Category: Overconstraint Detection
+Create an instance{{size}} that represents a real-life scenario that is logically valid but violates the model's multiplicities or constraints, exposing overly restrictive or unrealistic restrictions.

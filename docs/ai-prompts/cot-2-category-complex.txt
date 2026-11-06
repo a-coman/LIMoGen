@@ -1,0 +1,12 @@
+PROMPT: Category: Complex scenario
+Strategy: CoT (prompt chaining)
+Step: 2 - inserted as {{categoryPrompt}} in cot-2-generate-scenario-description
+Source: llm-instancer/src/main/java/es/uma/CoT/CategoryPrompts.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### CATEGORY PROMPT
+
+# Category: Complex Instances
+Create a complex instance{{size}} that is realistic and contains multiple interrelated entities and/or entities that are involved in multiple constraints.

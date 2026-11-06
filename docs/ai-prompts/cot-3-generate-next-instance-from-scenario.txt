@@ -1,0 +1,12 @@
+PROMPT: Generate the next model instance from another scenario description (same chat)
+Strategy: CoT (prompt chaining)
+Step: 3 - 'nextInstance', repeated for each further scenario
+Source: llm-instancer/src/main/java/es/uma/CoT/CoT.java
+Placeholders:
+  - {{list}}: the next scenario description produced in step 2
+==============================================================================
+
+### USER PROMPT
+
+Continue with the following description, creating the instance according to the syntax example and this specification: 
+{{list}}

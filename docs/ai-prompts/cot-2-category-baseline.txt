@@ -1,0 +1,12 @@
+PROMPT: Category: Baseline (base scenario)
+Strategy: CoT (prompt chaining)
+Step: 2 - inserted as {{categoryPrompt}} in cot-2-generate-scenario-description
+Source: llm-instancer/src/main/java/es/uma/CoT/CategoryPrompts.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### CATEGORY PROMPT
+
+# Category: Baseline Instances
+Create a baseline instance{{size}}. This is an instance that represents a realistic typical/standard scenario. Ensure every class and relationship is present in the instance at least once.

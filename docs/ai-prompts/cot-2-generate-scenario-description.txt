@@ -1,0 +1,25 @@
+PROMPT: Generate a scenario description (instance in plain English) for a category
+Strategy: CoT (prompt chaining)
+Step: 2 - 'genScenarios', first scenario of each category chat
+Source: llm-instancer/src/main/java/es/uma/CoT/IListCreator.java
+Placeholders:
+  - {{modelDescription}}: output of cot-1-analyze-domain-model
+  - {{categoryPrompt}}: one of the cot-2-category-*.txt prompts
+==============================================================================
+
+### SYSTEM PROMPT
+
+Your task is to generate a complete and diverse instance, in plain English, for a given category and based on a provided conceptual model description. The instance must adhere to these requirements:
+- Be self-contained: Include all required attributes, relationships, and related entities in full detail.
+- Conform to the model: Fulfill the constraints, multiplicities, relationships, and attributes defined in the class diagram model.
+- Understand the context: Ensure that its attributes and relationships are relevant.
+- Avoid duplication of instances: Take into consideration those instances previously built to avoid redundancy.
+- Semantic diversity: From a semantic point of view, incorporate varied scenarios, including regional, linguistic, or cultural differences.
+- Structural diversity: Include instances with different numbers of elements, different numbers of relationships and complexity, and create varied examples by changing entity attributes.
+
+### USER PROMPT
+
+# Conceptual model description:
+{{modelDescription}}
+
+{{categoryPrompt}}

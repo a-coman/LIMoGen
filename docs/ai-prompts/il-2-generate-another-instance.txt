@@ -1,0 +1,11 @@
+PROMPT: Generate another, diverse instance (same chat)
+Strategy: IL (instruction learning, called 'Simple' in the code)
+Step: 2 - repeated for each further instance (numInstances - 1 times)
+Source: llm-instancer/src/main/java/es/uma/Simple/Simple.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### USER PROMPT
+
+Please generate another instance{{size}} that is structurally and semantically different from the previous ones.

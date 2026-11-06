@@ -1,0 +1,15 @@
+PROMPT: Category: Boundary scenario
+Strategy: CoT (prompt chaining)
+Step: 2 - inserted as {{categoryPrompt}} in cot-2-generate-scenario-description
+Source: llm-instancer/src/main/java/es/uma/CoT/CategoryPrompts.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### CATEGORY PROMPT
+
+# Category: Boundary Instances
+Create a boundary case instance{{size}}. This is an instance that focuses on the extreme upper or lower limits of valid input ranges. For example:
+- Upper or lower limits of multiplicities.
+- For numbers in a range, the minimum and maximum valid values.
+- Empty collections when possible, i.e., when they do not violate the semantics of the model or its constraints.

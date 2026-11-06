@@ -1,0 +1,12 @@
+PROMPT: Category: Edge scenario
+Strategy: CoT (prompt chaining)
+Step: 2 - inserted as {{categoryPrompt}} in cot-2-generate-scenario-description
+Source: llm-instancer/src/main/java/es/uma/CoT/CategoryPrompts.java
+Placeholders:
+  - {{size}}: optional size modifier, e.g. " with 20 or more objects" (see size-modifiers.txt); empty by default
+==============================================================================
+
+### CATEGORY PROMPT
+
+# Category: Edge Instances
+Create an edge case instance{{size}}. This is an instance that behaves within but at the limit of the expected behavior. This instance must focus on a scenario that is unusual or unlikely in real life but possible according to the syntax and semantics of the model. In terms of semantics, take into account constraints, multiplicities, and uncommon combinations of relationships and attributes.
