@@ -1,4 +1,6 @@
-# instagen
+# LIMoGen
+
+**LIMoGen** (**L**LM-based **I**nstance **Mo**del **Gen**eration) generates realistic and diverse UML object diagrams for UML class diagrams with an LLM, validates them with USE, and evaluates their diversity and realism.
 
 **Paper**: "LLM-based Generation of Realistic and Diverse Domain Model Instances". [ArXiv Preprint](https://arxiv.org/pdf/2604.10350)
 
@@ -121,7 +123,7 @@ As the repo is organized in different tools and repositories, with github submod
 
 clone:
 ```bash
-git clone --recurse-submodules git@github.com:a-coman/instagen.git
+git clone --recurse-submodules git@github.com:a-coman/LIMoGen.git
 ```
 
 pull new updates:
@@ -146,4 +148,4 @@ git push
 ```
 
 ## License
-**instagen** is licensed under the **MIT License** (see `LICENSE`). llm-instancer, llm-evaluator, ged, graphdiff, and llm-viewer are also MIT-licensed, each with its own `LICENSE` file. USE keeps its own license, the GNU GPL v2 (see `use/COPYING`), and so does each third-party library the tools depend on.
+**LIMoGen** is licensed under the **MIT License** (see `LICENSE`). llm-instancer, llm-evaluator, ged, graphdiff, and llm-viewer are also MIT-licensed, each with its own `LICENSE` file. USE keeps its own license, the GNU GPL v2 (see `use/COPYING`), and so does each third-party library the tools depend on.
