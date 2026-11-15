@@ -1,0 +1,29 @@
+!new Client('client24')
+!client24.clientId := 24
+!client24.isSuspended := true
+
+!new Rental('rental24')
+!rental24.date := Date('2023-11-02')
+
+!new Movie('movie24')
+!movie24.title := 'Quantum Leap'
+!movie24.availableCopies := 0
+!movie24.genre := #Action
+
+!new Series('series23')
+!series23.title := 'Cooking Showdown'
+!series23.availableCopies := 5
+!series23.episode := 1
+
+!new Actor('actor44')
+!actor44.name := 'Time Traveler'
+
+!new Actor('actor45')
+!actor45.name := 'Master Chef'
+
+!insert (client24, rental24) into ClientRental
+!insert (rental24, movie24) into RentalCassette
+!insert (rental24, series23) into RentalCassette
+!insert (movie24, actor44) into CassetteActor
+!insert (series23, actor45) into CassetteActor
+!insert (series23, actor44) into CassetteActor

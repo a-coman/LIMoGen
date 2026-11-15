@@ -1,0 +1,642 @@
+# Generation 1
+```
+!new RentalOffice('office1')
+!office1.name := 'Central Office'
+!office1.number := 101
+!office1.address := '123 Main St, Anytown, AL'
+
+!new RentalOffice('office2')
+!office2.name := 'Branch Office'
+!office2.number := 102
+!office2.address := '456 Elm St, Othertown, FL'
+
+!new Vehicle('vehicle1')
+!vehicle1.id := 1
+!vehicle1.registrationState := #CA
+!vehicle1.licensePlateNumber := 'ABC123'
+!vehicle1.vehicleTypeCode := #TRUCK
+!vehicle1.registrationLastMaintenanceDate := Date('2023-01-10')
+!vehicle1.expirationDate := Date('2024-01-10')
+
+!new Vehicle('vehicle2')
+!vehicle2.id := 2
+!vehicle2.registrationState := #AZ
+!vehicle2.licensePlateNumber := 'XYZ789'
+!vehicle2.vehicleTypeCode := #TRUCK24
+!vehicle2.registrationLastMaintenanceDate := Date('2023-02-15')
+!vehicle2.expirationDate := Date('2024-02-15')
+
+!new Truck('truck1')
+!truck1.id := 3
+!truck1.registrationState := #FL
+!truck1.licensePlateNumber := 'TRK101'
+!truck1.vehicleTypeCode := #TRUCK10
+!truck1.registrationLastMaintenanceDate := Date('2023-03-20')
+!truck1.expirationDate := Date('2024-03-20')
+!truck1.odometerReading := 50000
+!truck1.gasTankCapacity := 20.0
+!truck1.workingRadio := true
+!truck1.mileage := 15
+
+!new Truck('truck2')
+!truck2.id := 4
+!truck2.registrationState := #AK
+!truck2.licensePlateNumber := 'TRK202'
+!truck2.vehicleTypeCode := #COVERED_TRAILER
+!truck2.registrationLastMaintenanceDate := Date('2023-04-25')
+!truck2.expirationDate := Date('2024-04-25')
+!truck2.odometerReading := 60000
+!truck2.gasTankCapacity := 25.0
+!truck2.workingRadio := false
+!truck2.mileage := 12
+
+!new Individual('individual1')
+!individual1.name := 'Alice Smith'
+!individual1.address := '789 Maple St, Cityville, AZ'
+!individual1.poorRisk := false
+!individual1.homePhone := '555-1234'
+!individual1.driverLicenseState := #AZ
+!individual1.driverLicenseNumber := 987654321
+!individual1.driverLicenseExpirationDate := Date('2025-08-10')
+
+!new Individual('individual2')
+!individual2.name := 'Bob Johnson'
+!individual2.address := '321 Oak St, Townsville, AL'
+!individual2.poorRisk := true
+!individual2.homePhone := '555-5678'
+!individual2.driverLicenseState := #AL
+!individual2.driverLicenseNumber := 123456789
+!individual2.driverLicenseExpirationDate := Date('2026-01-15')
+
+!new Company('company1')
+!company1.name := 'Tech Corp'
+!company1.address := '1000 Market St, Commerce City, CO'
+!company1.poorRisk := false
+!company1.idNumber := 111222333
+
+!new Company('company2')
+!company2.name := 'Logistics Inc'
+!company2.address := '5000 Industrial Rd, Business Town, DE'
+!company2.poorRisk := true
+!company2.idNumber := 444555666
+
+!new RentalAgreement('agreement1')
+!agreement1.number := 301
+!agreement1.rentalDate := Date('2023-05-01')
+!agreement1.anticipatedDuration := 3
+!agreement1.depositPaid := 150.0
+!agreement1.quotedDailyRate := 45.0
+!agreement1.quotedRatePerMile := 0.75
+
+!new RentalAgreement('agreement2')
+!agreement2.number := 302
+!agreement2.rentalDate := Date('2023-06-15')
+!agreement2.anticipatedDuration := 7
+!agreement2.depositPaid := 300.0
+!agreement2.quotedDailyRate := 50.0
+!agreement2.quotedRatePerMile := 0.80
+
+!insert (office1, vehicle1) into RentalOfficeVehicle
+!insert (office2, vehicle2) into RentalOfficeVehicle
+!insert (office1, truck1) into RentalOfficeVehicle
+!insert (office2, truck2) into RentalOfficeVehicle
+
+!insert (office1, agreement1) into RentalOfficeRentalAgreementOrigin
+!insert (office2, agreement2) into RentalOfficeRentalAgreementOrigin
+!insert (office2, agreement1) into RentalOfficeRentalAgreementDrop
+!insert (office1, agreement2) into RentalOfficeRentalAgreementDrop
+
+!insert (agreement1, vehicle1) into RentalAgreementVehicle
+!insert (agreement2, truck1) into RentalAgreementVehicle
+
+!insert (agreement1, individual1) into RentalAgreementCustomer
+!insert (agreement2, company1) into RentalAgreementCustomer
+
+-- Remaining 80 entities that need to be created
+
+!new Individual('individual3')
+!individual3.name := 'Charlie Miller'
+!individual3.address := '124 Pine St, Metropolis, CA'
+!individual3.poorRisk := false
+!individual3.homePhone := '555-1010'
+!individual3.driverLicenseState := #CA
+!individual3.driverLicenseNumber := 555666777
+!individual3.driverLicenseExpirationDate := Date('2027-02-18')
+
+!new Individual('individual4')
+!individual4.name := 'Diana Lewis'
+!individual4.address := '850 Birch St, Townsvil, CT'
+!individual4.poorRisk := true
+!individual4.homePhone := '555-2020'
+!individual4.driverLicenseState := #CT
+!individual4.driverLicenseNumber := 888999000
+!individual4.driverLicenseExpirationDate := Date('2028-03-22')
+
+!new Company('company3')
+!company3.name := 'Retail LLC'
+!company3.address := '7500 Commerce Dr, Trade Town, FL'
+!company3.poorRisk := false
+!company3.idNumber := 222333444
+
+!new Company('company4')
+!company4.name := 'Transport Services'
+!company4.address := '200 Transport Ln, Delivery City, CO'
+!company4.poorRisk := true
+!company4.idNumber := 555666777
+
+!new RentalAgreement('agreement3')
+!agreement3.number := 303
+!agreement3.rentalDate := Date('2023-07-20')
+!agreement3.anticipatedDuration := 5
+!agreement3.depositPaid := 250.0
+!agreement3.quotedDailyRate := 48.0
+!agreement3.quotedRatePerMile := 0.78
+
+!new RentalAgreement('agreement4')
+!agreement4.number := 304
+!agreement4.rentalDate := Date('2023-08-30')
+!agreement4.anticipatedDuration := 10
+!agreement4.depositPaid := 350.0
+!agreement4.quotedDailyRate := 47.5
+!agreement4.quotedRatePerMile := 0.72
+
+!new Vehicle('vehicle3')
+!vehicle3.id := 5
+!vehicle3.registrationState := #CO
+!vehicle3.licensePlateNumber := 'GHJ567'
+!vehicle3.vehicleTypeCode := #OPEN_TRAILER
+!vehicle3.registrationLastMaintenanceDate := Date('2023-05-10')
+!vehicle3.expirationDate := Date('2024-05-10')
+
+!new Vehicle('vehicle4')
+!vehicle4.id := 6
+!vehicle4.registrationState := #DE
+!vehicle4.licensePlateNumber := 'JKL345'
+!vehicle4.vehicleTypeCode := #TRUCK
+!vehicle4.registrationLastMaintenanceDate := Date('2023-06-15')
+!vehicle4.expirationDate := Date('2024-06-15')
+
+!insert (office1, vehicle3) into RentalOfficeVehicle
+!insert (office2, vehicle4) into RentalOfficeVehicle
+
+!insert (office1, agreement3) into RentalOfficeRentalAgreementOrigin
+!insert (office2, agreement4) into RentalOfficeRentalAgreementOrigin
+!insert (office2, agreement3) into RentalOfficeRentalAgreementDrop
+!insert (office1, agreement4) into RentalOfficeRentalAgreementDrop
+
+!insert (agreement3, vehicle4) into RentalAgreementVehicle
+!insert (agreement4, vehicle3) into RentalAgreementVehicle
+
+!insert (agreement3, individual3) into RentalAgreementCustomer
+!insert (agreement4, company2) into RentalAgreementCustomer
+!new Truck('truck3')
+!truck3.id := 7
+!truck3.registrationState := #AL
+!truck3.licensePlateNumber := 'LMN456'
+!truck3.vehicleTypeCode := #TRUCK24
+!truck3.registrationLastMaintenanceDate := Date('2023-07-01')
+!truck3.expirationDate := Date('2024-07-01')
+!truck3.odometerReading := 70000
+!truck3.gasTankCapacity := 30.0
+!truck3.workingRadio := true
+!truck3.mileage := 10
+
+!new Truck('truck4')
+!truck4.id := 8
+!truck4.registrationState := #CT
+!truck4.licensePlateNumber := 'OPQ789'
+!truck4.vehicleTypeCode := #TRUCK10
+!truck4.registrationLastMaintenanceDate := Date('2023-08-01')
+!truck4.expirationDate := Date('2024-08-01')
+!truck4.odometerReading := 55000
+!truck4.gasTankCapacity := 22.5
+!truck4.workingRadio := false
+!truck4.mileage := 13
+
+!insert (office1, truck3) into RentalOfficeVehicle
+!insert (office2, truck4) into RentalOfficeVehicle
+
+!new RentalAgreement('agreement5')
+!agreement5.number := 305
+!agreement5.rentalDate := Date('2023-09-10')
+!agreement5.anticipatedDuration := 8
+!agreement5.depositPaid := 400.0
+!agreement5.quotedDailyRate := 55.0
+!agreement5.quotedRatePerMile := 0.85
+
+!new RentalAgreement('agreement6')
+!agreement6.number := 306
+!agreement6.rentalDate := Date('2023-10-20')
+!agreement6.anticipatedDuration := 12
+!agreement6.depositPaid := 600.0
+!agreement6.quotedDailyRate := 60.0
+!agreement6.quotedRatePerMile := 0.90
+
+!insert (office2, agreement5) into RentalOfficeRentalAgreementOrigin
+!insert (office1, agreement6) into RentalOfficeRentalAgreementOrigin
+!insert (office1, agreement5) into RentalOfficeRentalAgreementDrop
+!insert (office2, agreement6) into RentalOfficeRentalAgreementDrop
+
+!insert (agreement5, truck4) into RentalAgreementVehicle
+!insert (agreement6, truck3) into RentalAgreementVehicle
+
+!new Individual('individual5')
+!individual5.name := 'Evan Carter'
+!individual5.address := '2300 Fifth Ave, Bigcity, AK'
+!individual5.poorRisk := false
+!individual5.homePhone := '555-3030'
+!individual5.driverLicenseState := #AK
+!individual5.driverLicenseNumber := 333444555
+!individual5.driverLicenseExpirationDate := Date('2029-04-25')
+
+!new Individual('individual6')
+!individual6.name := 'Fiona Bell'
+!individual6.address := '5600 Sixth St, Smalltown, CO'
+!individual6.poorRisk := true
+!individual6.homePhone := '555-4040'
+!individual6.driverLicenseState := #CO
+!individual6.driverLicenseNumber := 666777888
+!individual6.driverLicenseExpirationDate := Date('2030-05-30')
+
+!insert (agreement5, individual5) into RentalAgreementCustomer
+!insert (agreement6, individual6) into RentalAgreementCustomer
+
+!new Company('company5')
+!company5.name := 'Green Grocers'
+!company5.address := '1500 Retail Rd, Shopville, AZ'
+!company5.poorRisk := false
+!company5.idNumber := 999888777
+
+!new Company('company6')
+!company6.name := 'Blue Transport'
+!company6.address := '800 Blue Ln, Haul City, DE'
+!company6.poorRisk := true
+!company6.idNumber := 444333222
+
+!new RentalAgreement('agreement7')
+!agreement7.number := 307
+!agreement7.rentalDate := Date('2023-11-30')
+!agreement7.anticipatedDuration := 9
+!agreement7.depositPaid := 450.0
+!agreement7.quotedDailyRate := 52.0
+!agreement7.quotedRatePerMile := 0.78
+
+!new RentalAgreement('agreement8')
+!agreement8.number := 308
+!agreement8.rentalDate := Date('2023-12-15')
+!agreement8.anticipatedDuration := 4
+!agreement8.depositPaid := 200.0
+!agreement8.quotedDailyRate := 48.0
+!agreement8.quotedRatePerMile := 0.82
+
+!new Vehicle('vehicle5')
+!vehicle5.id := 9
+!vehicle5.registrationState := #FL
+!vehicle5.licensePlateNumber := 'RST901'
+!vehicle5.vehicleTypeCode := #COVERED_TRAILER
+!vehicle5.registrationLastMaintenanceDate := Date('2023-09-30')
+!vehicle5.expirationDate := Date('2024-09-30')
+
+!new Vehicle('vehicle6')
+!vehicle6.id := 10
+!vehicle6.registrationState := #AL
+!vehicle6.licensePlateNumber := 'UVW123'
+!vehicle6.vehicleTypeCode := #OPEN_TRAILER
+!vehicle6.registrationLastMaintenanceDate := Date('2023-10-25')
+!vehicle6.expirationDate := Date('2024-10-25')
+
+!insert (office2, vehicle5) into RentalOfficeVehicle
+!insert (office1, vehicle6) into RentalOfficeVehicle
+
+!insert (office2, agreement7) into RentalOfficeRentalAgreementOrigin
+!insert (office1, agreement8) into RentalOfficeRentalAgreementOrigin
+!insert (office1, agreement7) into RentalOfficeRentalAgreementDrop
+!insert (office2, agreement8) into RentalOfficeRentalAgreementDrop
+
+!insert (agreement7, vehicle5) into RentalAgreementVehicle
+!insert (agreement8, vehicle6) into RentalAgreementVehicle
+
+!insert (agreement7, company5) into RentalAgreementCustomer
+!insert (agreement8, company6) into RentalAgreementCustomer
+
+-- Additional entities to reach exactly 100, ensuring each class and association is thoroughly covered
+
+!new RentalOffice('office3')
+!office3.name := 'Satellite Office'
+!office3.number := 103
+!office3.address := '200 Satellite Rd, Remotetown, CT'
+
+!new RentalOffice('office4')
+!office4.name := 'Depot Office'
+!office4.number := 104
+!office4.address := '777 Depot St, Hub City, CO'
+
+!new Vehicle('vehicle7')
+!vehicle7.id := 11
+!vehicle7.registrationState := #DE
+!vehicle7.licensePlateNumber := 'YZX234'
+!vehicle7.vehicleTypeCode := #TRUCK
+!vehicle7.registrationLastMaintenanceDate := Date('2023-11-01')
+!vehicle7.expirationDate := Date('2024-11-01')
+
+!new Vehicle('vehicle8')
+!vehicle8.id := 12
+!vehicle8.registrationState := #CT
+!vehicle8.licensePlateNumber := 'EFG567'
+!vehicle8.vehicleTypeCode := #TRUCK24
+!vehicle8.registrationLastMaintenanceDate := Date('2023-12-01')
+!vehicle8.expirationDate := Date('2024-12-01')
+
+!new Truck('truck5')
+!truck5.id := 13
+!truck5.registrationState := #CA
+!truck5.licensePlateNumber := 'HIJ890'
+!truck5.vehicleTypeCode := #COVERED_TRAILER
+!truck5.registrationLastMaintenanceDate := Date('2023-01-05')
+!truck5.expirationDate := Date('2024-01-05')
+!truck5.odometerReading := 75000
+!truck5.gasTankCapacity := 28.5
+!truck5.workingRadio := true
+!truck5.mileage := 12
+
+!new Truck('truck6')
+!truck6.id := 14
+!truck6.registrationState := #AK
+!truck6.licensePlateNumber := 'KLM321'
+!truck6.vehicleTypeCode := #OPEN_TRAILER
+!truck6.registrationLastMaintenanceDate := Date('2023-06-10')
+!truck6.expirationDate := Date('2024-06-10')
+!truck6.odometerReading := 80000
+!truck6.gasTankCapacity := 35.0
+!truck6.workingRadio := false
+!truck6.mileage := 14
+
+!insert (office3, vehicle7) into RentalOfficeVehicle
+!insert (office4, vehicle8) into RentalOfficeVehicle
+!insert (office3, truck5) into RentalOfficeVehicle
+!insert (office4, truck6) into RentalOfficeVehicle
+
+!new RentalAgreement('agreement9')
+!agreement9.number := 309
+!agreement9.rentalDate := Date('2024-01-10')
+!agreement9.anticipatedDuration := 6
+!agreement9.depositPaid := 250.0
+!agreement9.quotedDailyRate := 53.0
+!agreement9.quotedRatePerMile := 0.79
+
+!new RentalAgreement('agreement10')
+!agreement10.number := 310
+!agreement10.rentalDate := Date('2024-02-20')
+!agreement10.anticipatedDuration := 15
+!agreement10.depositPaid := 700.0
+!agreement10.quotedDailyRate := 62.0
+!agreement10.quotedRatePerMile := 0.95
+
+!insert (office3, agreement9) into RentalOfficeRentalAgreementOrigin
+!insert (office4, agreement10) into RentalOfficeRentalAgreementOrigin
+!insert (office4, agreement9) into RentalOfficeRentalAgreementDrop
+!insert (office3, agreement10) into RentalOfficeRentalAgreementDrop
+
+!insert (agreement9, vehicle7) into RentalAgreementVehicle
+!insert (agreement10, truck5) into RentalAgreementVehicle
+
+!new Individual('individual7')
+!individual7.name := 'George Wright'
+!individual7.address := '303 Forest Rd, Woodland, AZ'
+!individual7.poorRisk := false
+!individual7.homePhone := '555-5050'
+!individual7.driverLicenseState := #AZ
+!individual7.driverLicenseNumber := 112334455
+!individual7.driverLicenseExpirationDate := Date('2031-03-10')
+
+!new Individual('individual8')
+!individual8.name := 'Helen Adams'
+!individual8.address := '404 Lakeview Dr, Lakeside, DE'
+!individual8.poorRisk := true
+!individual8.homePhone := '555-6060'
+!individual8.driverLicenseState := #DE
+!individual8.driverLicenseNumber := 556677889
+!individual8.driverLicenseExpirationDate := Date('2032-07-14')
+
+!insert (agreement9, individual7) into RentalAgreementCustomer
+!insert (agreement10, individual8) into RentalAgreementCustomer
+
+!new Company('company7')
+!company7.name := 'Urban Movers'
+!company7.address := '900 City Blvd, Downtown, CA'
+!company7.poorRisk := false
+!company7.idNumber := 555666777
+
+!new Company('company8')
+!company8.name := 'Rural Transport'
+!company8.address := '123 Country Ln, Farmville, AL'
+!company8.poorRisk := true
+!company8.idNumber := 111000999
+
+!new Vehicle('vehicle9')
+!vehicle9.id := 15
+!vehicle9.registrationState := #FL
+!vehicle9.licensePlateNumber := 'NOP456'
+!vehicle9.vehicleTypeCode := #TRUCK10
+!vehicle9.registrationLastMaintenanceDate := Date('2024-03-05')
+!vehicle9.expirationDate := Date('2025-03-05')
+
+!new Vehicle('vehicle10')
+!vehicle10.id := 16
+!vehicle10.registrationState := #AK
+!vehicle10.licensePlateNumber := 'QRS789'
+!vehicle10.vehicleTypeCode := #TRUCK24
+!vehicle10.registrationLastMaintenanceDate := Date('2024-04-07')
+!vehicle10.expirationDate := Date('2025-04-07')
+
+!insert (office3, vehicle9) into RentalOfficeVehicle
+!insert (office4, vehicle10) into RentalOfficeVehicle
+
+!new RentalAgreement('agreement11')
+!agreement11.number := 311
+!agreement11.rentalDate := Date('2024-05-12')
+!agreement11.anticipatedDuration := 14
+!agreement11.depositPaid := 540.0
+!agreement11.quotedDailyRate := 51.0
+!agreement11.quotedRatePerMile := 0.76
+
+!new RentalAgreement('agreement12')
+!agreement12.number := 312
+!agreement12.rentalDate := Date('2024-06-25')
+!agreement12.anticipatedDuration := 20
+!agreement12.depositPaid := 890.0
+!agreement12.quotedDailyRate := 75.0
+!agreement12.quotedRatePerMile := 1.10
+
+!insert (office3, agreement11) into RentalOfficeRentalAgreementOrigin
+!insert (office4, agreement12) into RentalOfficeRentalAgreementOrigin
+!insert (office4, agreement11) into RentalOfficeRentalAgreementDrop
+!insert (office3, agreement12) into RentalOfficeRentalAgreementDrop
+
+!insert (agreement11, vehicle9) into RentalAgreementVehicle
+!insert (agreement12, vehicle10) into RentalAgreementVehicle
+
+!insert (agreement11, company7) into RentalAgreementCustomer
+!insert (agreement12, company8) into RentalAgreementCustomer
+
+
+```
+## Generation 1 summary
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 404 | 0.00% |
+| Multiplicities Errors | 0 | 64 | 0.00% |
+| Invariants Errors | 0 | 5 | 0.00% |
+
+| VehicleRental | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Addresses | 20 | 20 | 100.00% |
+| License Plates | 0 | 16 | 0.00% |
+| Home Phones | 0 | 8 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+123 Main St, Anytown, AL
+```
+```
+456 Elm St, Othertown, FL
+```
+```
+789 Maple St, Cityville, AZ
+```
+```
+321 Oak St, Townsville, AL
+```
+```
+1000 Market St, Commerce City, CO
+```
+```
+5000 Industrial Rd, Business Town, DE
+```
+```
+124 Pine St, Metropolis, CA
+```
+```
+850 Birch St, Townsvil, CT
+```
+```
+7500 Commerce Dr, Trade Town, FL
+```
+```
+200 Transport Ln, Delivery City, CO
+```
+```
+2300 Fifth Ave, Bigcity, AK
+```
+```
+5600 Sixth St, Smalltown, CO
+```
+```
+1500 Retail Rd, Shopville, AZ
+```
+```
+800 Blue Ln, Haul City, DE
+```
+```
+200 Satellite Rd, Remotetown, CT
+```
+```
+777 Depot St, Hub City, CO
+```
+```
+303 Forest Rd, Woodland, AZ
+```
+```
+404 Lakeview Dr, Lakeside, DE
+```
+```
+900 City Blvd, Downtown, CA
+```
+```
+123 Country Ln, Farmville, AL
+```
+
+# Summary for all generations
+| Summary | Value | 
+|---|---| 
+| Model | null | 
+| Type |  | 
+| System | vehiclerental | 
+| Number of generations | 1 | 
+
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 404 | 0.00% |
+| Multiplicities Errors | 0 | 64 | 0.00% |
+| Invariants Errors | 0 | 5 | 0.00% |
+
+| VehicleRental | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Addresses | 20 | 20 | 100.00% |
+| License Plates | 0 | 16 | 0.00% |
+| Home Phones | 0 | 8 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+123 Main St, Anytown, AL
+```
+```
+456 Elm St, Othertown, FL
+```
+```
+789 Maple St, Cityville, AZ
+```
+```
+321 Oak St, Townsville, AL
+```
+```
+1000 Market St, Commerce City, CO
+```
+```
+5000 Industrial Rd, Business Town, DE
+```
+```
+124 Pine St, Metropolis, CA
+```
+```
+850 Birch St, Townsvil, CT
+```
+```
+7500 Commerce Dr, Trade Town, FL
+```
+```
+200 Transport Ln, Delivery City, CO
+```
+```
+2300 Fifth Ave, Bigcity, AK
+```
+```
+5600 Sixth St, Smalltown, CO
+```
+```
+1500 Retail Rd, Shopville, AZ
+```
+```
+800 Blue Ln, Haul City, DE
+```
+```
+200 Satellite Rd, Remotetown, CT
+```
+```
+777 Depot St, Hub City, CO
+```
+```
+303 Forest Rd, Woodland, AZ
+```
+```
+404 Lakeview Dr, Lakeside, DE
+```
+```
+900 City Blvd, Downtown, CA
+```
+```
+123 Country Ln, Farmville, AL
+```
+

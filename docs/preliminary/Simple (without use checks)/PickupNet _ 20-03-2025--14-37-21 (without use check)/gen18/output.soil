@@ -1,0 +1,42 @@
+!new Driver('driver19')
+!driver19.id := 'D019'
+!driver19.name := 'Frodo Baggins'
+
+!new Shipment('shipment20')
+!shipment20.id := 'S020'
+!shipment20.status := #ASSIGNED
+
+!new Address('address36')
+!address36.text := '8080 Hobbiton Rd, Shire Town'
+
+!new Address('address37')
+!address37.text := '9090 Mordor Ave, Shadow City'
+
+!new GeoLocation('geolocation36')
+!geolocation36.latitude := 41.9029
+!geolocation36.longitude := 12.4534
+
+!new GeoLocation('geolocation37')
+!geolocation37.latitude := 52.3676
+!geolocation37.longitude := 4.9041
+
+!new Customer('customer19')
+!customer19.id := 'C019'
+!customer19.name := 'Gandalf the Grey'
+!customer19.twitterUserName := '@wizardGandalf'
+
+!new Station('station18')
+
+!insert (driver19, shipment20) into DriverShipment
+
+!insert (shipment20, address36) into ShipmentContainsPickUpAddress
+!insert (shipment20, address37) into ShipmentContainsDeliveryAddress
+
+!insert (address36, geolocation36) into AddressContainsGeoLocation
+!insert (address37, geolocation37) into AddressContainsGeoLocation
+
+!insert (customer19, shipment20) into CustomerConsistsOfShipment
+!insert (station18, shipment20) into StationShipment
+
+!insert (station18, customer19) into StationContainsCustomer
+!insert (station18, driver19) into StationContainsDriver

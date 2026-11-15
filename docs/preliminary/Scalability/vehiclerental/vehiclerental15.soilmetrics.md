@@ -1,0 +1,118 @@
+# Generation 1
+```
+!new RentalOffice('office1')
+!office1.name := 'Downtown Office'
+!office1.number := 101
+!office1.address := '123 Main St, CA'
+
+!new RentalOffice('office2')
+!office2.name := 'Uptown Office'
+!office2.number := 202
+!office2.address := '456 Pine St, FL'
+
+!new Vehicle('vehicle1')
+!vehicle1.id := 1
+!vehicle1.registrationState := #CA
+!vehicle1.licensePlateNumber := 'ABC123'
+!vehicle1.vehicleTypeCode := #TRUCK
+!vehicle1.registrationLastMaintenanceDate := Date('2022-01-01')
+!vehicle1.expirationDate := Date('2023-01-01')
+
+!new Vehicle('vehicle2')
+!vehicle2.id := 2
+!vehicle2.registrationState := #FL
+!vehicle2.licensePlateNumber := 'XYZ789'
+!vehicle2.vehicleTypeCode := #TRUCK24
+!vehicle2.registrationLastMaintenanceDate := Date('2022-06-15')
+!vehicle2.expirationDate := Date('2023-06-15')
+
+!new Truck('truck1')
+!truck1.id := 3
+!truck1.registrationState := #AZ
+!truck1.licensePlateNumber := 'TRK001'
+!truck1.vehicleTypeCode := #TRUCK10
+!truck1.registrationLastMaintenanceDate := Date('2022-03-12')
+!truck1.expirationDate := Date('2023-03-12')
+!truck1.odometerReading := 15000
+!truck1.gasTankCapacity := 20.5
+!truck1.workingRadio := true
+!truck1.mileage := 15
+
+!new RentalAgreement('agreement1')
+!agreement1.number := 1001
+!agreement1.rentalDate := Date('2023-10-01')
+!agreement1.anticipatedDuration := 5
+!agreement1.depositPaid := 250.0
+!agreement1.quotedDailyRate := 50.0
+!agreement1.quotedRatePerMile := 0.25
+
+!new Individual('individual1')
+!individual1.name := 'John Doe'
+!individual1.address := '789 Elm St, AZ'
+!individual1.poorRisk := false
+!individual1.homePhone := '555-1234'
+!individual1.driverLicenseState := #AZ
+!individual1.driverLicenseNumber := 12345678
+!individual1.driverLicenseExpirationDate := Date('2024-12-31')
+
+!new Company('company1')
+!company1.name := 'Acme Corp'
+!company1.address := '101 Tech Ave, CA'
+!company1.poorRisk := false
+!company1.idNumber := 987654
+
+!insert (office1, vehicle1) into RentalOfficeVehicle
+!insert (office2, vehicle2) into RentalOfficeVehicle
+!insert (office1, truck1) into RentalOfficeVehicle
+
+!insert (office1, agreement1) into RentalOfficeRentalAgreementOrigin
+!insert (office2, agreement1) into RentalOfficeRentalAgreementDrop
+!insert (agreement1, vehicle1) into RentalAgreementVehicle
+!insert (agreement1, individual1) into RentalAgreementCustomer
+
+```
+## Generation 1 summary
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 60 | 0.00% |
+| Multiplicities Errors | 0 | 7 | 0.00% |
+| Invariants Errors | 0 | 5 | 0.00% |
+
+| VehicleRental | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Addresses | 1 | 4 | 25.00% |
+| License Plates | 0 | 3 | 0.00% |
+| Home Phones | 0 | 1 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+101 Tech Ave, CA
+```
+
+# Summary for all generations
+| Summary | Value | 
+|---|---| 
+| Model | null | 
+| Type |  | 
+| System | vehiclerental | 
+| Number of generations | 1 | 
+
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 60 | 0.00% |
+| Multiplicities Errors | 0 | 7 | 0.00% |
+| Invariants Errors | 0 | 5 | 0.00% |
+
+| VehicleRental | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Addresses | 1 | 4 | 25.00% |
+| License Plates | 0 | 3 | 0.00% |
+| Home Phones | 0 | 1 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+101 Tech Ave, CA
+```
+

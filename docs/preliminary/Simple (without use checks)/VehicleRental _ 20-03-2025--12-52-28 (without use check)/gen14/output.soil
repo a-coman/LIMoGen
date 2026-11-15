@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice15')
+!rentalOffice15.name := 'Express Rentals'
+!rentalOffice15.number := 1515
+!rentalOffice15.address := '555 Expressway St, CA'
+
+!new Vehicle('vehicle15')
+!vehicle15.id := 1015
+!vehicle15.registrationState := #OR
+!vehicle15.licensePlateNumber := 'OR6789'
+!vehicle15.vehicleTypeCode := #TRUCK
+!vehicle15.registrationLastMaintenanceDate := Date('2023-03-15')
+!vehicle15.expirationDate := Date('2024-03-15')
+
+!new Truck('truck15')
+!truck15.id := 2015
+!truck15.registrationState := #WA
+!truck15.licensePlateNumber := 'WA1122'
+!truck15.vehicleTypeCode := #TRUCK24
+!truck15.registrationLastMaintenanceDate := Date('2023-12-20')
+!truck15.expirationDate := Date('2024-12-20')
+!truck15.odometerReading := 80000
+!truck15.gasTankCapacity := 54.0
+!truck15.workingRadio := true
+!truck15.mileage := 9
+
+!new RentalAgreement('rentalAgreement15')
+!rentalAgreement15.number := 5015
+!rentalAgreement15.rentalDate := Date('2024-11-15')
+!rentalAgreement15.anticipatedDuration := 2
+!rentalAgreement15.depositPaid := 175.0
+!rentalAgreement15.quotedDailyRate := 60.0
+!rentalAgreement15.quotedRatePerMile := 0.25
+
+!new Company('company8')
+!company8.name := 'Quick Transport'
+!company8.address := '123 Rapid Rd, NV'
+!company8.poorRisk := false
+!company8.idNumber := 55667788
+
+!insert (rentalOffice15, vehicle15) into RentalOfficeVehicle
+!insert (rentalOffice15, truck15) into RentalOfficeVehicle
+
+!insert (rentalOffice15, rentalAgreement15) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice8, rentalAgreement15) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement15, vehicle15) into RentalAgreementVehicle
+
+!insert (rentalAgreement15, company8) into RentalAgreementCustomer

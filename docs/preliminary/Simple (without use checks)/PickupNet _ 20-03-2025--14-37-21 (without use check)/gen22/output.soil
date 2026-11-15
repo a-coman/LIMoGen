@@ -1,0 +1,42 @@
+!new Driver('driver23')
+!driver23.id := 'D023'
+!driver23.name := 'Neo Anderson'
+
+!new Shipment('shipment24')
+!shipment24.id := 'S024'
+!shipment24.status := #ASSIGNED
+
+!new Address('address44')
+!address44.text := '7777 Zion Blvd, Matrix City'
+
+!new Address('address45')
+!address45.text := '8888 Network Ln, Code Valley'
+
+!new GeoLocation('geolocation44')
+!geolocation44.latitude := 34.0522
+!geolocation44.longitude := -118.2437
+
+!new GeoLocation('geolocation45')
+!geolocation45.latitude := 51.5074
+!geolocation45.longitude := -0.1278
+
+!new Customer('customer23')
+!customer23.id := 'C023'
+!customer23.name := 'Trinity'
+!customer23.twitterUserName := '@matrixFight'
+
+!new Station('station22')
+
+!insert (driver23, shipment24) into DriverShipment
+
+!insert (shipment24, address44) into ShipmentContainsPickUpAddress
+!insert (shipment24, address45) into ShipmentContainsDeliveryAddress
+
+!insert (address44, geolocation44) into AddressContainsGeoLocation
+!insert (address45, geolocation45) into AddressContainsGeoLocation
+
+!insert (customer23, shipment24) into CustomerConsistsOfShipment
+!insert (station22, shipment24) into StationShipment
+
+!insert (station22, customer23) into StationContainsCustomer
+!insert (station22, driver23) into StationContainsDriver

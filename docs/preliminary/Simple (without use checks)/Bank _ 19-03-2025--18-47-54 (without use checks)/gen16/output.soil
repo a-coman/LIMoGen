@@ -1,0 +1,95 @@
+!new Bank('bank32')
+!bank32.country := 'India'
+!bank32.name := 'HDFC Bank'
+!bank32.bic := 'HDFCINBB'
+
+!new Bank('bank33')
+!bank33.country := 'Brazil'
+!bank33.name := 'Itaú Unibanco'
+!bank33.bic := 'ITAUBRSP'
+
+!new Account('account91')
+!account91.iban := 'IN00HDFC123456789'
+!account91.balance := 3800
+
+!new Account('account92')
+!account92.iban := 'IN00HDFC987654321'
+!account92.balance := 250
+
+!new Account('account93')
+!account93.iban := 'BR00ITAU123456789'
+!account93.balance := 1950
+
+!new Account('account94')
+!account94.iban := 'BR00ITAU987654321'
+!account94.balance := 620
+
+!new Person('person107')
+!person107.firstName := 'Diana'
+!person107.lastName := 'Ross'
+!person107.age := 77
+
+!new Person('person108')
+!person108.firstName := 'Elvis'
+!person108.lastName := 'Presley'
+!person108.age := 42
+
+!new Person('person109')
+!person109.firstName := 'Freddie'
+!person109.lastName := 'Mercury'
+!person109.age := 45
+
+!new Person('person110')
+!person110.firstName := 'Gisele'
+!person110.lastName := 'Bündchen'
+!person110.age := 41
+
+!insert (person107, account91) into Ownership
+!insert (person108, account92) into Ownership
+!insert (person109, account93) into Ownership
+!insert (person110, account94) into Ownership
+
+!insert (person108, account91) into Use
+!insert (person109, account92) into Use
+!insert (person110, account93) into Use
+!insert (person107, account94) into Use
+
+!insert (bank32, account91) into AccountOfBanks
+!insert (bank32, account92) into AccountOfBanks
+!insert (bank33, account93) into AccountOfBanks
+!insert (bank33, account94) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account95')
+!account95.iban := 'IN00HDFC555555555'
+!account95.balance := 1100
+
+!new Person('person111')
+!person111.firstName := 'Hank'
+!person111.lastName := 'Williams'
+!person111.age := 64
+
+!insert (person111, account95) into Ownership
+!insert (person111, account95) into Use
+
+!insert (bank32, account95) into AccountOfBanks
+
+!new Person('person112')
+!person112.firstName := 'Isabella'
+!person112.lastName := 'Swan'
+!person112.age := 29
+
+!new Account('account96')
+!account96.iban := 'BR00ITAU333333333'
+!account96.balance := 950
+
+!insert (person112, account96) into Ownership
+!insert (person107, account96) into Use
+!insert (bank33, account96) into AccountOfBanks
+
+!new Person('person113')
+!person113.firstName := 'Jack'
+!person113.lastName := 'Sparrow'
+!person113.age := 56
+
+!insert (person113, account96) into Use

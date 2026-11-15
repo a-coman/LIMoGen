@@ -1,0 +1,42 @@
+!new Driver('driver16')
+!driver16.id := 'D016'
+!driver16.name := 'Sarah Connor'
+
+!new Shipment('shipment17')
+!shipment17.id := 'S017'
+!shipment17.status := #ASSIGNED
+
+!new Address('address30')
+!address30.text := '2020 Cedar Way, Sky City'
+
+!new Address('address31')
+!address31.text := '3030 Pine Hill, Forest Town'
+
+!new GeoLocation('geolocation30')
+!geolocation30.latitude := 51.5074
+!geolocation30.longitude := -0.1278
+
+!new GeoLocation('geolocation31')
+!geolocation31.latitude := 37.7749
+!geolocation31.longitude := -122.4194
+
+!new Customer('customer16')
+!customer16.id := 'C016'
+!customer16.name := 'Peter Quill'
+!customer16.twitterUserName := '@starlord'
+
+!new Station('station15')
+
+!insert (driver16, shipment17) into DriverShipment
+
+!insert (shipment17, address30) into ShipmentContainsPickUpAddress
+!insert (shipment17, address31) into ShipmentContainsDeliveryAddress
+
+!insert (address30, geolocation30) into AddressContainsGeoLocation
+!insert (address31, geolocation31) into AddressContainsGeoLocation
+
+!insert (customer16, shipment17) into CustomerConsistsOfShipment
+!insert (station15, shipment17) into StationShipment
+
+!insert (station15, customer16) into StationContainsCustomer
+!insert (station15, driver16) into StationContainsDriver

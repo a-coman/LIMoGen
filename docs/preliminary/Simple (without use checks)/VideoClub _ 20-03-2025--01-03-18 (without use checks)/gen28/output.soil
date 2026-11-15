@@ -1,0 +1,29 @@
+!new Client('client30')
+!client30.clientId := 30
+!client30.isSuspended := true
+
+!new Rental('rental30')
+!rental30.date := Date('2023-11-08')
+
+!new Movie('movie30')
+!movie30.title := 'Underwater Odyssey'
+!movie30.availableCopies := 2
+!movie30.genre := #Action
+
+!new Series('series29')
+!series29.title := 'Culinary Delights'
+!series29.availableCopies := 9
+!series29.episode := 6
+
+!new Actor('actor56')
+!actor56.name := 'Marine Biologist'
+
+!new Actor('actor57')
+!actor57.name := 'Renowned Chef'
+
+!insert (client30, rental30) into ClientRental
+!insert (rental30, movie30) into RentalCassette
+!insert (rental30, series29) into RentalCassette
+!insert (movie30, actor56) into CassetteActor
+!insert (series29, actor57) into CassetteActor
+!insert (series29, actor56) into CassetteActor

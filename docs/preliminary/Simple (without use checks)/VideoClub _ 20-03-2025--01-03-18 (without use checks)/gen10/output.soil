@@ -1,0 +1,29 @@
+!new Client('client12')
+!client12.clientId := 12
+!client12.isSuspended := true
+
+!new Rental('rental12')
+!rental12.date := Date('2023-10-21')
+
+!new Movie('movie12')
+!movie12.title := 'Future Vision'
+!movie12.availableCopies := 7
+!movie12.genre := #Action
+
+!new Series('series11')
+!series11.title := 'Laugh Riot'
+!series11.availableCopies := 2
+!series11.episode := 6
+
+!new Actor('actor20')
+!actor20.name := 'Sci-Fi Lead'
+
+!new Actor('actor21')
+!actor21.name := 'Comedy Genius'
+
+!insert (client12, rental12) into ClientRental
+!insert (rental12, movie12) into RentalCassette
+!insert (rental12, series11) into RentalCassette
+!insert (movie12, actor20) into CassetteActor
+!insert (series11, actor21) into CassetteActor
+!insert (series11, actor20) into CassetteActor

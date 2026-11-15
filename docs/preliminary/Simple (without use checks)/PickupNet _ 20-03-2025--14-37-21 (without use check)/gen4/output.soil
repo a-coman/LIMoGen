@@ -1,0 +1,42 @@
+!new Driver('driver5')
+!driver5.id := 'D005'
+!driver5.name := 'Logan Greene'
+
+!new Shipment('shipment6')
+!shipment6.id := 'S006'
+!shipment6.status := #DELIVERED
+
+!new Address('address8')
+!address8.text := '777 Willow St, Coast City'
+
+!new Address('address9')
+!address9.text := '888 Poplar St, Blüdhaven'
+
+!new GeoLocation('geolocation8')
+!geolocation8.latitude := 30.2672
+!geolocation8.longitude := -97.7431
+
+!new GeoLocation('geolocation9')
+!geolocation9.latitude := 41.8781
+!geolocation9.longitude := -87.6298
+
+!new Customer('customer5')
+!customer5.id := 'C005'
+!customer5.name := 'Clark Kent'
+!customer5.twitterUserName := '@clarkK'
+
+!new Station('station4')
+
+!insert (driver5, shipment6) into DriverShipment
+
+!insert (shipment6, address8) into ShipmentContainsPickUpAddress
+!insert (shipment6, address9) into ShipmentContainsDeliveryAddress
+
+!insert (address8, geolocation8) into AddressContainsGeoLocation
+!insert (address9, geolocation9) into AddressContainsGeoLocation
+
+!insert (customer5, shipment6) into CustomerConsistsOfShipment
+!insert (station4, shipment6) into StationShipment
+
+!insert (station4, customer5) into StationContainsCustomer
+!insert (station4, driver5) into StationContainsDriver

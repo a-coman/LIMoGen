@@ -1,0 +1,29 @@
+!new Client('client21')
+!client21.clientId := 21
+!client21.isSuspended := false
+
+!new Rental('rental21')
+!rental21.date := Date('2023-10-30')
+
+!new Movie('movie21')
+!movie21.title := 'Island Adventure'
+!movie21.availableCopies := 3
+!movie21.genre := #Action
+
+!new Series('series20')
+!series20.title := 'Late Night Laughs'
+!series20.availableCopies := 7
+!series20.episode := 3
+
+!new Actor('actor38')
+!actor38.name := 'Island Survivor'
+
+!new Actor('actor39')
+!actor39.name := 'Night Show Comedian'
+
+!insert (client21, rental21) into ClientRental
+!insert (rental21, movie21) into RentalCassette
+!insert (rental21, series20) into RentalCassette
+!insert (movie21, actor38) into CassetteActor
+!insert (series20, actor39) into CassetteActor
+!insert (series20, actor38) into CassetteActor

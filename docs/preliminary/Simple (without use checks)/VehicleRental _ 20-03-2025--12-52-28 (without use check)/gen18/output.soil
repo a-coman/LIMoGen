@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice19')
+!rentalOffice19.name := 'Summit Rentals'
+!rentalOffice19.number := 1919
+!rentalOffice19.address := '123 Mountain Rd, CO'
+
+!new Vehicle('vehicle19')
+!vehicle19.id := 1019
+!vehicle19.registrationState := #UT
+!vehicle19.licensePlateNumber := 'UT5678'
+!vehicle19.vehicleTypeCode := #TRUCK24
+!vehicle19.registrationLastMaintenanceDate := Date('2023-11-01')
+!vehicle19.expirationDate := Date('2024-11-01')
+
+!new Truck('truck19')
+!truck19.id := 2019
+!truck19.registrationState := #WY
+!truck19.licensePlateNumber := 'WY1234'
+!truck19.vehicleTypeCode := #TRUCK
+!truck19.registrationLastMaintenanceDate := Date('2023-12-01')
+!truck19.expirationDate := Date('2024-12-01')
+!truck19.odometerReading := 150000
+!truck19.gasTankCapacity := 70.0
+!truck19.workingRadio := true
+!truck19.mileage := 5
+
+!new RentalAgreement('rentalAgreement19')
+!rentalAgreement19.number := 5019
+!rentalAgreement19.rentalDate := Date('2025-03-15')
+!rentalAgreement19.anticipatedDuration := 9
+!rentalAgreement19.depositPaid := 450.0
+!rentalAgreement19.quotedDailyRate := 95.0
+!rentalAgreement19.quotedRatePerMile := 0.50
+
+!new Company('company10')
+!company10.name := 'Mountain Transport Co.'
+!company10.address := '456 Summit Blvd, NV'
+!company10.poorRisk := true
+!company10.idNumber := 101010101
+
+!insert (rentalOffice19, vehicle19) into RentalOfficeVehicle
+!insert (rentalOffice19, truck19) into RentalOfficeVehicle
+
+!insert (rentalOffice19, rentalAgreement19) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice7, rentalAgreement19) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement19, truck19) into RentalAgreementVehicle
+
+!insert (rentalAgreement19, company10) into RentalAgreementCustomer

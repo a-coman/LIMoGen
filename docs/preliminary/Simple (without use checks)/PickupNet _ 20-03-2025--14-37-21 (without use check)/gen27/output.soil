@@ -1,0 +1,42 @@
+!new Driver('driver28')
+!driver28.id := 'D028'
+!driver28.name := 'Hermione Granger'
+
+!new Shipment('shipment29')
+!shipment29.id := 'S029'
+!shipment29.status := #UNDERWAY
+
+!new Address('address54')
+!address54.text := '7070 Diagon Alley, Wizard Town'
+
+!new Address('address55')
+!address55.text := '8080 Hogwarts St, Magic City'
+
+!new GeoLocation('geolocation54')
+!geolocation54.latitude := 51.5074
+!geolocation54.longitude := -0.1278
+
+!new GeoLocation('geolocation55')
+!geolocation55.latitude := 55.3781
+!geolocation55.longitude := -3.4360
+
+!new Customer('customer28')
+!customer28.id := 'C028'
+!customer28.name := 'Harry Potter'
+!customer28.twitterUserName := '@chosenOne'
+
+!new Station('station27')
+
+!insert (driver28, shipment29) into DriverShipment
+
+!insert (shipment29, address54) into ShipmentContainsPickUpAddress
+!insert (shipment29, address55) into ShipmentContainsDeliveryAddress
+
+!insert (address54, geolocation54) into AddressContainsGeoLocation
+!insert (address55, geolocation55) into AddressContainsGeoLocation
+
+!insert (customer28, shipment29) into CustomerConsistsOfShipment
+!insert (station27, shipment29) into StationShipment
+
+!insert (station27, customer28) into StationContainsCustomer
+!insert (station27, driver28) into StationContainsDriver

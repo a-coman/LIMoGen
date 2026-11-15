@@ -1,0 +1,95 @@
+!new Bank('bank20')
+!bank20.country := 'Egypt'
+!bank20.name := 'National Bank of Egypt'
+!bank20.bic := 'NBEGEGCX'
+
+!new Bank('bank21')
+!bank21.country := 'South Korea'
+!bank21.name := 'KB Kookmin Bank'
+!bank21.bic := 'CZNBKRSE'
+
+!new Account('account55')
+!account55.iban := 'EG00NBEG123456789'
+!account55.balance := 2300
+
+!new Account('account56')
+!account56.iban := 'EG00NBEG987654321'
+!account56.balance := 85
+
+!new Account('account57')
+!account57.iban := 'KR00CZNB123456789'
+!account57.balance := 1900
+
+!new Account('account58')
+!account58.iban := 'KR00CZNB987654321'
+!account58.balance := 350
+
+!new Person('person65')
+!person65.firstName := 'Monica'
+!person65.lastName := 'Geller'
+!person65.age := 42
+
+!new Person('person66')
+!person66.firstName := 'Ned'
+!person66.lastName := 'Stark'
+!person66.age := 50
+
+!new Person('person67')
+!person67.firstName := 'Olaf'
+!person67.lastName := 'Snowman'
+!person67.age := 5
+
+!new Person('person68')
+!person68.firstName := 'Phoebe'
+!person68.lastName := 'Buffay'
+!person68.age := 37
+
+!insert (person65, account55) into Ownership
+!insert (person66, account56) into Ownership
+!insert (person68, account57) into Ownership
+!insert (person67, account58) into Ownership  -- Although Olaf is not an adult owner, this illustrates incorrect input deliberately if needed
+
+!insert (person66, account55) into Use
+!insert (person68, account56) into Use
+!insert (person65, account57) into Use
+!insert (person66, account58) into Use
+
+!insert (bank20, account55) into AccountOfBanks
+!insert (bank20, account56) into AccountOfBanks
+!insert (bank21, account57) into AccountOfBanks
+!insert (bank21, account58) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account59')
+!account59.iban := 'EG00NBEG555555555'
+!account59.balance := 600
+
+!new Person('person69')
+!person69.firstName := 'Regina'
+!person69.lastName := 'Phalange'
+!person69.age := 52
+
+!insert (person69, account59) into Ownership
+!insert (person69, account59) into Use
+
+!insert (bank20, account59) into AccountOfBanks
+
+!new Person('person70')
+!person70.firstName := 'Severus'
+!person70.lastName := 'Snape'
+!person70.age := 58
+
+!new Account('account60')
+!account60.iban := 'KR00CZNB333333333'
+!account60.balance := 750
+
+!insert (person70, account60) into Ownership
+!insert (person65, account60) into Use
+!insert (bank21, account60) into AccountOfBanks
+
+!new Person('person71')
+!person71.firstName := 'Tony'
+!person71.lastName := 'Stark'
+!person71.age := 48
+
+!insert (person71, account60) into Use

@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice17')
+!rentalOffice17.name := 'Downtown Transit Rentals'
+!rentalOffice17.number := 1717
+!rentalOffice17.address := '456 Broadway, NY'
+
+!new Vehicle('vehicle17')
+!vehicle17.id := 1017
+!vehicle17.registrationState := #NJ
+!vehicle17.licensePlateNumber := 'NJ3345'
+!vehicle17.vehicleTypeCode := #OPEN_TRAILER
+!vehicle17.registrationLastMaintenanceDate := Date('2023-09-15')
+!vehicle17.expirationDate := Date('2024-09-15')
+
+!new Truck('truck17')
+!truck17.id := 2017
+!truck17.registrationState := #PA
+!truck17.licensePlateNumber := 'PA5566'
+!truck17.vehicleTypeCode := #TRUCK24
+!truck17.registrationLastMaintenanceDate := Date('2023-11-25')
+!truck17.expirationDate := Date('2024-11-25')
+!truck17.odometerReading := 45000
+!truck17.gasTankCapacity := 46.0
+!truck17.workingRadio := true
+!truck17.mileage := 13
+
+!new RentalAgreement('rentalAgreement17')
+!rentalAgreement17.number := 5017
+!rentalAgreement17.rentalDate := Date('2024-12-15')
+!rentalAgreement17.anticipatedDuration := 15
+!rentalAgreement17.depositPaid := 600.0
+!rentalAgreement17.quotedDailyRate := 90.0
+!rentalAgreement17.quotedRatePerMile := 0.35
+
+!new Company('company9')
+!company9.name := 'East Coast Movers'
+!company9.address := '625 Ocean Dr, NJ'
+!company9.poorRisk := false
+!company9.idNumber := 999111888
+
+!insert (rentalOffice17, vehicle17) into RentalOfficeVehicle
+!insert (rentalOffice17, truck17) into RentalOfficeVehicle
+
+!insert (rentalOffice17, rentalAgreement17) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice14, rentalAgreement17) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement17, truck17) into RentalAgreementVehicle
+
+!insert (rentalAgreement17, company9) into RentalAgreementCustomer

@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice27')
+!rentalOffice27.name := 'Sunset Rentals'
+!rentalOffice27.number := 2727
+!rentalOffice27.address := '989 Sunset Blvd, NV'
+
+!new Vehicle('vehicle27')
+!vehicle27.id := 1027
+!vehicle27.registrationState := #NV
+!vehicle27.licensePlateNumber := 'NV7878'
+!vehicle27.vehicleTypeCode := #OPEN_TRAILER
+!vehicle27.registrationLastMaintenanceDate := Date('2023-09-25')
+!vehicle27.expirationDate := Date('2024-09-25')
+
+!new Truck('truck27')
+!truck27.id := 2027
+!truck27.registrationState := #CA
+!truck27.licensePlateNumber := 'CA4545'
+!truck27.vehicleTypeCode := #TRUCK10
+!truck27.registrationLastMaintenanceDate := Date('2024-03-18')
+!truck27.expirationDate := Date('2025-03-18')
+!truck27.odometerReading := 30000
+!truck27.gasTankCapacity := 50.0
+!truck27.workingRadio := true
+!truck27.mileage := 14
+
+!new RentalAgreement('rentalAgreement27')
+!rentalAgreement27.number := 5027
+!rentalAgreement27.rentalDate := Date('2025-08-18')
+!rentalAgreement27.anticipatedDuration := 3
+!rentalAgreement27.depositPaid := 195.0
+!rentalAgreement27.quotedDailyRate := 85.0
+!rentalAgreement27.quotedRatePerMile := 0.30
+
+!new Company('company14')
+!company14.name := 'Desert Transport Solutions'
+!company14.address := '456 Oasis Ln, CA'
+!company14.poorRisk := false
+!company14.idNumber := 8787878787
+
+!insert (rentalOffice27, vehicle27) into RentalOfficeVehicle
+!insert (rentalOffice27, truck27) into RentalOfficeVehicle
+
+!insert (rentalOffice27, rentalAgreement27) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice21, rentalAgreement27) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement27, truck27) into RentalAgreementVehicle
+
+!insert (rentalAgreement27, company14) into RentalAgreementCustomer

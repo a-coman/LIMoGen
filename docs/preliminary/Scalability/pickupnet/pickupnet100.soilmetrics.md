@@ -1,0 +1,755 @@
+# Generation 1
+```
+!new Address('address1')
+!address1.text := '123 Elm St'
+!new GeoLocation('geo1')
+!geo1.latitude := 40.7128
+!geo1.longitude := -74.0060
+!insert (address1, geo1) into AddressContainsGeoLocation
+
+!new Address('address2')
+!address2.text := '456 Oak St'
+!new GeoLocation('geo2')
+!geo2.latitude := 34.0522
+!geo2.longitude := -118.2437
+!insert (address2, geo2) into AddressContainsGeoLocation
+
+!new Shipment('shipment1')
+!shipment1.id := 'S1'
+!shipment1.status := #NEW
+!insert (shipment1, address1) into ShipmentContainsPickUpAddress
+!insert (shipment1, address2) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer1')
+!customer1.id := 'C1'
+!customer1.name := 'Alice Smith'
+!customer1.twitterUserName := '@alice_smith'
+!insert (customer1, shipment1) into CustomerConsistsOfShipment
+
+!new Driver('driver1')
+!driver1.id := 'D1'
+!driver1.name := 'Bob Johnson'
+
+!new Station('station1')
+!insert (station1, customer1) into StationContainsCustomer
+!insert (station1, driver1) into StationContainsDriver
+!insert (station1, shipment1) into StationShipment
+
+!new Address('address3')
+!address3.text := '789 Pine St'
+!new GeoLocation('geo3')
+!geo3.latitude := 41.8781
+!geo3.longitude := -87.6298
+!insert (address3, geo3) into AddressContainsGeoLocation
+
+!new Address('address4')
+!address4.text := '321 Birch St'
+!new GeoLocation('geo4')
+!geo4.latitude := 29.7604
+!geo4.longitude := -95.3698
+!insert (address4, geo4) into AddressContainsGeoLocation
+
+!new Shipment('shipment2')
+!shipment2.id := 'S2'
+!shipment2.status := #ASSIGNED
+!insert (shipment2, address3) into ShipmentContainsPickUpAddress
+!insert (shipment2, address4) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer2')
+!customer2.id := 'C2'
+!customer2.name := 'John Doe'
+!customer2.twitterUserName := '@john_doe'
+!insert (customer2, shipment2) into CustomerConsistsOfShipment
+
+!new Driver('driver2')
+!driver2.id := 'D2'
+!driver2.name := 'Charlie Brown'
+!insert (driver2, shipment2) into DriverShipment
+
+!insert (station1, customer2) into StationContainsCustomer
+!insert (station1, driver2) into StationContainsDriver
+!insert (station1, shipment2) into StationShipment
+
+-- Add more entities below to reach exactly 100 lines starting with !new --
+
+!new Address('address5')
+!address5.text := '654 Willow St'
+!new GeoLocation('geo5')
+!geo5.latitude := 39.7392
+!geo5.longitude := -104.9903
+!insert (address5, geo5) into AddressContainsGeoLocation
+
+!new Address('address6')
+!address6.text := '987 Maple St'
+!new GeoLocation('geo6')
+!geo6.latitude := 37.7749
+!geo6.longitude := -122.4194
+!insert (address6, geo6) into AddressContainsGeoLocation
+
+!new Shipment('shipment3')
+!shipment3.id := 'S3'
+!shipment3.status := #UNDERWAY
+!insert (shipment3, address5) into ShipmentContainsPickUpAddress
+!insert (shipment3, address6) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer3')
+!customer3.id := 'C3'
+!customer3.name := 'Lucy Lu'
+!customer3.twitterUserName := '@lucylu'
+!insert (customer3, shipment3) into CustomerConsistsOfShipment
+
+!new Driver('driver3')
+!driver3.id := 'D3'
+!driver3.name := 'David Williams'
+!insert (driver3, shipment3) into DriverShipment
+
+!insert (station1, customer3) into StationContainsCustomer
+!insert (station1, driver3) into StationContainsDriver
+!insert (station1, shipment3) into StationShipment
+
+!new Address('address7')
+!address7.text := '111 Cedar St'
+!new GeoLocation('geo7')
+!geo7.latitude := 32.7767
+!geo7.longitude := -96.7970
+!insert (address7, geo7) into AddressContainsGeoLocation
+
+!new Address('address8')
+!address8.text := '222 Walnut St'
+!new GeoLocation('geo8')
+!geo8.latitude := 30.2672
+!geo8.longitude := -97.7431
+!insert (address8, geo8) into AddressContainsGeoLocation
+
+!new Shipment('shipment4')
+!shipment4.id := 'S4'
+!shipment4.status := #DELIVERED
+!insert (shipment4, address7) into ShipmentContainsPickUpAddress
+!insert (shipment4, address8) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer4')
+!customer4.id := 'C4'
+!customer4.name := 'Ethan Hunt'
+!customer4.twitterUserName := '@ethanhunt'
+!insert (customer4, shipment4) into CustomerConsistsOfShipment
+
+!new Driver('driver4')
+!driver4.id := 'D4'
+!driver4.name := 'Emma Stone'
+!insert (driver4, shipment4) into DriverShipment
+
+!insert (station1, customer4) into StationContainsCustomer
+!insert (station1, driver4) into StationContainsDriver
+!insert (station1, shipment4) into StationShipment
+
+!new Address('address9')
+!address9.text := '333 Main St'
+!new GeoLocation('geo9')
+!geo9.latitude := 47.6062
+!geo9.longitude := -122.3321
+!insert (address9, geo9) into AddressContainsGeoLocation
+
+!new Address('address10')
+!address10.text := '444 Broadway St'
+!new GeoLocation('geo10')
+!geo10.latitude := 45.5122
+!geo10.longitude := -122.6587
+!insert (address10, geo10) into AddressContainsGeoLocation
+
+!new Shipment('shipment5')
+!shipment5.id := 'S5'
+!shipment5.status := #NEW
+!insert (shipment5, address9) into ShipmentContainsPickUpAddress
+!insert (shipment5, address10) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer5')
+!customer5.id := 'C5'
+!customer5.name := 'Mia Wallace'
+!customer5.twitterUserName := '@mia_wallace'
+!insert (customer5, shipment5) into CustomerConsistsOfShipment
+
+!new Driver('driver5')
+!driver5.id := 'D5'
+!driver5.name := 'Vince Vega'
+!insert (driver5, shipment5) into DriverShipment
+
+!insert (station1, customer5) into StationContainsCustomer
+!insert (station1, driver5) into StationContainsDriver
+!insert (station1, shipment5) into StationShipment
+
+!new Address('address11')
+!address11.text := '555 King St'
+!new GeoLocation('geo11')
+!geo11.latitude := 34.0522
+!geo11.longitude := -118.2437
+!insert (address11, geo11) into AddressContainsGeoLocation
+
+!new Address('address12')
+!address12.text := '666 Queen St'
+!new GeoLocation('geo12')
+!geo12.latitude := 40.7128
+!geo12.longitude := -74.0060
+!insert (address12, geo12) into AddressContainsGeoLocation
+
+!new Shipment('shipment6')
+!shipment6.id := 'S6'
+!shipment6.status := #ASSIGNED
+!insert (shipment6, address11) into ShipmentContainsPickUpAddress
+!insert (shipment6, address12) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer6')
+!customer6.id := 'C6'
+!customer6.name := 'Bruce Wayne'
+!customer6.twitterUserName := '@bruce_wayne'
+!insert (customer6, shipment6) into CustomerConsistsOfShipment
+
+!new Driver('driver6')
+!driver6.id := 'D6'
+!driver6.name := 'Clark Kent'
+!insert (driver6, shipment6) into DriverShipment
+
+!insert (station1, customer6) into StationContainsCustomer
+!insert (station1, driver6) into StationContainsDriver
+!insert (station1, shipment6) into StationShipment
+
+!new Address('address13')
+!address13.text := '777 Avenue St'
+!new GeoLocation('geo13')
+!geo13.latitude := 25.7617
+!geo13.longitude := -80.1918
+!insert (address13, geo13) into AddressContainsGeoLocation
+
+!new Address('address14')
+!address14.text := '888 River St'
+!new GeoLocation('geo14')
+!geo14.latitude := 51.5074
+!geo14.longitude := -0.1278
+!insert (address14, geo14) into AddressContainsGeoLocation
+
+!new Shipment('shipment7')
+!shipment7.id := 'S7'
+!shipment7.status := #UNDERWAY
+!insert (shipment7, address13) into ShipmentContainsPickUpAddress
+!insert (shipment7, address14) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer7')
+!customer7.id := 'C7'
+!customer7.name := 'Selina Kyle'
+!customer7.twitterUserName := '@selina_kyle'
+!insert (customer7, shipment7) into CustomerConsistsOfShipment
+
+!new Driver('driver7')
+!driver7.id := 'D7'
+!driver7.name := 'Diana Prince'
+!insert (driver7, shipment7) into DriverShipment
+
+!insert (station1, customer7) into StationContainsCustomer
+!insert (station1, driver7) into StationContainsDriver
+!insert (station1, shipment7) into StationShipment
+
+!new Address('address15')
+!address15.text := '999 Park St'
+!new GeoLocation('geo15')
+!geo15.latitude := 38.9072
+!geo15.longitude := -77.0369
+!insert (address15, geo15) into AddressContainsGeoLocation
+
+!new Address('address16')
+!address16.text := '1010 Hill St'
+!new GeoLocation('geo16')
+!geo16.latitude := 35.6895
+!geo16.longitude := 139.6917
+!insert (address16, geo16) into AddressContainsGeoLocation
+
+!new Shipment('shipment8')
+!shipment8.id := 'S8'
+!shipment8.status := #DELIVERED
+!insert (shipment8, address15) into ShipmentContainsPickUpAddress
+!insert (shipment8, address16) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer8')
+!customer8.id := 'C8'
+!customer8.name := 'Peter Parker'
+!customer8.twitterUserName := '@peter_parker'
+!insert (customer8, shipment8) into CustomerConsistsOfShipment
+
+!new Driver('driver8')
+!driver8.id := 'D8'
+!driver8.name := 'Steve Rogers'
+!insert (driver8, shipment8) into DriverShipment
+
+!insert (station1, customer8) into StationContainsCustomer
+!insert (station1, driver8) into StationContainsDriver
+!insert (station1, shipment8) into StationShipment
+
+!new Address('address17')
+!address17.text := '1111 Lake St'
+!new GeoLocation('geo17')
+!geo17.latitude := 37.3382
+!geo17.longitude := -121.8863
+!insert (address17, geo17) into AddressContainsGeoLocation
+
+!new Address('address18')
+!address18.text := '1212 Garden St'
+!new GeoLocation('geo18')
+!geo18.latitude := 33.4484
+!geo18.longitude := -112.0740
+!insert (address18, geo18) into AddressContainsGeoLocation
+
+!new Shipment('shipment9')
+!shipment9.id := 'S9'
+!shipment9.status := #NEW
+!insert (shipment9, address17) into ShipmentContainsPickUpAddress
+!insert (shipment9, address18) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer9')
+!customer9.id := 'C9'
+!customer9.name := 'Tony Stark'
+!customer9.twitterUserName := '@tony_stark'
+!insert (customer9, shipment9) into CustomerConsistsOfShipment
+
+!new Driver('driver9')
+!driver9.id := 'D9'
+!driver9.name := 'Natasha Romanoff'
+!insert (driver9, shipment9) into DriverShipment
+
+!insert (station1, customer9) into StationContainsCustomer
+!insert (station1, driver9) into StationContainsDriver
+!insert (station1, shipment9) into StationShipment
+
+!new Address('address19')
+!address19.text := '1133 Elmwood St'
+!new GeoLocation('geo19')
+!geo19.latitude := 48.8566
+!geo19.longitude := 2.3522
+!insert (address19, geo19) into AddressContainsGeoLocation
+
+!new Address('address20')
+!address20.text := '1224 University St'
+!new GeoLocation('geo20')
+!geo20.latitude := 55.7558
+!geo20.longitude := 37.6173
+!insert (address20, geo20) into AddressContainsGeoLocation
+
+!new Shipment('shipment10')
+!shipment10.id := 'S10'
+!shipment10.status := #ASSIGNED
+!insert (shipment10, address19) into ShipmentContainsPickUpAddress
+!insert (shipment10, address20) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer10')
+!customer10.id := 'C10'
+!customer10.name := 'Bruce Banner'
+!customer10.twitterUserName := '@bruce_banner'
+!insert (customer10, shipment10) into CustomerConsistsOfShipment
+
+!new Driver('driver10')
+!driver10.id := 'D10'
+!driver10.name := 'Thor Odinson'
+!insert (driver10, shipment10) into DriverShipment
+
+!insert (station1, customer10) into StationContainsCustomer
+!insert (station1, driver10) into StationContainsDriver
+!insert (station1, shipment10) into StationShipment
+
+!new Address('address21')
+!address21.text := '1250 High St'
+!new GeoLocation('geo21')
+!geo21.latitude := 22.3964
+!geo21.longitude := 114.1095
+!insert (address21, geo21) into AddressContainsGeoLocation
+
+!new Address('address22')
+!address22.text := '1350 Wide St'
+!new GeoLocation('geo22')
+!geo22.latitude := 31.2304
+!geo22.longitude := 121.4737
+!insert (address22, geo22) into AddressContainsGeoLocation
+
+!new Shipment('shipment11')
+!shipment11.id := 'S11'
+!shipment11.status := #UNDERWAY
+!insert (shipment11, address21) into ShipmentContainsPickUpAddress
+!insert (shipment11, address22) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer11')
+!customer11.id := 'C11'
+!customer11.name := 'James Bond'
+!customer11.twitterUserName := '@james_bond'
+!insert (customer11, shipment11) into CustomerConsistsOfShipment
+
+!new Driver('driver11')
+!driver11.id := 'D11'
+!driver11.name := 'Jason Bourne'
+!insert (driver11, shipment11) into DriverShipment
+
+!insert (station1, customer11) into StationContainsCustomer
+!insert (station1, driver11) into StationContainsDriver
+!insert (station1, shipment11) into StationShipment
+
+!new Address('address23')
+!address23.text := '1400 Night St'
+!new GeoLocation('geo23')
+!geo23.latitude := -33.8688
+!geo23.longitude := 151.2093
+!insert (address23, geo23) into AddressContainsGeoLocation
+
+!new Address('address24')
+!address24.text := '1500 Day St'
+!new GeoLocation('geo24')
+!geo24.latitude := 35.6895
+!geo24.longitude := 139.6917
+!insert (address24, geo24) into AddressContainsGeoLocation
+
+!new Shipment('shipment12')
+!shipment12.id := 'S12'
+!shipment12.status := #DELIVERED
+!insert (shipment12, address23) into ShipmentContainsPickUpAddress
+!insert (shipment12, address24) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer12')
+!customer12.id := 'C12'
+!customer12.name := 'Will Turner'
+!customer12.twitterUserName := '@will_turner'
+!insert (customer12, shipment12) into CustomerConsistsOfShipment
+
+!new Driver('driver12')
+!driver12.id := 'D12'
+!driver12.name := 'Jack Sparrow'
+!insert (driver12, shipment12) into DriverShipment
+
+!insert (station1, customer12) into StationContainsCustomer
+!insert (station1, driver12) into StationContainsDriver
+!insert (station1, shipment12) into StationShipment
+
+!new Address('address25')
+!address25.text := '1600 Sea St'
+!new GeoLocation('geo25')
+!geo25.latitude := 41.3851
+!geo25.longitude := 2.1734
+!insert (address25, geo25) into AddressContainsGeoLocation
+
+!new Address('address26')
+!address26.text := '1700 Sky St'
+!new GeoLocation('geo26')
+!geo26.latitude := 19.0760
+!geo26.longitude := 72.8777
+!insert (address26, geo26) into AddressContainsGeoLocation
+
+!new Shipment('shipment13')
+!shipment13.id := 'S13'
+!shipment13.status := #NEW
+!insert (shipment13, address25) into ShipmentContainsPickUpAddress
+!insert (shipment13, address26) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer13')
+!customer13.id := 'C13'
+!customer13.name := 'Elizabeth Swann'
+!customer13.twitterUserName := '@elizabeth_swann'
+!insert (customer13, shipment13) into CustomerConsistsOfShipment
+
+!new Driver('driver13')
+!driver13.id := 'D13'
+!driver13.name := 'Han Solo'
+!insert (driver13, shipment13) into DriverShipment
+
+!insert (station1, customer13) into StationContainsCustomer
+!insert (station1, driver13) into StationContainsDriver
+!insert (station1, shipment13) into StationShipment
+
+!new Address('address27')
+!address27.text := '1800 Star St'
+!new GeoLocation('geo27')
+!geo27.latitude := -34.6037
+!geo27.longitude := -58.3816
+!insert (address27, geo27) into AddressContainsGeoLocation
+
+!new Address('address28')
+!address28.text := '1900 Moon St'
+!new GeoLocation('geo28')
+!geo28.latitude := -23.5505
+!geo28.longitude := -46.6333
+!insert (address28, geo28) into AddressContainsGeoLocation
+
+!new Shipment('shipment14')
+!shipment14.id := 'S14'
+!shipment14.status := #ASSIGNED
+!insert (shipment14, address27) into ShipmentContainsPickUpAddress
+!insert (shipment14, address28) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer14')
+!customer14.id := 'C14'
+!customer14.name := 'Leia Organa'
+!customer14.twitterUserName := '@leia_organa'
+!insert (customer14, shipment14) into CustomerConsistsOfShipment
+
+!new Driver('driver14')
+!driver14.id := 'D14'
+!driver14.name := 'Luke Skywalker'
+!insert (driver14, shipment14) into DriverShipment
+
+!insert (station1, customer14) into StationContainsCustomer
+!insert (station1, driver14) into StationContainsDriver
+!insert (station1, shipment14) into StationShipment
+
+!new Address('address29')
+!address29.text := '2000 Market St'
+!new GeoLocation('geo29')
+!geo29.latitude := -33.8650
+!geo29.longitude := 151.2094
+!insert (address29, geo29) into AddressContainsGeoLocation
+
+!new Address('address30')
+!address30.text := '2100 Liberty St'
+!new GeoLocation('geo30')
+!geo30.latitude := -23.4461
+!geo30.longitude := -46.6798
+!insert (address30, geo30) into AddressContainsGeoLocation
+
+!new Shipment('shipment15')
+!shipment15.id := 'S15'
+!shipment15.status := #UNDERWAY
+!insert (shipment15, address29) into ShipmentContainsPickUpAddress
+!insert (shipment15, address30) into ShipmentContainsDeliveryAddress
+
+!new Customer('customer15')
+!customer15.id := 'C15'
+!customer15.name := 'Frodo Baggins'
+!customer15.twitterUserName := '@frodo_baggins'
+!insert (customer15, shipment15) into CustomerConsistsOfShipment
+
+!new Driver('driver15')
+!driver15.id := 'D15'
+!driver15.name := 'Gandalf'
+!insert (driver15, shipment15) into DriverShipment
+
+!insert (station1, customer15) into StationContainsCustomer
+!insert (station1, driver15) into StationContainsDriver
+!insert (station1, shipment15) into StationShipment
+
+```
+## Generation 1 summary
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 436 | 0.00% |
+| Multiplicities Errors | 0 | 134 | 0.00% |
+| Invariants Errors | 0 | 4 | 0.00% |
+
+| PickupNet | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Address | 24 | 30 | 80.00% |
+| Lat/Lon (out of valid addresses) | 6 | 6 | 100.00% |
+| Twitter | 0 | 15 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+1224 University St
+```
+```
+1250 High St
+```
+```
+1350 Wide St
+```
+```
+1400 Night St
+```
+```
+1500 Day St
+```
+```
+1600 Sea St
+```
+```
+111 Cedar St
+```
+```
+1700 Sky St
+```
+```
+987 Maple St
+```
+```
+1800 Star St
+```
+```
+654 Willow St
+```
+```
+2000 Market St
+```
+```
+333 Main St
+```
+```
+222 Walnut St
+```
+```
+789 Pine St
+```
+```
+456 Oak St
+```
+```
+123 Elm St
+```
+```
+555 King St
+```
+```
+777 Avenue St
+```
+```
+888 River St
+```
+```
+999 Park St
+```
+```
+1010 Hill St
+```
+```
+1111 Lake St
+```
+```
+1212 Garden St
+```
+
+| Invalid Lat/Lon | 
+|---| 
+```
+Invalid Lat: -23.5505 Lon: -46.6333 for address: 1900 Moon St
+```
+```
+Invalid Lat: 29.7604 Lon: -95.3698 for address: 321 Birch St
+```
+```
+Invalid Lat: -23.4461 Lon: -46.6798 for address: 2100 Liberty St
+```
+```
+Invalid Lat: 45.5122 Lon: -122.6587 for address: 444 Broadway St
+```
+```
+Invalid Lat: 40.7128 Lon: -74.006 for address: 666 Queen St
+```
+```
+Invalid Lat: 48.8566 Lon: 2.3522 for address: 1133 Elmwood St
+```
+
+# Summary for all generations
+| Summary | Value | 
+|---|---| 
+| Model | null | 
+| Type |  | 
+| System | pickupnet | 
+| Number of generations | 1 | 
+
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 436 | 0.00% |
+| Multiplicities Errors | 0 | 134 | 0.00% |
+| Invariants Errors | 0 | 4 | 0.00% |
+
+| PickupNet | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Address | 24 | 30 | 80.00% |
+| Lat/Lon (out of valid addresses) | 6 | 6 | 100.00% |
+| Twitter | 0 | 15 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+1224 University St
+```
+```
+1250 High St
+```
+```
+1350 Wide St
+```
+```
+1400 Night St
+```
+```
+1500 Day St
+```
+```
+1600 Sea St
+```
+```
+111 Cedar St
+```
+```
+1700 Sky St
+```
+```
+987 Maple St
+```
+```
+1800 Star St
+```
+```
+654 Willow St
+```
+```
+2000 Market St
+```
+```
+333 Main St
+```
+```
+222 Walnut St
+```
+```
+789 Pine St
+```
+```
+456 Oak St
+```
+```
+123 Elm St
+```
+```
+555 King St
+```
+```
+777 Avenue St
+```
+```
+888 River St
+```
+```
+999 Park St
+```
+```
+1010 Hill St
+```
+```
+1111 Lake St
+```
+```
+1212 Garden St
+```
+
+| Invalid Lat/Lon | 
+|---| 
+```
+Invalid Lat: -23.5505 Lon: -46.6333 for address: 1900 Moon St
+```
+```
+Invalid Lat: 29.7604 Lon: -95.3698 for address: 321 Birch St
+```
+```
+Invalid Lat: -23.4461 Lon: -46.6798 for address: 2100 Liberty St
+```
+```
+Invalid Lat: 45.5122 Lon: -122.6587 for address: 444 Broadway St
+```
+```
+Invalid Lat: 40.7128 Lon: -74.006 for address: 666 Queen St
+```
+```
+Invalid Lat: 48.8566 Lon: 2.3522 for address: 1133 Elmwood St
+```
+

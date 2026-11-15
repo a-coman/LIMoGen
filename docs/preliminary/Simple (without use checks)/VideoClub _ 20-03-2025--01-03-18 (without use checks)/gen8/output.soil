@@ -1,0 +1,29 @@
+!new Client('client10')
+!client10.clientId := 10
+!client10.isSuspended := false
+
+!new Rental('rental10')
+!rental10.date := Date('2023-10-19')
+
+!new Movie('movie10')
+!movie10.title := 'Romantic Escape'
+!movie10.availableCopies := 3
+!movie10.genre := #Comedy
+
+!new Series('series9')
+!series9.title := 'Dark Legends'
+!series9.availableCopies := 9
+!series9.episode := 4
+
+!new Actor('actor16')
+!actor16.name := 'Romantic Lead'
+
+!new Actor('actor17')
+!actor17.name := 'Dark Villain'
+
+!insert (client10, rental10) into ClientRental
+!insert (rental10, movie10) into RentalCassette
+!insert (rental10, series9) into RentalCassette
+!insert (movie10, actor16) into CassetteActor
+!insert (series9, actor17) into CassetteActor
+!insert (series9, actor16) into CassetteActor

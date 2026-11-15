@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice23')
+!rentalOffice23.name := 'Valley Rentals'
+!rentalOffice23.number := 2323
+!rentalOffice23.address := '789 Valley Rd, CO'
+
+!new Vehicle('vehicle23')
+!vehicle23.id := 1023
+!vehicle23.registrationState := #NM
+!vehicle23.licensePlateNumber := 'NM3456'
+!vehicle23.vehicleTypeCode := #OPEN_TRAILER
+!vehicle23.registrationLastMaintenanceDate := Date('2023-07-07')
+!vehicle23.expirationDate := Date('2024-07-07')
+
+!new Truck('truck23')
+!truck23.id := 2023
+!truck23.registrationState := #NV
+!truck23.licensePlateNumber := 'NV8765'
+!truck23.vehicleTypeCode := #TRUCK10
+!truck23.registrationLastMaintenanceDate := Date('2024-02-20')
+!truck23.expirationDate := Date('2025-02-20')
+!truck23.odometerReading := 75000
+!truck23.gasTankCapacity := 55.0
+!truck23.workingRadio := true
+!truck23.mileage := 18
+
+!new RentalAgreement('rentalAgreement23')
+!rentalAgreement23.number := 5023
+!rentalAgreement23.rentalDate := Date('2025-09-01')
+!rentalAgreement23.anticipatedDuration := 10
+!rentalAgreement23.depositPaid := 675.0
+!rentalAgreement23.quotedDailyRate := 92.0
+!rentalAgreement23.quotedRatePerMile := 0.45
+
+!new Company('company12')
+!company12.name := 'Desert Freight Co.'
+!company12.address := '555 Sand Dunes Ave, AZ'
+!company12.poorRisk := false
+!company12.idNumber := 1212121212
+
+!insert (rentalOffice23, vehicle23) into RentalOfficeVehicle
+!insert (rentalOffice23, truck23) into RentalOfficeVehicle
+
+!insert (rentalOffice23, rentalAgreement23) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice19, rentalAgreement23) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement23, truck23) into RentalAgreementVehicle
+
+!insert (rentalAgreement23, company12) into RentalAgreementCustomer

@@ -1,0 +1,95 @@
+!new Bank('bank54')
+!bank54.country := 'South Africa'
+!bank54.name := 'FirstRand Bank'
+!bank54.bic := 'FIRNZAJJ'
+
+!new Bank('bank55')
+!bank55.country := 'Russia'
+!bank55.name := 'VTB Bank'
+!bank55.bic := 'VTBRRUMM'
+
+!new Account('account157')
+!account157.iban := 'ZA00FIRN123456789'
+!account157.balance := 2800
+
+!new Account('account158')
+!account158.iban := 'ZA00FIRN987654321'
+!account158.balance := 75
+
+!new Account('account159')
+!account159.iban := 'RU00VTBR123456789'
+!account159.balance := 1920
+
+!new Account('account160')
+!account160.iban := 'RU00VTBR987654321'
+!account160.balance := 670
+
+!new Person('person184')
+!person184.firstName := 'Tammy'
+!person184.lastName := 'Taylor'
+!person184.age := 43
+
+!new Person('person185')
+!person185.firstName := 'Ulrich'
+!person185.lastName := 'Kamerer'
+!person185.age := 55
+
+!new Person('person186')
+!person186.firstName := 'Victor'
+!person186.lastName := 'Hugo'
+!person186.age := 48
+
+!new Person('person187')
+!person187.firstName := 'Wendy'
+!person187.lastName := 'Darling'
+!person187.age := 35
+
+!insert (person184, account157) into Ownership
+!insert (person185, account158) into Ownership
+!insert (person186, account159) into Ownership
+!insert (person187, account160) into Ownership
+
+!insert (person185, account157) into Use
+!insert (person186, account158) into Use
+!insert (person187, account159) into Use
+!insert (person184, account160) into Use
+
+!insert (bank54, account157) into AccountOfBanks
+!insert (bank54, account158) into AccountOfBanks
+!insert (bank55, account159) into AccountOfBanks
+!insert (bank55, account160) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account161')
+!account161.iban := 'ZA00FIRN555555555'
+!account161.balance := 1300
+
+!new Person('person188')
+!person188.firstName := 'Xander'
+!person188.lastName := 'Harris'
+!person188.age := 29
+
+!insert (person188, account161) into Ownership
+!insert (person188, account161) into Use
+
+!insert (bank54, account161) into AccountOfBanks
+
+!new Person('person189')
+!person189.firstName := 'Yasmin'
+!person189.lastName := 'Alibhai-Brown'
+!person189.age := 71
+
+!new Account('account162')
+!account162.iban := 'RU00VTBR333333333'
+!account162.balance := 1460
+
+!insert (person189, account162) into Ownership
+!insert (person186, account162) into Use
+!insert (bank55, account162) into AccountOfBanks
+
+!new Person('person190')
+!person190.firstName := 'Zane'
+!person190.lastName := 'Smith'
+!person190.age := 36
+
+!insert (person190, account162) into Use

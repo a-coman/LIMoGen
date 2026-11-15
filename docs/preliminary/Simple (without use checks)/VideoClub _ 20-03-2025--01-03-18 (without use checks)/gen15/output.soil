@@ -1,0 +1,29 @@
+!new Client('client17')
+!client17.clientId := 17
+!client17.isSuspended := true
+
+!new Rental('rental17')
+!rental17.date := Date('2023-10-26')
+
+!new Movie('movie17')
+!movie17.title := 'Mystic Realms'
+!movie17.availableCopies := 1
+!movie17.genre := #Action
+
+!new Series('series16')
+!series16.title := 'Laugh Factory'
+!series16.availableCopies := 3
+!series16.episode := 5
+
+!new Actor('actor30')
+!actor30.name := 'Mystic Adventurer'
+
+!new Actor('actor31')
+!actor31.name := 'Comedy Legend'
+
+!insert (client17, rental17) into ClientRental
+!insert (rental17, movie17) into RentalCassette
+!insert (rental17, series16) into RentalCassette
+!insert (movie17, actor30) into CassetteActor
+!insert (series16, actor31) into CassetteActor
+!insert (series16, actor30) into CassetteActor

@@ -1,0 +1,29 @@
+!new Client('client29')
+!client29.clientId := 29
+!client29.isSuspended := false
+
+!new Rental('rental29')
+!rental29.date := Date('2023-11-07')
+
+!new Movie('movie29')
+!movie29.title := 'Ancient Secrets'
+!movie29.availableCopies := 3
+!movie29.genre := #Action
+
+!new Series('series28')
+!series28.title := 'Tech Innovations'
+!series28.availableCopies := 4
+!series28.episode := 14
+
+!new Actor('actor54')
+!actor54.name := 'Archaeologist Hero'
+
+!new Actor('actor55')
+!actor55.name := 'Tech Guru'
+
+!insert (client29, rental29) into ClientRental
+!insert (rental29, movie29) into RentalCassette
+!insert (rental29, series28) into RentalCassette
+!insert (movie29, actor54) into CassetteActor
+!insert (series28, actor55) into CassetteActor
+!insert (series28, actor54) into CassetteActor

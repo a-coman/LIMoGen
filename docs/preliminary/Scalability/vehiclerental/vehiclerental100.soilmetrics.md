@@ -1,0 +1,1699 @@
+# Generation 1
+```
+-- Creating Rental Offices
+!new RentalOffice('rentalOffice1')
+!rentalOffice1.name := 'Downtown Rentals'
+!rentalOffice1.number := 101
+!rentalOffice1.address := '123 Main St, FL'
+
+!new RentalOffice('rentalOffice2')
+!rentalOffice2.name := 'Uptown Rentals'
+!rentalOffice2.number := 102
+!rentalOffice2.address := '456 Oak St, CA'
+
+-- Creating Vehicles
+!new Vehicle('vehicle1')
+!vehicle1.id := 1
+!vehicle1.registrationState := #FL
+!vehicle1.licensePlateNumber := 'XYZ123'
+!vehicle1.vehicleTypeCode := #TRUCK
+!vehicle1.registrationLastMaintenanceDate := Date('2023-01-01')
+!vehicle1.expirationDate := Date('2024-01-01')
+
+!new Vehicle('vehicle2')
+!vehicle2.id := 2
+!vehicle2.registrationState := #CA
+!vehicle2.licensePlateNumber := 'ABC789'
+!vehicle2.vehicleTypeCode := #COVERED_TRAILER
+!vehicle2.registrationLastMaintenanceDate := Date('2023-01-02')
+!vehicle2.expirationDate := Date('2024-01-02')
+
+-- Creating Trucks
+!new Truck('truck1')
+!truck1.id := 3
+!truck1.registrationState := #AK
+!truck1.licensePlateNumber := 'TRK456'
+!truck1.vehicleTypeCode := #TRUCK24
+!truck1.registrationLastMaintenanceDate := Date('2023-01-03')
+!truck1.expirationDate := Date('2024-01-03')
+!truck1.odometerReading := 12000
+!truck1.gasTankCapacity := 50.0
+!truck1.workingRadio := true
+!truck1.mileage := 15
+
+!new Truck('truck2')
+!truck2.id := 4
+!truck2.registrationState := #AZ
+!truck2.licensePlateNumber := 'TRK789'
+!truck2.vehicleTypeCode := #TRUCK10
+!truck2.registrationLastMaintenanceDate := Date('2023-01-04')
+!truck2.expirationDate := Date('2024-01-04')
+!truck2.odometerReading := 15000
+!truck2.gasTankCapacity := 40.0
+!truck2.workingRadio := false
+!truck2.mileage := 18
+
+-- Creating Rental Agreements
+!new RentalAgreement('agreement1')
+!agreement1.number := 201
+!agreement1.rentalDate := Date('2023-02-01')
+!agreement1.anticipatedDuration := 7
+!agreement1.depositPaid := 100.00
+!agreement1.quotedDailyRate := 19.99
+!agreement1.quotedRatePerMile := 0.29
+
+!new RentalAgreement('agreement2')
+!agreement2.number := 202
+!agreement2.rentalDate := Date('2023-02-02')
+!agreement2.anticipatedDuration := 14
+!agreement2.depositPaid := 200.00
+!agreement2.quotedDailyRate := 29.99
+!agreement2.quotedRatePerMile := 0.39
+
+-- Creating Individuals
+!new Individual('individual1')
+!individual1.name := 'Alice Smith'
+!individual1.address := '789 Pine Street, FL'
+!individual1.poorRisk := false
+!individual1.homePhone := '555-1234'
+!individual1.driverLicenseState := #FL
+!individual1.driverLicenseNumber := 987654321
+!individual1.driverLicenseExpirationDate := Date('2025-02-01')
+
+!new Individual('individual2')
+!individual2.name := 'Bob Johnson'
+!individual2.address := '246 Maple Ave, CA'
+!individual2.poorRisk := true
+!individual2.homePhone := '555-5678'
+!individual2.driverLicenseState := #CA
+!individual2.driverLicenseNumber := 123456789
+!individual2.driverLicenseExpirationDate := Date('2025-03-01')
+
+-- Creating Companies
+!new Company('company1')
+!company1.name := 'Tech Corp'
+!company1.address := '789 Tech Blvd, AK'
+!company1.poorRisk := false
+!company1.idNumber := 555001
+
+!new Company('company2')
+!company2.name := 'Logistics Inc'
+!company2.address := '101 Freight Ln, AZ'
+!company2.poorRisk := true
+!company2.idNumber := 555002
+
+-- Associations between Rental Offices and Vehicles
+!insert (rentalOffice1, vehicle1) into RentalOfficeVehicle
+!insert (rentalOffice1, truck1) into RentalOfficeVehicle
+!insert (rentalOffice2, vehicle2) into RentalOfficeVehicle
+!insert (rentalOffice2, truck2) into RentalOfficeVehicle
+
+-- Associations for Rental Agreements
+!insert (rentalOffice1, agreement1) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice1, agreement1) into RentalOfficeRentalAgreementDrop
+!insert (agreement1, vehicle1) into RentalAgreementVehicle
+!insert (agreement1, individual1) into RentalAgreementCustomer
+
+!insert (rentalOffice2, agreement2) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice2, agreement2) into RentalOfficeRentalAgreementDrop
+!insert (agreement2, truck1) into RentalAgreementVehicle
+!insert (agreement2, company1) into RentalAgreementCustomer
+
+-- Expand with more instances as needed to reach 100
+
+-- Adding remaining vehicles
+!new Vehicle('vehicle3')
+!vehicle3.id := 5
+!vehicle3.registrationState := #DE
+!vehicle3.licensePlateNumber := 'LMN456'
+!vehicle3.vehicleTypeCode := #OPEN_TRAILER
+!vehicle3.registrationLastMaintenanceDate := Date('2023-01-05')
+!vehicle3.expirationDate := Date('2024-01-05')
+
+!new Vehicle('vehicle4')
+!vehicle4.id := 6
+!vehicle4.registrationState := #CT
+!vehicle4.licensePlateNumber := 'QRS789'
+!vehicle4.vehicleTypeCode := #TRUCK
+!vehicle4.registrationLastMaintenanceDate := Date('2023-01-06')
+!vehicle4.expirationDate := Date('2024-01-06')
+
+-- Creating additional Vehicles
+!new Vehicle('vehicle5')
+!vehicle5.id := 7
+!vehicle5.registrationState := #DE
+!vehicle5.licensePlateNumber := 'DEF123'
+!vehicle5.vehicleTypeCode := #TRUCK
+!vehicle5.registrationLastMaintenanceDate := Date('2023-01-07')
+!vehicle5.expirationDate := Date('2024-01-07')
+
+!new Vehicle('vehicle6')
+!vehicle6.id := 8
+!vehicle6.registrationState := #CT
+!vehicle6.licensePlateNumber := 'XYZ321'
+!vehicle6.vehicleTypeCode := #TRUCK24
+!vehicle6.registrationLastMaintenanceDate := Date('2023-01-08')
+!vehicle6.expirationDate := Date('2024-01-08')
+
+-- Additional Trucks
+!new Truck('truck3')
+!truck3.id := 9
+!truck3.registrationState := #AL
+!truck3.licensePlateNumber := 'TRK123'
+!truck3.vehicleTypeCode := #TRUCK10
+!truck3.registrationLastMaintenanceDate := Date('2023-01-09')
+!truck3.expirationDate := Date('2024-01-09')
+!truck3.odometerReading := 13000
+!truck3.gasTankCapacity := 60.0
+!truck3.workingRadio := true
+!truck3.mileage := 20
+
+!new Truck('truck4')
+!truck4.id := 10
+!truck4.registrationState := #AK
+!truck4.licensePlateNumber := 'TRK321'
+!truck4.vehicleTypeCode := #TRUCK
+!truck4.registrationLastMaintenanceDate := Date('2023-01-10')
+!truck4.expirationDate := Date('2024-01-10')
+!truck4.odometerReading := 16000
+!truck4.gasTankCapacity := 55.0
+!truck4.workingRadio := false
+!truck4.mileage := 22
+
+-- Additional Rental Agreements
+!new RentalAgreement('agreement3')
+!agreement3.number := 203
+!agreement3.rentalDate := Date('2023-02-03')
+!agreement3.anticipatedDuration := 10
+!agreement3.depositPaid := 150.00
+!agreement3.quotedDailyRate := 24.99
+!agreement3.quotedRatePerMile := 0.35
+
+!new RentalAgreement('agreement4')
+!agreement4.number := 204
+!agreement4.rentalDate := Date('2023-02-04')
+!agreement4.anticipatedDuration := 20
+!agreement4.depositPaid := 250.00
+!agreement4.quotedDailyRate := 39.99
+!agreement4.quotedRatePerMile := 0.45
+
+-- New Individuals
+!new Individual('individual3')
+!individual3.name := 'Charles Brown'
+!individual3.address := '321 Elm St, CO'
+!individual3.poorRisk := false
+!individual3.homePhone := '555-0000'
+!individual3.driverLicenseState := #CO
+!individual3.driverLicenseNumber := 334455667
+!individual3.driverLicenseExpirationDate := Date('2025-04-01')
+
+!new Individual('individual4')
+!individual4.name := 'Dana Lee'
+!individual4.address := '654 Spruce Rd, CT'
+!individual4.poorRisk := true
+!individual4.homePhone := '555-9999'
+!individual4.driverLicenseState := #CT
+!individual4.driverLicenseNumber := 556677889
+!individual4.driverLicenseExpirationDate := Date('2025-05-01')
+
+-- New Companies
+!new Company('company3')
+!company3.name := 'Construction Solutions'
+!company3.address := '90 Build Ln, CO'
+!company3.poorRisk := false
+!company3.idNumber := 555003
+
+!new Company('company4')
+!company4.name := 'Transport Masters'
+!company4.address := '88 Haul Ave, DE'
+!company4.poorRisk := true
+!company4.idNumber := 555004
+
+-- Associations expanded
+!insert (rentalOffice1, agreement3) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice1, agreement3) into RentalOfficeRentalAgreementDrop
+!insert (agreement3, vehicle3) into RentalAgreementVehicle
+!insert (agreement3, individual3) into RentalAgreementCustomer
+
+!insert (rentalOffice2, agreement4) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice2, agreement4) into RentalOfficeRentalAgreementDrop
+!insert (agreement4, truck2) into RentalAgreementVehicle
+!insert (agreement4, company2) into RentalAgreementCustomer
+
+-- More Rental Offices
+!new RentalOffice('rentalOffice3')
+!rentalOffice3.name := 'Eastside Rentals'
+!rentalOffice3.number := 103
+!rentalOffice3.address := '789 River St, AK'
+
+-- Additional Vehicles
+!new Vehicle('vehicle7')
+!vehicle7.id := 11
+!vehicle7.registrationState := #FL
+!vehicle7.licensePlateNumber := 'GHI789'
+!vehicle7.vehicleTypeCode := #OPEN_TRAILER
+!vehicle7.registrationLastMaintenanceDate := Date('2023-01-11')
+!vehicle7.expirationDate := Date('2024-01-11')
+
+!new Vehicle('vehicle8')
+!vehicle8.id := 12
+!vehicle8.registrationState := #AK
+!vehicle8.licensePlateNumber := 'JKL012'
+!vehicle8.vehicleTypeCode := #TRUCK
+!vehicle8.registrationLastMaintenanceDate := Date('2023-01-12')
+!vehicle8.expirationDate := Date('2024-01-12')
+
+-- Additional Trucks
+!new Truck('truck5')
+!truck5.id := 13
+!truck5.registrationState := #DE
+!truck5.licensePlateNumber := 'TRK555'
+!truck5.vehicleTypeCode := #TRUCK24
+!truck5.registrationLastMaintenanceDate := Date('2023-01-13')
+!truck5.expirationDate := Date('2024-01-13')
+!truck5.odometerReading := 18000
+!truck5.gasTankCapacity := 70.0
+!truck5.workingRadio := true
+!truck5.mileage := 25
+
+!new Truck('truck6')
+!truck6.id := 14
+!truck6.registrationState := #CT
+!truck6.licensePlateNumber := 'TRK666'
+!truck6.vehicleTypeCode := #TRUCK10
+!truck6.registrationLastMaintenanceDate := Date('2023-01-14')
+!truck6.expirationDate := Date('2024-01-14')
+!truck6.odometerReading := 19000
+!truck6.gasTankCapacity := 65.0
+!truck6.workingRadio := false
+!truck6.mileage := 28
+
+-- Additional Rental Agreements
+!new RentalAgreement('agreement5')
+!agreement5.number := 205
+!agreement5.rentalDate := Date('2023-02-05')
+!agreement5.anticipatedDuration := 5
+!agreement5.depositPaid := 125.00
+!agreement5.quotedDailyRate := 26.50
+!agreement5.quotedRatePerMile := 0.32
+
+!new RentalAgreement('agreement6')
+!agreement6.number := 206
+!agreement6.rentalDate := Date('2023-02-06')
+!agreement6.anticipatedDuration := 12
+!agreement6.depositPaid := 275.00
+!agreement6.quotedDailyRate := 33.33
+!agreement6.quotedRatePerMile := 0.41
+
+-- More Individuals
+!new Individual('individual5')
+!individual5.name := 'Ellen White'
+!individual5.address := '147 Birch St, DE'
+!individual5.poorRisk := false
+!individual5.homePhone := '555-1111'
+!individual5.driverLicenseState := #DE
+!individual5.driverLicenseNumber := 998877665
+!individual5.driverLicenseExpirationDate := Date('2025-06-01')
+
+!new Individual('individual6')
+!individual6.name := 'Frank Green'
+!individual6.address := '369 Cedar Ave, FL'
+!individual6.poorRisk := true
+!individual6.homePhone := '555-2222'
+!individual6.driverLicenseState := #FL
+!individual6.driverLicenseNumber := 223344556
+!individual6.driverLicenseExpirationDate := Date('2025-07-01')
+
+-- More Companies
+!new Company('company5')
+!company5.name := 'Heavy Equipment Co.'
+!company5.address := '707 Industrial Ave, CA'
+!company5.poorRisk := false
+!company5.idNumber := 555005
+
+!new Company('company6')
+!company6.name := 'Swift Transport LLC'
+!company6.address := '900 Fast Ln, AL'
+!company6.poorRisk := true
+!company6.idNumber := 555006
+
+-- Additional associations
+!insert (rentalOffice3, vehicle5) into RentalOfficeVehicle
+!insert (rentalOffice3, truck3) into RentalOfficeVehicle
+
+!insert (rentalOffice3, agreement5) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice3, agreement5) into RentalOfficeRentalAgreementDrop
+!insert (agreement5, vehicle7) into RentalAgreementVehicle
+!insert (agreement5, individual5) into RentalAgreementCustomer
+
+!insert (rentalOffice3, agreement6) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice3, agreement6) into RentalOfficeRentalAgreementDrop
+!insert (agreement6, truck5) into RentalAgreementVehicle
+!insert (agreement6, company3) into RentalAgreementCustomer
+
+-- Final Rental Office
+!new RentalOffice('rentalOffice4')
+!rentalOffice4.name := 'Westside Rentals'
+!rentalOffice4.number := 104
+!rentalOffice4.address := '333 Sunset Blvd, AZ'
+
+-- Completing Vehicles
+!new Vehicle('vehicle9')
+!vehicle9.id := 15
+!vehicle9.registrationState := #CA
+!vehicle9.licensePlateNumber := 'MNO345'
+!vehicle9.vehicleTypeCode := #COVERED_TRAILER
+!vehicle9.registrationLastMaintenanceDate := Date('2023-01-15')
+!vehicle9.expirationDate := Date('2024-01-15')
+
+!new Vehicle('vehicle10')
+!vehicle10.id := 16
+!vehicle10.registrationState := #AK
+!vehicle10.licensePlateNumber := 'PQR567'
+!vehicle10.vehicleTypeCode := #TRUCK
+!vehicle10.registrationLastMaintenanceDate := Date('2023-01-16')
+!vehicle10.expirationDate := Date('2024-01-16')
+
+-- Final Trucks
+!new Truck('truck7')
+!truck7.id := 17
+!truck7.registrationState := #FL
+!truck7.licensePlateNumber := 'TRK777'
+!truck7.vehicleTypeCode := #TRUCK24
+!truck7.registrationLastMaintenanceDate := Date('2023-01-17')
+!truck7.expirationDate := Date('2024-01-17')
+!truck7.odometerReading := 21000
+!truck7.gasTankCapacity := 75.0
+!truck7.workingRadio := true
+!truck7.mileage := 30
+
+!new Truck('truck8')
+!truck8.id := 18
+!truck8.registrationState := #AZ
+!truck8.licensePlateNumber := 'TRK888'
+!truck8.vehicleTypeCode := #TRUCK10
+!truck8.registrationLastMaintenanceDate := Date('2023-01-18')
+!truck8.expirationDate := Date('2024-01-18')
+!truck8.odometerReading := 22000
+!truck8.gasTankCapacity := 80.0
+!truck8.workingRadio := false
+!truck8.mileage := 32
+
+-- Completing Rental Agreements
+!new RentalAgreement('agreement7')
+!agreement7.number := 207
+!agreement7.rentalDate := Date('2023-02-07')
+!agreement7.anticipatedDuration := 6
+!agreement7.depositPaid := 110.00
+!agreement7.quotedDailyRate := 27.00
+!agreement7.quotedRatePerMile := 0.34
+
+!new RentalAgreement('agreement8')
+!agreement8.number := 208
+!agreement8.rentalDate := Date('2023-02-08')
+!agreement8.anticipatedDuration := 15
+!agreement8.depositPaid := 260.00
+!agreement8.quotedDailyRate := 35.99
+!agreement8.quotedRatePerMile := 0.42
+
+-- Final Individuals
+!new Individual('individual7')
+!individual7.name := 'George Spenser'
+!individual7.address := '970 High St, CT'
+!individual7.poorRisk := false
+!individual7.homePhone := '555-3333'
+!individual7.driverLicenseState := #CT
+!individual7.driverLicenseNumber := 774455662
+!individual7.driverLicenseExpirationDate := Date('2025-08-01')
+
+!new Individual('individual8')
+!individual8.name := 'Hannah Martin'
+!individual8.address := '123 Lakeview Dr, AK'
+!individual8.poorRisk := true
+!individual8.homePhone := '555-4444'
+!individual8.driverLicenseState := #AK
+!individual8.driverLicenseNumber := 998822334
+!individual8.driverLicenseExpirationDate := Date('2025-09-01')
+
+-- Final Companies
+!new Company('company7')
+!company7.name := 'Warehouse Solutions'
+!company7.address := '500 Goods Blvd, DE'
+!company7.poorRisk := false
+!company7.idNumber := 555007
+
+!new Company('company8')
+!company8.name := 'Fast Delivery Co.'
+!company8.address := '602 Speed Ln, FL'
+!company8.poorRisk := true
+!company8.idNumber := 555008
+
+-- Completing associations
+!insert (rentalOffice4, vehicle9) into RentalOfficeVehicle
+!insert (rentalOffice4, truck7) into RentalOfficeVehicle
+
+!insert (rentalOffice4, agreement7) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice4, agreement7) into RentalOfficeRentalAgreementDrop
+!insert (agreement7, vehicle10) into RentalAgreementVehicle
+!insert (agreement7, individual7) into RentalAgreementCustomer
+
+!insert (rentalOffice4, agreement8) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice4, agreement8) into RentalOfficeRentalAgreementDrop
+!insert (agreement8, truck8) into RentalAgreementVehicle
+!insert (agreement8, company5) into RentalAgreementCustomer
+
+-- Additional Rental Offices
+!new RentalOffice('rentalOffice5')
+!rentalOffice5.name := 'Central Rentals'
+!rentalOffice5.number := 105
+!rentalOffice5.address := '862 Central Ave, CA'
+
+-- More Vehicles
+!new Vehicle('vehicle11')
+!vehicle11.id := 19
+!vehicle11.registrationState := #AZ
+!vehicle11.licensePlateNumber := 'STU890'
+!vehicle11.vehicleTypeCode := #TRUCK10
+!vehicle11.registrationLastMaintenanceDate := Date('2023-01-19')
+!vehicle11.expirationDate := Date('2024-01-19')
+
+!new Vehicle('vehicle12')
+!vehicle12.id := 20
+!vehicle12.registrationState := #AK
+!vehicle12.licensePlateNumber := 'VWX234'
+!vehicle12.vehicleTypeCode := #COVERED_TRAILER
+!vehicle12.registrationLastMaintenanceDate := Date('2023-01-20')
+!vehicle12.expirationDate := Date('2024-01-20')
+
+-- More Trucks
+!new Truck('truck9')
+!truck9.id := 21
+!truck9.registrationState := #DE
+!truck9.licensePlateNumber := 'TRK999'
+!truck9.vehicleTypeCode := #TRUCK24
+!truck9.registrationLastMaintenanceDate := Date('2023-01-21')
+!truck9.expirationDate := Date('2024-01-21')
+!truck9.odometerReading := 23000
+!truck9.gasTankCapacity := 90.0
+!truck9.workingRadio := true
+!truck9.mileage := 35
+
+!new Truck('truck10')
+!truck10.id := 22
+!truck10.registrationState := #FL
+!truck10.licensePlateNumber := 'TRK000'
+!truck10.vehicleTypeCode := #TRUCK
+!truck10.registrationLastMaintenanceDate := Date('2023-01-22')
+!truck10.expirationDate := Date('2024-01-22')
+!truck10.odometerReading := 24000
+!truck10.gasTankCapacity := 85.0
+!truck10.workingRadio := false
+!truck10.mileage := 33
+
+-- More Rental Agreements
+!new RentalAgreement('agreement9')
+!agreement9.number := 209
+!agreement9.rentalDate := Date('2023-02-09')
+!agreement9.anticipatedDuration := 3
+!agreement9.depositPaid := 100.00
+!agreement9.quotedDailyRate := 21.99
+!agreement9.quotedRatePerMile := 0.28
+
+!new RentalAgreement('agreement10')
+!agreement10.number := 210
+!agreement10.rentalDate := Date('2023-02-10')
+!agreement10.anticipatedDuration := 18
+!agreement10.depositPaid := 300.00
+!agreement10.quotedDailyRate := 40.00
+!agreement10.quotedRatePerMile := 0.50
+
+-- Additional Individuals
+!new Individual('individual9')
+!individual9.name := 'Irene Walker'
+!individual9.address := '55 Ocean Blvd, AL'
+!individual9.poorRisk := false
+!individual9.homePhone := '555-5555'
+!individual9.driverLicenseState := #AL
+!individual9.driverLicenseNumber := 112233445
+!individual9.driverLicenseExpirationDate := Date('2025-10-01')
+
+!new Individual('individual10')
+!individual10.name := 'Jack Turner'
+!individual10.address := '401 Windy Ln, CA'
+!individual10.poorRisk := true
+!individual10.homePhone := '555-6666'
+!individual10.driverLicenseState := #CA
+!individual10.driverLicenseNumber := 667788990
+!individual10.driverLicenseExpirationDate := Date('2025-11-01')
+
+-- Additional Companies
+!new Company('company9')
+!company9.name := 'Heavy Loaders'
+!company9.address := '750 Weight St, CT'
+!company9.poorRisk := false
+!company9.idNumber := 555009
+
+!new Company('company10')
+!company10.name := 'Mega Transport'
+!company10.address := '999 Speed Blvd, FL'
+!company10.poorRisk := true
+!company10.idNumber := 555010
+
+-- Finalize Associations
+!insert (rentalOffice5, vehicle11) into RentalOfficeVehicle
+!insert (rentalOffice5, truck9) into RentalOfficeVehicle
+
+!insert (rentalOffice5, agreement9) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice5, agreement9) into RentalOfficeRentalAgreementDrop
+!insert (agreement9, vehicle12) into RentalAgreementVehicle
+!insert (agreement9, individual9) into RentalAgreementCustomer
+
+!insert (rentalOffice5, agreement10) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice5, agreement10) into RentalOfficeRentalAgreementDrop
+!insert (agreement10, truck10) into RentalAgreementVehicle
+!insert (agreement10, company10) into RentalAgreementCustomer
+
+-- Additional Rental Offices
+!new RentalOffice('rentalOffice5')
+!rentalOffice5.name := 'Central Rentals'
+!rentalOffice5.number := 105
+!rentalOffice5.address := '862 Central Ave, CA'
+
+-- More Vehicles
+!new Vehicle('vehicle11')
+!vehicle11.id := 19
+!vehicle11.registrationState := #AZ
+!vehicle11.licensePlateNumber := 'STU890'
+!vehicle11.vehicleTypeCode := #TRUCK10
+!vehicle11.registrationLastMaintenanceDate := Date('2023-01-19')
+!vehicle11.expirationDate := Date('2024-01-19')
+
+!new Vehicle('vehicle12')
+!vehicle12.id := 20
+!vehicle12.registrationState := #AK
+!vehicle12.licensePlateNumber := 'VWX234'
+!vehicle12.vehicleTypeCode := #COVERED_TRAILER
+!vehicle12.registrationLastMaintenanceDate := Date('2023-01-20')
+!vehicle12.expirationDate := Date('2024-01-20')
+
+-- More Trucks
+!new Truck('truck9')
+!truck9.id := 21
+!truck9.registrationState := #DE
+!truck9.licensePlateNumber := 'TRK999'
+!truck9.vehicleTypeCode := #TRUCK24
+!truck9.registrationLastMaintenanceDate := Date('2023-01-21')
+!truck9.expirationDate := Date('2024-01-21')
+!truck9.odometerReading := 23000
+!truck9.gasTankCapacity := 90.0
+!truck9.workingRadio := true
+!truck9.mileage := 35
+
+!new Truck('truck10')
+!truck10.id := 22
+!truck10.registrationState := #FL
+!truck10.licensePlateNumber := 'TRK000'
+!truck10.vehicleTypeCode := #TRUCK
+!truck10.registrationLastMaintenanceDate := Date('2023-01-22')
+!truck10.expirationDate := Date('2024-01-22')
+!truck10.odometerReading := 24000
+!truck10.gasTankCapacity := 85.0
+!truck10.workingRadio := false
+!truck10.mileage := 33
+
+-- More Rental Agreements
+!new RentalAgreement('agreement9')
+!agreement9.number := 209
+!agreement9.rentalDate := Date('2023-02-09')
+!agreement9.anticipatedDuration := 3
+!agreement9.depositPaid := 100.00
+!agreement9.quotedDailyRate := 21.99
+!agreement9.quotedRatePerMile := 0.28
+
+!new RentalAgreement('agreement10')
+!agreement10.number := 210
+!agreement10.rentalDate := Date('2023-02-10')
+!agreement10.anticipatedDuration := 18
+!agreement10.depositPaid := 300.00
+!agreement10.quotedDailyRate := 40.00
+!agreement10.quotedRatePerMile := 0.50
+
+-- Additional Individuals
+!new Individual('individual9')
+!individual9.name := 'Irene Walker'
+!individual9.address := '55 Ocean Blvd, AL'
+!individual9.poorRisk := false
+!individual9.homePhone := '555-5555'
+!individual9.driverLicenseState := #AL
+!individual9.driverLicenseNumber := 112233445
+!individual9.driverLicenseExpirationDate := Date('2025-10-01')
+
+!new Individual('individual10')
+!individual10.name := 'Jack Turner'
+!individual10.address := '401 Windy Ln, CA'
+!individual10.poorRisk := true
+!individual10.homePhone := '555-6666'
+!individual10.driverLicenseState := #CA
+!individual10.driverLicenseNumber := 667788990
+!individual10.driverLicenseExpirationDate := Date('2025-11-01')
+
+-- Additional Companies
+!new Company('company9')
+!company9.name := 'Heavy Loaders'
+!company9.address := '750 Weight St, CT'
+!company9.poorRisk := false
+!company9.idNumber := 555009
+
+!new Company('company10')
+!company10.name := 'Mega Transport'
+!company10.address := '999 Speed Blvd, FL'
+!company10.poorRisk := true
+!company10.idNumber := 555010
+
+-- Finalize Associations
+!insert (rentalOffice5, vehicle11) into RentalOfficeVehicle
+!insert (rentalOffice5, truck9) into RentalOfficeVehicle
+
+!insert (rentalOffice5, agreement9) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice5, agreement9) into RentalOfficeRentalAgreementDrop
+!insert (agreement9, vehicle12) into RentalAgreementVehicle
+!insert (agreement9, individual9) into RentalAgreementCustomer
+
+!insert (rentalOffice5, agreement10) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice5, agreement10) into RentalOfficeRentalAgreementDrop
+!insert (agreement10, truck10) into RentalAgreementVehicle
+!insert (agreement10, company10) into RentalAgreementCustomer
+
+-- Additional Rental Offices
+!new RentalOffice('rentalOffice5')
+!rentalOffice5.name := 'Central Rentals'
+!rentalOffice5.number := 105
+!rentalOffice5.address := '862 Central Ave, CA'
+
+-- More Vehicles
+!new Vehicle('vehicle11')
+!vehicle11.id := 19
+!vehicle11.registrationState := #AZ
+!vehicle11.licensePlateNumber := 'STU890'
+!vehicle11.vehicleTypeCode := #TRUCK10
+!vehicle11.registrationLastMaintenanceDate := Date('2023-01-19')
+!vehicle11.expirationDate := Date('2024-01-19')
+
+!new Vehicle('vehicle12')
+!vehicle12.id := 20
+!vehicle12.registrationState := #AK
+!vehicle12.licensePlateNumber := 'VWX234'
+!vehicle12.vehicleTypeCode := #COVERED_TRAILER
+!vehicle12.registrationLastMaintenanceDate := Date('2023-01-20')
+!vehicle12.expirationDate := Date('2024-01-20')
+
+-- More Trucks
+!new Truck('truck9')
+!truck9.id := 21
+!truck9.registrationState := #DE
+!truck9.licensePlateNumber := 'TRK999'
+!truck9.vehicleTypeCode := #TRUCK24
+!truck9.registrationLastMaintenanceDate := Date('2023-01-21')
+!truck9.expirationDate := Date('2024-01-21')
+!truck9.odometerReading := 23000
+!truck9.gasTankCapacity := 90.0
+!truck9.workingRadio := true
+!truck9.mileage := 35
+
+!new Truck('truck10')
+!truck10.id := 22
+!truck10.registrationState := #FL
+!truck10.licensePlateNumber := 'TRK000'
+!truck10.vehicleTypeCode := #TRUCK
+!truck10.registrationLastMaintenanceDate := Date('2023-01-22')
+!truck10.expirationDate := Date('2024-01-22')
+!truck10.odometerReading := 24000
+!truck10.gasTankCapacity := 85.0
+!truck10.workingRadio := false
+!truck10.mileage := 33
+
+-- More Rental Agreements
+!new RentalAgreement('agreement9')
+!agreement9.number := 209
+!agreement9.rentalDate := Date('2023-02-09')
+!agreement9.anticipatedDuration := 3
+!agreement9.depositPaid := 100.00
+!agreement9.quotedDailyRate := 21.99
+!agreement9.quotedRatePerMile := 0.28
+
+!new RentalAgreement('agreement10')
+!agreement10.number := 210
+!agreement10.rentalDate := Date('2023-02-10')
+!agreement10.anticipatedDuration := 18
+!agreement10.depositPaid := 300.00
+!agreement10.quotedDailyRate := 40.00
+!agreement10.quotedRatePerMile := 0.50
+
+-- Additional Individuals
+!new Individual('individual9')
+!individual9.name := 'Irene Walker'
+!individual9.address := '55 Ocean Blvd, AL'
+!individual9.poorRisk := false
+!individual9.homePhone := '555-5555'
+!individual9.driverLicenseState := #AL
+!individual9.driverLicenseNumber := 112233445
+!individual9.driverLicenseExpirationDate := Date('2025-10-01')
+
+!new Individual('individual10')
+!individual10.name := 'Jack Turner'
+!individual10.address := '401 Windy Ln, CA'
+!individual10.poorRisk := true
+!individual10.homePhone := '555-6666'
+!individual10.driverLicenseState := #CA
+!individual10.driverLicenseNumber := 667788990
+!individual10.driverLicenseExpirationDate := Date('2025-11-01')
+
+-- Additional Companies
+!new Company('company9')
+!company9.name := 'Heavy Loaders'
+!company9.address := '750 Weight St, CT'
+!company9.poorRisk := false
+!company9.idNumber := 555009
+
+!new Company('company10')
+!company10.name := 'Mega Transport'
+!company10.address := '999 Speed Blvd, FL'
+!company10.poorRisk := true
+!company10.idNumber := 555010
+
+-- Finalize Associations
+!insert (rentalOffice5, vehicle11) into RentalOfficeVehicle
+!insert (rentalOffice5, truck9) into RentalOfficeVehicle
+
+!insert (rentalOffice5, agreement9) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice5, agreement9) into RentalOfficeRentalAgreementDrop
+!insert (agreement9, vehicle12) into RentalAgreementVehicle
+!insert (agreement9, individual9) into RentalAgreementCustomer
+
+!insert (rentalOffice5, agreement10) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice5, agreement10) into RentalOfficeRentalAgreementDrop
+!insert (agreement10, truck10) into RentalAgreementVehicle
+!insert (agreement10, company10) into RentalAgreementCustomer
+
+-- Adding the last set of Rental Offices
+!new RentalOffice('rentalOffice6')
+!rentalOffice6.name := 'Northern Rentals'
+!rentalOffice6.number := 106
+!rentalOffice6.address := '123 North St, DE'
+
+-- Additional Vehicles
+!new Vehicle('vehicle13')
+!vehicle13.id := 23
+!vehicle13.registrationState := #AL
+!vehicle13.licensePlateNumber := 'YZ0123'
+!vehicle13.vehicleTypeCode := #OPEN_TRAILER
+!vehicle13.registrationLastMaintenanceDate := Date('2023-01-23')
+!vehicle13.expirationDate := Date('2024-01-23')
+
+!new Vehicle('vehicle14')
+!vehicle14.id := 24
+!vehicle14.registrationState := #CA
+!vehicle14.licensePlateNumber := '456NOP'
+!vehicle14.vehicleTypeCode := #COVERED_TRAILER
+!vehicle14.registrationLastMaintenanceDate := Date('2023-01-24')
+!vehicle14.expirationDate := Date('2024-01-24')
+
+-- More Trucks
+!new Truck('truck11')
+!truck11.id := 25
+!truck11.registrationState := #AZ
+!truck11.licensePlateNumber := 'TRK555'
+!truck11.vehicleTypeCode := #TRUCK24
+!truck11.registrationLastMaintenanceDate := Date('2023-01-25')
+!truck11.expirationDate := Date('2024-01-25')
+!truck11.odometerReading := 27000
+!truck11.gasTankCapacity := 95.0
+!truck11.workingRadio := true
+!truck11.mileage := 36
+
+!new Truck('truck12')
+!truck12.id := 26
+!truck12.registrationState := #DE
+!truck12.licensePlateNumber := 'TRK111'
+!truck12.vehicleTypeCode := #TRUCK
+!truck12.registrationLastMaintenanceDate := Date('2023-01-26')
+!truck12.expirationDate := Date('2024-01-26')
+!truck12.odometerReading := 25000
+!truck12.gasTankCapacity := 97.0
+!truck12.workingRadio := false
+!truck12.mileage := 34
+
+-- Additional Rental Agreements
+!new RentalAgreement('agreement11')
+!agreement11.number := 211
+!agreement11.rentalDate := Date('2023-02-11')
+!agreement11.anticipatedDuration := 4
+!agreement11.depositPaid := 110.00
+!agreement11.quotedDailyRate := 23.00
+!agreement11.quotedRatePerMile := 0.39
+
+!new RentalAgreement('agreement12')
+!agreement12.number := 212
+!agreement12.rentalDate := Date('2023-02-12')
+!agreement12.anticipatedDuration := 7
+!agreement12.depositPaid := 150.00
+!agreement12.quotedDailyRate := 31.99
+!agreement12.quotedRatePerMile := 0.48
+
+-- Completing Individuals
+!new Individual('individual11')
+!individual11.name := 'Laura Hill'
+!individual11.address := '218 Hillside Ave, CO'
+!individual11.poorRisk := false
+!individual11.homePhone := '555-7777'
+!individual11.driverLicenseState := #CO
+!individual11.driverLicenseNumber := 777888999
+!individual11.driverLicenseExpirationDate := Date('2025-12-01')
+
+!new Individual('individual12')
+!individual12.name := 'Mike Green'
+!individual12.address := '325 Mountain Rd, CT'
+!individual12.poorRisk := true
+!individual12.homePhone := '555-8888'
+!individual12.driverLicenseState := #CT
+!individual12.driverLicenseNumber := 444555666
+!individual12.driverLicenseExpirationDate := Date('2025-12-10')
+
+-- Completing Companies
+!new Company('company11')
+!company11.name := 'Transport Co.'
+!company11.address := '950 North Ave, CT'
+!company11.poorRisk := false
+!company11.idNumber := 555011
+
+!new Company('company12')
+!company12.name := 'Quick Logistics'
+!company12.address := '765 Quick St, AL'
+!company12.poorRisk := true
+!company12.idNumber := 555012
+
+-- More associations
+!insert (rentalOffice6, vehicle13) into RentalOfficeVehicle
+!insert (rentalOffice6, truck11) into RentalOfficeVehicle
+
+!insert (rentalOffice6, agreement11) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice6, agreement11) into RentalOfficeRentalAgreementDrop
+!insert (agreement11, vehicle14) into RentalAgreementVehicle
+!insert (agreement11, individual11) into RentalAgreementCustomer
+
+!insert (rentalOffice6, agreement12) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice6, agreement12) into RentalOfficeRentalAgreementDrop
+!insert (agreement12, truck12) into RentalAgreementVehicle
+!insert (agreement12, company11) into RentalAgreementCustomer
+
+-- Additional Rental Offices
+!new RentalOffice('rentalOffice6')
+!rentalOffice6.name := 'Northern Rentals'
+!rentalOffice6.number := 106
+!rentalOffice6.address := '123 North St, DE'
+
+-- Additional Vehicles
+!new Vehicle('vehicle13')
+!vehicle13.id := 23
+!vehicle13.registrationState := #AL
+!vehicle13.licensePlateNumber := 'YZ0123'
+!vehicle13.vehicleTypeCode := #OPEN_TRAILER
+!vehicle13.registrationLastMaintenanceDate := Date('2023-01-23')
+!vehicle13.expirationDate := Date('2024-01-23')
+
+!new Vehicle('vehicle14')
+!vehicle14.id := 24
+!vehicle14.registrationState := #CA
+!vehicle14.licensePlateNumber := '456NOP'
+!vehicle14.vehicleTypeCode := #COVERED_TRAILER
+!vehicle14.registrationLastMaintenanceDate := Date('2023-01-24')
+!vehicle14.expirationDate := Date('2024-01-24')
+
+-- More Trucks
+!new Truck('truck11')
+!truck11.id := 25
+!truck11.registrationState := #AZ
+!truck11.licensePlateNumber := 'TRK555'
+!truck11.vehicleTypeCode := #TRUCK24
+!truck11.registrationLastMaintenanceDate := Date('2023-01-25')
+!truck11.expirationDate := Date('2024-01-25')
+!truck11.odometerReading := 27000
+!truck11.gasTankCapacity := 95.0
+!truck11.workingRadio := true
+!truck11.mileage := 36
+
+!new Truck('truck12')
+!truck12.id := 26
+!truck12.registrationState := #DE
+!truck12.licensePlateNumber := 'TRK111'
+!truck12.vehicleTypeCode := #TRUCK
+!truck12.registrationLastMaintenanceDate := Date('2023-01-26')
+!truck12.expirationDate := Date('2024-01-26')
+!truck12.odometerReading := 25000
+!truck12.gasTankCapacity := 97.0
+!truck12.workingRadio := false
+!truck12.mileage := 34
+
+-- Additional Rental Agreements
+!new RentalAgreement('agreement11')
+!agreement11.number := 211
+!agreement11.rentalDate := Date('2023-02-11')
+!agreement11.anticipatedDuration := 4
+!agreement11.depositPaid := 110.00
+!agreement11.quotedDailyRate := 23.00
+!agreement11.quotedRatePerMile := 0.39
+
+!new RentalAgreement('agreement12')
+!agreement12.number := 212
+!agreement12.rentalDate := Date('2023-02-12')
+!agreement12.anticipatedDuration := 7
+!agreement12.depositPaid := 150.00
+!agreement12.quotedDailyRate := 31.99
+!agreement12.quotedRatePerMile := 0.48
+
+-- Completing Individuals
+!new Individual('individual11')
+!individual11.name := 'Laura Hill'
+!individual11.address := '218 Hillside Ave, CO'
+!individual11.poorRisk := false
+!individual11.homePhone := '555-7777'
+!individual11.driverLicenseState := #CO
+!individual11.driverLicenseNumber := 777888999
+!individual11.driverLicenseExpirationDate := Date('2025-12-01')
+
+!new Individual('individual12')
+!individual12.name := 'Mike Green'
+!individual12.address := '325 Mountain Rd, CT'
+!individual12.poorRisk := true
+!individual12.homePhone := '555-8888'
+!individual12.driverLicenseState := #CT
+!individual12.driverLicenseNumber := 444555666
+!individual12.driverLicenseExpirationDate := Date('2025-12-10')
+
+-- Completing Companies
+!new Company('company11')
+!company11.name := 'Transport Co.'
+!company11.address := '950 North Ave, CT'
+!company11.poorRisk := false
+!company11.idNumber := 555011
+
+!new Company('company12')
+!company12.name := 'Quick Logistics'
+!company12.address := '765 Quick St, AL'
+!company12.poorRisk := true
+!company12.idNumber := 555012
+
+-- More associations
+!insert (rentalOffice6, vehicle13) into RentalOfficeVehicle
+!insert (rentalOffice6, truck11) into RentalOfficeVehicle
+
+!insert (rentalOffice6, agreement11) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice6, agreement11) into RentalOfficeRentalAgreementDrop
+!insert (agreement11, vehicle14) into RentalAgreementVehicle
+!insert (agreement11, individual11) into RentalAgreementCustomer
+
+!insert (rentalOffice6, agreement12) into RentalOfficeRentalAgreementOrigin
+!insert (rentalOffice6, agreement12) into RentalOfficeRentalAgreementDrop
+!insert (agreement12, truck12) into RentalAgreementVehicle
+!insert (agreement12, company11) into RentalAgreementCustomer
+
+
+
+```
+## Generation 1 summary
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 62 | 824 | 7.52% |
+| Multiplicities Errors | 14 | 90 | 15.56% |
+| Invariants Errors | 0 | 5 | 0.00% |
+
+| Syntax Errors | 
+|---| 
+```
+Error: An object with name `rentalOffice5' already exists.
+```
+```
+Error: An object with name `vehicle11' already exists.
+```
+```
+Error: An object with name `vehicle12' already exists.
+```
+```
+Error: An object with name `truck9' already exists.
+```
+```
+Error: An object with name `truck10' already exists.
+```
+```
+Error: An object with name `agreement9' already exists.
+```
+```
+Error: An object with name `agreement10' already exists.
+```
+```
+Error: An object with name `individual9' already exists.
+```
+```
+Error: An object with name `individual10' already exists.
+```
+```
+Error: An object with name `company9' already exists.
+```
+```
+Error: An object with name `company10' already exists.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,vehicle11) already exist.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,truck9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement9,vehicle12) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement9,individual9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement10,truck10) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement10,company10) already exist.
+```
+```
+Error: An object with name `rentalOffice5' already exists.
+```
+```
+Error: An object with name `vehicle11' already exists.
+```
+```
+Error: An object with name `vehicle12' already exists.
+```
+```
+Error: An object with name `truck9' already exists.
+```
+```
+Error: An object with name `truck10' already exists.
+```
+```
+Error: An object with name `agreement9' already exists.
+```
+```
+Error: An object with name `agreement10' already exists.
+```
+```
+Error: An object with name `individual9' already exists.
+```
+```
+Error: An object with name `individual10' already exists.
+```
+```
+Error: An object with name `company9' already exists.
+```
+```
+Error: An object with name `company10' already exists.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,vehicle11) already exist.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,truck9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement9,vehicle12) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement9,individual9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement10,truck10) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement10,company10) already exist.
+```
+```
+Error: An object with name `rentalOffice6' already exists.
+```
+```
+Error: An object with name `vehicle13' already exists.
+```
+```
+Error: An object with name `vehicle14' already exists.
+```
+```
+Error: An object with name `truck11' already exists.
+```
+```
+Error: An object with name `truck12' already exists.
+```
+```
+Error: An object with name `agreement11' already exists.
+```
+```
+Error: An object with name `agreement12' already exists.
+```
+```
+Error: An object with name `individual11' already exists.
+```
+```
+Error: An object with name `individual12' already exists.
+```
+```
+Error: An object with name `company11' already exists.
+```
+```
+Error: An object with name `company12' already exists.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice6,vehicle13) already exist.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice6,truck11) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice6,agreement11) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice6,agreement11) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement11,vehicle14) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement11,individual11) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice6,agreement12) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice6,agreement12) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement12,truck12) already exist.
+```
+
+| Multiplicities Errors | 
+|---| 
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle8' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle6' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck10' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle7' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle4' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle3' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck8' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck6' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck5' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck4' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle12' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle14' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle10' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck12' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+
+| VehicleRental | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Addresses | 19 | 45 | 42.22% |
+| License Plates | 0 | 38 | 0.00% |
+| Home Phones | 0 | 18 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+789 Tech Blvd, AK
+```
+```
+101 Freight Ln, AZ
+```
+```
+90 Build Ln, CO
+```
+```
+88 Haul Ave, DE
+```
+```
+500 Goods Blvd, DE
+```
+```
+602 Speed Ln, FL
+```
+```
+55 Ocean Blvd, AL
+```
+```
+750 Weight St, CT
+```
+```
+999 Speed Blvd, FL
+```
+```
+55 Ocean Blvd, AL
+```
+```
+750 Weight St, CT
+```
+```
+999 Speed Blvd, FL
+```
+```
+55 Ocean Blvd, AL
+```
+```
+750 Weight St, CT
+```
+```
+999 Speed Blvd, FL
+```
+```
+325 Mountain Rd, CT
+```
+```
+765 Quick St, AL
+```
+```
+325 Mountain Rd, CT
+```
+```
+765 Quick St, AL
+```
+
+# Summary for all generations
+| Summary | Value | 
+|---|---| 
+| Model | null | 
+| Type |  | 
+| System | vehiclerental | 
+| Number of generations | 1 | 
+
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 62 | 824 | 7.52% |
+| Multiplicities Errors | 14 | 90 | 15.56% |
+| Invariants Errors | 0 | 5 | 0.00% |
+
+| Syntax Errors | 
+|---| 
+```
+Error: An object with name `rentalOffice5' already exists.
+```
+```
+Error: An object with name `vehicle11' already exists.
+```
+```
+Error: An object with name `vehicle12' already exists.
+```
+```
+Error: An object with name `truck9' already exists.
+```
+```
+Error: An object with name `truck10' already exists.
+```
+```
+Error: An object with name `agreement9' already exists.
+```
+```
+Error: An object with name `agreement10' already exists.
+```
+```
+Error: An object with name `individual9' already exists.
+```
+```
+Error: An object with name `individual10' already exists.
+```
+```
+Error: An object with name `company9' already exists.
+```
+```
+Error: An object with name `company10' already exists.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,vehicle11) already exist.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,truck9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement9,vehicle12) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement9,individual9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement10,truck10) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement10,company10) already exist.
+```
+```
+Error: An object with name `rentalOffice5' already exists.
+```
+```
+Error: An object with name `vehicle11' already exists.
+```
+```
+Error: An object with name `vehicle12' already exists.
+```
+```
+Error: An object with name `truck9' already exists.
+```
+```
+Error: An object with name `truck10' already exists.
+```
+```
+Error: An object with name `agreement9' already exists.
+```
+```
+Error: An object with name `agreement10' already exists.
+```
+```
+Error: An object with name `individual9' already exists.
+```
+```
+Error: An object with name `individual10' already exists.
+```
+```
+Error: An object with name `company9' already exists.
+```
+```
+Error: An object with name `company10' already exists.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,vehicle11) already exist.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice5,truck9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement9) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement9,vehicle12) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement9,individual9) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice5,agreement10) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement10,truck10) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement10,company10) already exist.
+```
+```
+Error: An object with name `rentalOffice6' already exists.
+```
+```
+Error: An object with name `vehicle13' already exists.
+```
+```
+Error: An object with name `vehicle14' already exists.
+```
+```
+Error: An object with name `truck11' already exists.
+```
+```
+Error: An object with name `truck12' already exists.
+```
+```
+Error: An object with name `agreement11' already exists.
+```
+```
+Error: An object with name `agreement12' already exists.
+```
+```
+Error: An object with name `individual11' already exists.
+```
+```
+Error: An object with name `individual12' already exists.
+```
+```
+Error: An object with name `company11' already exists.
+```
+```
+Error: An object with name `company12' already exists.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice6,vehicle13) already exist.
+```
+```
+Error: Link `RentalOfficeVehicle' between (rentalOffice6,truck11) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice6,agreement11) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice6,agreement11) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement11,vehicle14) already exist.
+```
+```
+Error: Link `RentalAgreementCustomer' between (agreement11,individual11) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementOrigin' between (rentalOffice6,agreement12) already exist.
+```
+```
+Error: Link `RentalOfficeRentalAgreementDrop' between (rentalOffice6,agreement12) already exist.
+```
+```
+Error: Link `RentalAgreementVehicle' between (agreement12,truck12) already exist.
+```
+
+| Multiplicities Errors | 
+|---| 
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle8' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle6' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck10' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle7' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle4' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle3' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck8' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck6' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck5' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck4' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle12' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle14' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `vehicle10' of class `Vehicle' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+```
+Multiplicity constraint violation in association `RentalOfficeVehicle':
+  Object `truck12' of class `Truck' is connected to 0 objects of class `RentalOffice'
+  at association end `homeOffice' but the multiplicity is specified as `1'.
+```
+
+| VehicleRental | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Addresses | 19 | 45 | 42.22% |
+| License Plates | 0 | 38 | 0.00% |
+| Home Phones | 0 | 18 | 0.00% |
+
+| Invalid Addresses | 
+|---| 
+```
+789 Tech Blvd, AK
+```
+```
+101 Freight Ln, AZ
+```
+```
+90 Build Ln, CO
+```
+```
+88 Haul Ave, DE
+```
+```
+500 Goods Blvd, DE
+```
+```
+602 Speed Ln, FL
+```
+```
+55 Ocean Blvd, AL
+```
+```
+750 Weight St, CT
+```
+```
+999 Speed Blvd, FL
+```
+```
+55 Ocean Blvd, AL
+```
+```
+750 Weight St, CT
+```
+```
+999 Speed Blvd, FL
+```
+```
+55 Ocean Blvd, AL
+```
+```
+750 Weight St, CT
+```
+```
+999 Speed Blvd, FL
+```
+```
+325 Mountain Rd, CT
+```
+```
+765 Quick St, AL
+```
+```
+325 Mountain Rd, CT
+```
+```
+765 Quick St, AL
+```
+

@@ -1,0 +1,29 @@
+!new Client('client15')
+!client15.clientId := 15
+!client15.isSuspended := false
+
+!new Rental('rental15')
+!rental15.date := Date('2023-10-24')
+
+!new Movie('movie15')
+!movie15.title := 'Silent Drama'
+!movie15.availableCopies := 0
+!movie15.genre := #Comedy
+
+!new Series('series14')
+!series14.title := 'Historical Epic'
+!series14.availableCopies := 10
+!series14.episode := 9
+
+!new Actor('actor26')
+!actor26.name := 'Silent Star'
+
+!new Actor('actor27')
+!actor27.name := 'Historical Icon'
+
+!insert (client15, rental15) into ClientRental
+!insert (rental15, movie15) into RentalCassette
+!insert (rental15, series14) into RentalCassette
+!insert (movie15, actor26) into CassetteActor
+!insert (series14, actor27) into CassetteActor
+!insert (series14, actor26) into CassetteActor

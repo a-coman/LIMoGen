@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice18')
+!rentalOffice18.name := 'Highway Rentals'
+!rentalOffice18.number := 1818
+!rentalOffice18.address := '777 Freeway Rd, TX'
+
+!new Vehicle('vehicle18')
+!vehicle18.id := 1018
+!vehicle18.registrationState := #NM
+!vehicle18.licensePlateNumber := 'NM4321'
+!vehicle18.vehicleTypeCode := #TRUCK24
+!vehicle18.registrationLastMaintenanceDate := Date('2023-08-20')
+!vehicle18.expirationDate := Date('2024-08-20')
+
+!new Truck('truck18')
+!truck18.id := 2018
+!truck18.registrationState := #LA
+!truck18.licensePlateNumber := 'LA6587'
+!truck18.vehicleTypeCode := #TRUCK10
+!truck18.registrationLastMaintenanceDate := Date('2023-11-10')
+!truck18.expirationDate := Date('2024-11-10')
+!truck18.odometerReading := 70000
+!truck18.gasTankCapacity := 65.0
+!truck18.workingRadio := false
+!truck18.mileage := 12
+
+!new RentalAgreement('rentalAgreement18')
+!rentalAgreement18.number := 5018
+!rentalAgreement18.rentalDate := Date('2025-02-12')
+!rentalAgreement18.anticipatedDuration := 4
+!rentalAgreement18.depositPaid := 300.0
+!rentalAgreement18.quotedDailyRate := 85.0
+!rentalAgreement18.quotedRatePerMile := 0.36
+
+!new Individual('individual10')
+!individual10.name := 'Oliver Smith'
+!individual10.address := '800 Timber St, AL'
+!individual10.poorRisk := false
+!individual10.homePhone := '205-555-3312'
+!individual10.driverLicenseState := #AL
+!individual10.driverLicenseNumber := 876543210
+!individual10.driverLicenseExpirationDate := Date('2029-12-01')
+
+!insert (rentalOffice18, vehicle18) into RentalOfficeVehicle
+!insert (rentalOffice18, truck18) into RentalOfficeVehicle
+
+!insert (rentalOffice18, rentalAgreement18) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice5, rentalAgreement18) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement18, vehicle18) into RentalAgreementVehicle
+
+!insert (rentalAgreement18, individual10) into RentalAgreementCustomer

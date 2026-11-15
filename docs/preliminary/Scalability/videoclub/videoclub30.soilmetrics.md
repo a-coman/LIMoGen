@@ -1,0 +1,277 @@
+# Generation 1
+```
+-- Creating 10 Client instances
+!new Client('client1')
+!client1.clientId := 1
+!client1.isSuspended := false
+
+!new Client('client2')
+!client2.clientId := 2
+!client2.isSuspended := true
+
+!new Client('client3')
+!client3.clientId := 3
+!client3.isSuspended := false
+
+!new Client('client4')
+!client4.clientId := 4
+!client4.isSuspended := false
+
+!new Client('client5')
+!client5.clientId := 5
+!client5.isSuspended := true
+
+!new Client('client6')
+!client6.clientId := 6
+!client6.isSuspended := false
+
+!new Client('client7')
+!client7.clientId := 7
+!client7.isSuspended := true
+
+!new Client('client8')
+!client8.clientId := 8
+!client8.isSuspended := false
+
+!new Client('client9')
+!client9.clientId := 9
+!client9.isSuspended := false
+
+!new Client('client10')
+!client10.clientId := 10
+!client10.isSuspended := true
+
+-- Creating 5 Rental instances
+!new Rental('rental1')
+!rental1.date := Date('2023-10-01')
+
+!new Rental('rental2')
+!rental2.date := Date('2023-10-02')
+
+!new Rental('rental3')
+!rental3.date := Date('2023-10-03')
+
+!new Rental('rental4')
+!rental4.date := Date('2023-10-04')
+
+!new Rental('rental5')
+!rental5.date := Date('2023-10-05')
+
+-- Creating 5 Movie instances
+!new Movie('movie1')
+!movie1.title := 'Action Movie 1'
+!movie1.availableCopies := 5
+!movie1.genre := #Action
+
+!new Movie('movie2')
+!movie2.title := 'Comedy Movie 1'
+!movie2.availableCopies := 3
+!movie2.genre := #Comedy
+
+!new Movie('movie3')
+!movie3.title := 'Action Movie 2'
+!movie3.availableCopies := 4
+!movie3.genre := #Action
+
+!new Movie('movie4')
+!movie4.title := 'Comedy Movie 2'
+!movie4.availableCopies := 2
+!movie4.genre := #Comedy
+
+!new Movie('movie5')
+!movie5.title := 'Action Movie 3'
+!movie5.availableCopies := 6
+!movie5.genre := #Action
+
+-- Creating 3 Series instances
+!new Series('series1')
+!series1.title := 'Drama Series 1'
+!series1.availableCopies := 2
+!series1.episode := 1
+
+!new Series('series2')
+!series2.title := 'Drama Series 2'
+!series2.availableCopies := 1
+!series2.episode := 2
+
+!new Series('series3')
+!series3.title := 'Drama Series 3'
+!series3.availableCopies := 3
+!series3.episode := 3
+
+-- Creating 7 Actor instances
+!new Actor('actor1')
+!actor1.name := 'John Doe'
+
+!new Actor('actor2')
+!actor2.name := 'Jane Smith'
+
+!new Actor('actor3')
+!actor3.name := 'Alice Brown'
+
+!new Actor('actor4')
+!actor4.name := 'Bob White'
+
+!new Actor('actor5')
+!actor5.name := 'Charlie Black'
+
+!new Actor('actor6')
+!actor6.name := 'Dave Green'
+
+!new Actor('actor7')
+!actor7.name := 'Eve Blue'
+
+-- Associations: ClientRental
+!insert (client1, rental1) into ClientRental
+!insert (client1, rental2) into ClientRental
+!insert (client2, rental3) into ClientRental
+!insert (client2, rental4) into ClientRental
+!insert (client3, rental5) into ClientRental
+
+-- Associations: RentalCassette
+!insert (rental1, movie1) into RentalCassette
+!insert (rental2, movie2) into RentalCassette
+!insert (rental3, series1) into RentalCassette
+!insert (rental4, movie3) into RentalCassette
+!insert (rental5, series2) into RentalCassette
+
+-- Associations: CassetteActor
+!insert (movie1, actor1) into CassetteActor
+!insert (movie1, actor2) into CassetteActor
+!insert (movie2, actor3) into CassetteActor
+!insert (movie3, actor4) into CassetteActor
+!insert (series1, actor5) into CassetteActor
+!insert (series2, actor6) into CassetteActor
+!insert (series3, actor7) into CassetteActor
+
+-- Done creating 30 entities
+```
+## Generation 1 summary
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 103 | 0.00% |
+| Multiplicities Errors | 2 | 17 | 11.76% |
+| Invariants Errors | 0 | 3 | 0.00% |
+
+| Multiplicities Errors | 
+|---| 
+```
+Multiplicity constraint violation in association `CassetteActor':
+  Object `movie5' of class `Movie' is connected to 0 objects of class `Actor'
+  at association end `has' but the multiplicity is specified as `1..*'.
+```
+```
+Multiplicity constraint violation in association `CassetteActor':
+  Object `movie4' of class `Movie' is connected to 0 objects of class `Actor'
+  at association end `has' but the multiplicity is specified as `1..*'.
+```
+
+| Videoclub | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Titles | 6 | 8 | 75.00% |
+| Types (out of valid Titles) | 0 | 2 | 0.00% |
+| Genres (out of valid Titles) | 1 | 2 | 50.00% |
+| Actors (out of valid Titles) | 1 | 1 | 100.00% |
+| Release year > Rental year (out of valid Titles) | 0 | 1 | 0.00% |
+
+| Failed Titles | 
+|---| 
+```
+Drama Series 3
+```
+```
+Drama Series 2
+```
+```
+Drama Series 1
+```
+```
+Comedy Movie 1
+```
+```
+Action Movie 1
+```
+```
+Comedy Movie 2
+```
+
+| Failed Genres | 
+|---| 
+```
+Parsed genre: Action != API genre: [Short, Comedy]
+```
+
+| Failed Actors | 
+|---| 
+```
+Bob White for movie: Action Movie 2
+```
+
+# Summary for all generations
+| Summary | Value | 
+|---|---| 
+| Model | null | 
+| Type |  | 
+| System | videoclub | 
+| Number of generations | 1 | 
+
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 103 | 0.00% |
+| Multiplicities Errors | 2 | 17 | 11.76% |
+| Invariants Errors | 0 | 3 | 0.00% |
+
+| Multiplicities Errors | 
+|---| 
+```
+Multiplicity constraint violation in association `CassetteActor':
+  Object `movie5' of class `Movie' is connected to 0 objects of class `Actor'
+  at association end `has' but the multiplicity is specified as `1..*'.
+```
+```
+Multiplicity constraint violation in association `CassetteActor':
+  Object `movie4' of class `Movie' is connected to 0 objects of class `Actor'
+  at association end `has' but the multiplicity is specified as `1..*'.
+```
+
+| Videoclub | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Titles | 6 | 8 | 75.00% |
+| Types (out of valid Titles) | 0 | 2 | 0.00% |
+| Genres (out of valid Titles) | 1 | 2 | 50.00% |
+| Actors (out of valid Titles) | 1 | 1 | 100.00% |
+| Release year > Rental year (out of valid Titles) | 0 | 1 | 0.00% |
+
+| Failed Titles | 
+|---| 
+```
+Drama Series 3
+```
+```
+Drama Series 2
+```
+```
+Drama Series 1
+```
+```
+Comedy Movie 1
+```
+```
+Action Movie 1
+```
+```
+Comedy Movie 2
+```
+
+| Failed Genres | 
+|---| 
+```
+Parsed genre: Action != API genre: [Short, Comedy]
+```
+
+| Failed Actors | 
+|---| 
+```
+Bob White for movie: Action Movie 2
+```
+

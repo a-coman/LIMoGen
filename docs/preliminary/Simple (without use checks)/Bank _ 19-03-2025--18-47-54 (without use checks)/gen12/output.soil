@@ -1,0 +1,95 @@
+!new Bank('bank24')
+!bank24.country := 'Norway'
+!bank24.name := 'DNB Bank'
+!bank24.bic := 'DNBANOKK'
+
+!new Bank('bank25')
+!bank25.country := 'Chile'
+!bank25.name := 'Banco de Chile'
+!bank25.bic := 'BACHCLRM'
+
+!new Account('account67')
+!account67.iban := 'NO00DNBA123456789'
+!account67.balance := 2700
+
+!new Account('account68')
+!account68.iban := 'NO00DNBA987654321'
+!account68.balance := 500
+
+!new Account('account69')
+!account69.iban := 'CL00BACH123456789'
+!account69.balance := 2500
+
+!new Account('account70')
+!account70.iban := 'CL00BACH987654321'
+!account70.balance := 100
+
+!new Person('person79')
+!person79.firstName := 'Bella'
+!person79.lastName := 'Swan'
+!person79.age := 28
+
+!new Person('person80')
+!person80.firstName := 'Carl'
+!person80.lastName := 'Sagan'
+!person80.age := 62
+
+!new Person('person81')
+!person81.firstName := 'Donna'
+!person81.lastName := 'Noble'
+!person81.age := 38
+
+!new Person('person82')
+!person82.firstName := 'Ezra'
+!person82.lastName := 'Bridger'
+!person82.age := 23
+
+!insert (person79, account67) into Ownership
+!insert (person80, account68) into Ownership
+!insert (person81, account69) into Ownership
+!insert (person82, account70) into Ownership
+
+!insert (person80, account67) into Use
+!insert (person81, account68) into Use
+!insert (person82, account69) into Use
+!insert (person79, account70) into Use
+
+!insert (bank24, account67) into AccountOfBanks
+!insert (bank24, account68) into AccountOfBanks
+!insert (bank25, account69) into AccountOfBanks
+!insert (bank25, account70) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account71')
+!account71.iban := 'NO00DNBA555555555'
+!account71.balance := 800
+
+!new Person('person83')
+!person83.firstName := 'Fiona'
+!person83.lastName := 'Apple'
+!person83.age := 42
+
+!insert (person83, account71) into Ownership
+!insert (person83, account71) into Use
+
+!insert (bank24, account71) into AccountOfBanks
+
+!new Person('person84')
+!person84.firstName := 'Gandalf'
+!person84.lastName := 'Grey'
+!person84.age := 2019
+
+!new Account('account72')
+!account72.iban := 'CL00BACH333333333'
+!account72.balance := 1300
+
+!insert (person84, account72) into Ownership
+!insert (person79, account72) into Use
+!insert (bank25, account72) into AccountOfBanks
+
+!new Person('person85')
+!person85.firstName := 'Hannibal'
+!person85.lastName := 'Lecter'
+!person85.age := 45
+
+!insert (person85, account72) into Use

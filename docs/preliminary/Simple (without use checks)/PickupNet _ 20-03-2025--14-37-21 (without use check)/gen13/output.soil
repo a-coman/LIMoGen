@@ -1,0 +1,42 @@
+!new Driver('driver14')
+!driver14.id := 'D014'
+!driver14.name := 'James Bond'
+
+!new Shipment('shipment15')
+!shipment15.id := 'S015'
+!shipment15.status := #UNDERWAY
+
+!new Address('address26')
+!address26.text := '7070 Birch St, Gotham Valley'
+
+!new Address('address27')
+!address27.text := '8080 Elm Blvd, Metropolis Heights'
+
+!new GeoLocation('geolocation26')
+!geolocation26.latitude := 41.9028
+!geolocation26.longitude := 12.4964
+
+!new GeoLocation('geolocation27')
+!geolocation27.latitude := 35.6895
+!geolocation27.longitude := 139.6917
+
+!new Customer('customer14')
+!customer14.id := 'C014'
+!customer14.name := 'Bruce Wayne'
+!customer14.twitterUserName := '@darkKnight'
+
+!new Station('station13')
+
+!insert (driver14, shipment15) into DriverShipment
+
+!insert (shipment15, address26) into ShipmentContainsPickUpAddress
+!insert (shipment15, address27) into ShipmentContainsDeliveryAddress
+
+!insert (address26, geolocation26) into AddressContainsGeoLocation
+!insert (address27, geolocation27) into AddressContainsGeoLocation
+
+!insert (customer14, shipment15) into CustomerConsistsOfShipment
+!insert (station13, shipment15) into StationShipment
+
+!insert (station13, customer14) into StationContainsCustomer
+!insert (station13, driver14) into StationContainsDriver

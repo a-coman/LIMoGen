@@ -1,0 +1,29 @@
+!new Client('client9')
+!client9.clientId := 9
+!client9.isSuspended := true
+
+!new Rental('rental9')
+!rental9.date := Date('2023-10-18')
+
+!new Movie('movie9')
+!movie9.title := 'Thrilling Mystery'
+!movie9.availableCopies := 4
+!movie9.genre := #Action
+
+!new Series('series8')
+!series8.title := 'Fantasy Journey'
+!series8.availableCopies := 6
+!series8.episode := 7
+
+!new Actor('actor14')
+!actor14.name := 'Thriller Specialist'
+
+!new Actor('actor15')
+!actor15.name := 'Fantasy Star'
+
+!insert (client9, rental9) into ClientRental
+!insert (rental9, movie9) into RentalCassette
+!insert (rental9, series8) into RentalCassette
+!insert (movie9, actor14) into CassetteActor
+!insert (series8, actor14) into CassetteActor
+!insert (series8, actor15) into CassetteActor

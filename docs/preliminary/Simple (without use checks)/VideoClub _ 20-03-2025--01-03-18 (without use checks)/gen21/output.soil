@@ -1,0 +1,29 @@
+!new Client('client23')
+!client23.clientId := 23
+!client23.isSuspended := false
+
+!new Rental('rental23')
+!rental23.date := Date('2023-11-01')
+
+!new Movie('movie23')
+!movie23.title := 'Urban Legends'
+!movie23.availableCopies := 8
+!movie23.genre := #Action
+
+!new Series('series22')
+!series22.title := 'Animated Tales'
+!series22.availableCopies := 2
+!series22.episode := 4
+
+!new Actor('actor42')
+!actor42.name := 'Urban Myth Buster'
+
+!new Actor('actor43')
+!actor43.name := 'Voiceover Artist'
+
+!insert (client23, rental23) into ClientRental
+!insert (rental23, movie23) into RentalCassette
+!insert (rental23, series22) into RentalCassette
+!insert (movie23, actor42) into CassetteActor
+!insert (series22, actor43) into CassetteActor
+!insert (series22, actor42) into CassetteActor

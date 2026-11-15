@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice28')
+!rentalOffice28.name := 'Ocean Breeze Rentals'
+!rentalOffice28.number := 2828
+!rentalOffice28.address := '101 Coastal Ln, FL'
+
+!new Vehicle('vehicle28')
+!vehicle28.id := 1028
+!vehicle28.registrationState := #FL
+!vehicle28.licensePlateNumber := 'FL9090'
+!vehicle28.vehicleTypeCode := #COVERED_TRAILER
+!vehicle28.registrationLastMaintenanceDate := Date('2023-08-05')
+!vehicle28.expirationDate := Date('2024-08-05')
+
+!new Truck('truck28')
+!truck28.id := 2028
+!truck28.registrationState := #GA
+!truck28.licensePlateNumber := 'GA8989'
+!truck28.vehicleTypeCode := #TRUCK24
+!truck28.registrationLastMaintenanceDate := Date('2024-06-12')
+!truck28.expirationDate := Date('2025-06-12')
+!truck28.odometerReading := 47000
+!truck28.gasTankCapacity := 58.0
+!truck28.workingRadio := false
+!truck28.mileage := 9
+
+!new RentalAgreement('rentalAgreement28')
+!rentalAgreement28.number := 5028
+!rentalAgreement28.rentalDate := Date('2025-11-11')
+!rentalAgreement28.anticipatedDuration := 2
+!rentalAgreement28.depositPaid := 250.0
+!rentalAgreement28.quotedDailyRate := 65.0
+!rentalAgreement28.quotedRatePerMile := 0.48
+
+!new Individual('individual15')
+!individual15.name := 'Ava Johnson'
+!individual15.address := '789 Pearl Ave, SC'
+!individual15.poorRisk := true
+!individual15.homePhone := '843-555-5678'
+!individual15.driverLicenseState := #SC
+!individual15.driverLicenseNumber := 555444333
+!individual15.driverLicenseExpirationDate := Date('2027-09-20')
+
+!insert (rentalOffice28, vehicle28) into RentalOfficeVehicle
+!insert (rentalOffice28, truck28) into RentalOfficeVehicle
+
+!insert (rentalOffice28, rentalAgreement28) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice11, rentalAgreement28) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement28, truck28) into RentalAgreementVehicle
+
+!insert (rentalAgreement28, individual15) into RentalAgreementCustomer

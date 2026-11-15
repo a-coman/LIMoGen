@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice26')
+!rentalOffice26.name := 'MetroCity Rentals'
+!rentalOffice26.number := 2626
+!rentalOffice26.address := '100 Metropolitan Ave, GA'
+
+!new Vehicle('vehicle26')
+!vehicle26.id := 1026
+!vehicle26.registrationState := #GA
+!vehicle26.licensePlateNumber := 'GA6767'
+!vehicle26.vehicleTypeCode := #TRUCK
+!vehicle26.registrationLastMaintenanceDate := Date('2023-06-15')
+!vehicle26.expirationDate := Date('2024-06-15')
+
+!new Truck('truck26')
+!truck26.id := 2026
+!truck26.registrationState := #SC
+!truck26.licensePlateNumber := 'SC5656'
+!truck26.vehicleTypeCode := #TRUCK24
+!truck26.registrationLastMaintenanceDate := Date('2024-04-01')
+!truck26.expirationDate := Date('2025-04-01')
+!truck26.odometerReading := 40000
+!truck26.gasTankCapacity := 60.0
+!truck26.workingRadio := false
+!truck26.mileage := 15
+
+!new RentalAgreement('rentalAgreement26')
+!rentalAgreement26.number := 5026
+!rentalAgreement26.rentalDate := Date('2025-10-10')
+!rentalAgreement26.anticipatedDuration := 5
+!rentalAgreement26.depositPaid := 275.0
+!rentalAgreement26.quotedDailyRate := 90.0
+!rentalAgreement26.quotedRatePerMile := 0.33
+
+!new Individual('individual14')
+!individual14.name := 'James Carter'
+!individual14.address := '123 Olive St, SC'
+!individual14.poorRisk := false
+!individual14.homePhone := '803-555-2323'
+!individual14.driverLicenseState := #SC
+!individual14.driverLicenseNumber := 990099009
+!individual14.driverLicenseExpirationDate := Date('2027-05-23')
+
+!insert (rentalOffice26, vehicle26) into RentalOfficeVehicle
+!insert (rentalOffice26, truck26) into RentalOfficeVehicle
+
+!insert (rentalOffice26, rentalAgreement26) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice15, rentalAgreement26) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement26, truck26) into RentalAgreementVehicle
+
+!insert (rentalAgreement26, individual14) into RentalAgreementCustomer

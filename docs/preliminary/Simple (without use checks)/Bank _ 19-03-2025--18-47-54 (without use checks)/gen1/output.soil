@@ -1,0 +1,98 @@
+!new Bank('bank1')
+!bank1.country := 'USA'
+!bank1.name := 'First National Bank'
+!bank1.bic := 'FNBNUS33'
+
+!new Bank('bank2')
+!bank2.country := 'Germany'
+!bank2.name := 'Deutsche Bank'
+!bank2.bic := 'DEUTDEFF'
+
+!new Account('account1')
+!account1.iban := 'US00FNBN1234567890'
+!account1.balance := 1000
+
+!new Account('account2')
+!account2.iban := 'US00FNBN0987654321'
+!account2.balance := 250
+
+!new Account('account3')
+!account3.iban := 'DE00DEUT1234567890'
+!account3.balance := 3000
+
+!new Account('account4')
+!account4.iban := 'DE00DEUT0987654321'
+!account4.balance := 150
+
+!new Person('person1')
+!person1.firstName := 'Alice'
+!person1.lastName := 'Smith'
+!person1.age := 30
+
+!new Person('person2')
+!person2.firstName := 'Bob'
+!person2.lastName := 'Johnson'
+!person2.age := 25
+
+!new Person('person3')
+!person3.firstName := 'Charlie'
+!person3.lastName := 'Brown'
+!person3.age := 45
+
+!new Person('person4')
+!person4.firstName := 'Dana'
+!person4.lastName := 'White'
+!person4.age := 50
+
+!insert (person1, account1) into Ownership
+!insert (person1, account2) into Ownership
+!insert (person2, account3) into Ownership
+!insert (person2, account4) into Ownership
+
+!insert (person3, account1) into Use
+!insert (person3, account4) into Use
+!insert (person4, account2) into Use
+!insert (person4, account3) into Use
+
+!insert (bank1, account1) into AccountOfBanks
+!insert (bank1, account2) into AccountOfBanks
+!insert (bank2, account3) into AccountOfBanks
+!insert (bank2, account4) into AccountOfBanks
+
+-- Corner cases
+!new Account('account5')
+!account5.iban := 'DE00DEUT1111111111'
+!account5.balance := 0 -- ensuring the balance can be zero, a valid case
+
+!new Person('person5')
+!person5.firstName := 'Eve'
+!person5.lastName := 'Doe'
+!person5.age := 18 -- ensuring adult age is exactly 18
+
+!insert (person5, account5) into Ownership
+!insert (person5, account5) into Use
+
+!insert (bank2, account5) into AccountOfBanks
+
+!new Bank('bank3')
+!bank3.country := 'France'
+!bank3.name := 'Credit Agricole'
+!bank3.bic := 'AGRIFRPP'
+
+!new Account('account6')
+!account6.iban := 'FR00AGRI2222222222'
+!account6.balance := 10
+
+!new Person('person6')
+!person6.firstName := 'Frank'
+!person6.lastName := 'Miller'
+!person6.age := 28
+
+!new Person('person7')
+!person7.firstName := 'Grace'
+!person7.lastName := 'Hopper'
+!person7.age := 32
+
+!insert (person6, account6) into Ownership
+!insert (person7, account6) into Ownership
+!insert (bank3, account6) into AccountOfBanks

@@ -1,0 +1,95 @@
+!new Bank('bank34')
+!bank34.country := 'Japan'
+!bank34.name := 'Sumitomo Mitsui Banking Corporation'
+!bank34.bic := 'SMBCJPJT'
+
+!new Bank('bank35')
+!bank35.country := 'Australia'
+!bank35.name := 'Westpac Banking Corporation'
+!bank35.bic := 'WPACAU2S'
+
+!new Account('account97')
+!account97.iban := 'JP00SMBC123456789'
+!account97.balance := 4050
+
+!new Account('account98')
+!account98.iban := 'JP00SMBC987654321'
+!account98.balance := 300
+
+!new Account('account99')
+!account99.iban := 'AU00WPAC123456789'
+!account99.balance := 2650
+
+!new Account('account100')
+!account100.iban := 'AU00WPAC987654321'
+!account100.balance := 1500
+
+!new Person('person114')
+!person114.firstName := 'John'
+!person114.lastName := 'Doe'
+!person114.age := 34
+
+!new Person('person115')
+!person115.firstName := 'Ken'
+!person115.lastName := 'Watanabe'
+!person115.age := 62
+
+!new Person('person116')
+!person116.firstName := 'Lara'
+!person116.lastName := 'Croft'
+!person116.age := 28
+
+!new Person('person117')
+!person117.firstName := 'Marcus'
+!person117.lastName := 'Aurelius'
+!person117.age := 58
+
+!insert (person114, account97) into Ownership
+!insert (person115, account98) into Ownership
+!insert (person116, account99) into Ownership
+!insert (person117, account100) into Ownership
+
+!insert (person115, account97) into Use
+!insert (person116, account98) into Use
+!insert (person117, account99) into Use
+!insert (person114, account100) into Use
+
+!insert (bank34, account97) into AccountOfBanks
+!insert (bank34, account98) into AccountOfBanks
+!insert (bank35, account99) into AccountOfBanks
+!insert (bank35, account100) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account101')
+!account101.iban := 'JP00SMBC555555555'
+!account101.balance := 750
+
+!new Person('person118')
+!person118.firstName := 'Nina'
+!person118.lastName := 'Simone'
+!person118.age := 60
+
+!insert (person118, account101) into Ownership
+!insert (person118, account101) into Use
+
+!insert (bank34, account101) into AccountOfBanks
+
+!new Person('person119')
+!person119.firstName := 'Oprah'
+!person119.lastName := 'Winfrey'
+!person119.age := 67
+
+!new Account('account102')
+!account102.iban := 'AU00WPAC333333333'
+!account102.balance := 1300
+
+!insert (person119, account102) into Ownership
+!insert (person114, account102) into Use
+!insert (bank35, account102) into AccountOfBanks
+
+!new Person('person120')
+!person120.firstName := 'Pablo'
+!person120.lastName := 'Picasso'
+!person120.age := 91
+
+!insert (person120, account102) into Use

@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice25')
+!rentalOffice25.name := 'Central Rentals'
+!rentalOffice25.number := 2525
+!rentalOffice25.address := '200 City Hub Ave, MN'
+
+!new Vehicle('vehicle25')
+!vehicle25.id := 1025
+!vehicle25.registrationState := #MN
+!vehicle25.licensePlateNumber := 'MN5555'
+!vehicle25.vehicleTypeCode := #COVERED_TRAILER
+!vehicle25.registrationLastMaintenanceDate := Date('2023-11-11')
+!vehicle25.expirationDate := Date('2024-11-11')
+
+!new Truck('truck25')
+!truck25.id := 2025
+!truck25.registrationState := #WI
+!truck25.licensePlateNumber := 'WI2222'
+!truck25.vehicleTypeCode := #TRUCK
+!truck25.registrationLastMaintenanceDate := Date('2024-02-25')
+!truck25.expirationDate := Date('2025-02-25')
+!truck25.odometerReading := 68000
+!truck25.gasTankCapacity := 72.0
+!truck25.workingRadio := true
+!truck25.mileage := 22
+
+!new RentalAgreement('rentalAgreement25')
+!rentalAgreement25.number := 5025
+!rentalAgreement25.rentalDate := Date('2025-12-01')
+!rentalAgreement25.anticipatedDuration := 6
+!rentalAgreement25.depositPaid := 400.0
+!rentalAgreement25.quotedDailyRate := 110.0
+!rentalAgreement25.quotedRatePerMile := 0.38
+
+!new Company('company13')
+!company13.name := 'Midwest Logistics'
+!company13.address := '800 Maple St, WI'
+!company13.poorRisk := false
+!company13.idNumber := 345654345
+
+!insert (rentalOffice25, vehicle25) into RentalOfficeVehicle
+!insert (rentalOffice25, truck25) into RentalOfficeVehicle
+
+!insert (rentalOffice25, rentalAgreement25) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice20, rentalAgreement25) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement25, vehicle25) into RentalAgreementVehicle
+
+!insert (rentalAgreement25, company13) into RentalAgreementCustomer

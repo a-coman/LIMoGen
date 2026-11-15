@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice9')
+!rentalOffice9.name := 'Lakeside Rentals'
+!rentalOffice9.number := 909
+!rentalOffice9.address := '120 Lake St, FL'
+
+!new Vehicle('vehicle9')
+!vehicle9.id := 1009
+!vehicle9.registrationState := #FL
+!vehicle9.licensePlateNumber := 'FL3344'
+!vehicle9.vehicleTypeCode := #OPEN_TRAILER
+!vehicle9.registrationLastMaintenanceDate := Date('2023-09-20')
+!vehicle9.expirationDate := Date('2024-09-20')
+
+!new Truck('truck9')
+!truck9.id := 2009
+!truck9.registrationState := #TX
+!truck9.licensePlateNumber := 'TX7788'
+!truck9.vehicleTypeCode := #TRUCK24
+!truck9.registrationLastMaintenanceDate := Date('2023-11-11')
+!truck9.expirationDate := Date('2024-11-11')
+!truck9.odometerReading := 30000
+!truck9.gasTankCapacity := 65.0
+!truck9.workingRadio := true
+!truck9.mileage := 11
+
+!new RentalAgreement('rentalAgreement9')
+!rentalAgreement9.number := 5009
+!rentalAgreement9.rentalDate := Date('2024-05-20')
+!rentalAgreement9.anticipatedDuration := 6
+!rentalAgreement9.depositPaid := 275.0
+!rentalAgreement9.quotedDailyRate := 95.0
+!rentalAgreement9.quotedRatePerMile := 0.38
+
+!new Company('company5')
+!company5.name := 'Green Earth Logistics'
+!company5.address := '200 Eco Blvd, CA'
+!company5.poorRisk := true
+!company5.idNumber := 555666777
+
+!insert (rentalOffice9, vehicle9) into RentalOfficeVehicle
+!insert (rentalOffice9, truck9) into RentalOfficeVehicle
+
+!insert (rentalOffice9, rentalAgreement9) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice5, rentalAgreement9) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement9, vehicle9) into RentalAgreementVehicle
+
+!insert (rentalAgreement9, company5) into RentalAgreementCustomer

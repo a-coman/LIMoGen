@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice22')
+!rentalOffice22.name := 'City Edge Rentals'
+!rentalOffice22.number := 2222
+!rentalOffice22.address := '123 Edge Pkwy, IL'
+
+!new Vehicle('vehicle22')
+!vehicle22.id := 1022
+!vehicle22.registrationState := #IL
+!vehicle22.licensePlateNumber := 'IL4567'
+!vehicle22.vehicleTypeCode := #TRUCK10
+!vehicle22.registrationLastMaintenanceDate := Date('2023-05-05')
+!vehicle22.expirationDate := Date('2024-05-05')
+
+!new Truck('truck22')
+!truck22.id := 2022
+!truck22.registrationState := #IN
+!truck22.licensePlateNumber := 'IN1122'
+!truck22.vehicleTypeCode := #TRUCK24
+!truck22.registrationLastMaintenanceDate := Date('2024-03-10')
+!truck22.expirationDate := Date('2025-03-10')
+!truck22.odometerReading := 30000
+!truck22.gasTankCapacity := 50.0
+!truck22.workingRadio := false
+!truck22.mileage := 10
+
+!new RentalAgreement('rentalAgreement22')
+!rentalAgreement22.number := 5022
+!rentalAgreement22.rentalDate := Date('2025-07-20')
+!rentalAgreement22.anticipatedDuration := 8
+!rentalAgreement22.depositPaid := 550.0
+!rentalAgreement22.quotedDailyRate := 88.0
+!rentalAgreement22.quotedRatePerMile := 0.30
+
+!new Individual('individual12')
+!individual12.name := 'Daniel White'
+!individual12.address := '101 Lakeview Dr, IN'
+!individual12.poorRisk := true
+!individual12.homePhone := '317-555-6600'
+!individual12.driverLicenseState := #IN
+!individual12.driverLicenseNumber := 1010101010
+!individual12.driverLicenseExpirationDate := Date('2029-07-17')
+
+!insert (rentalOffice22, vehicle22) into RentalOfficeVehicle
+!insert (rentalOffice22, truck22) into RentalOfficeVehicle
+
+!insert (rentalOffice22, rentalAgreement22) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice13, rentalAgreement22) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement22, truck22) into RentalAgreementVehicle
+
+!insert (rentalAgreement22, individual12) into RentalAgreementCustomer

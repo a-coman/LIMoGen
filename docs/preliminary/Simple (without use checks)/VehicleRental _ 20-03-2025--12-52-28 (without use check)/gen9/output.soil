@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice10')
+!rentalOffice10.name := 'Metro Rentals'
+!rentalOffice10.number := 1010
+!rentalOffice10.address := '800 Riverside Ave, CA'
+
+!new Vehicle('vehicle10')
+!vehicle10.id := 1010
+!vehicle10.registrationState := #AL
+!vehicle10.licensePlateNumber := 'AL4567'
+!vehicle10.vehicleTypeCode := #TRUCK
+!vehicle10.registrationLastMaintenanceDate := Date('2023-05-10')
+!vehicle10.expirationDate := Date('2024-05-10')
+
+!new Truck('truck10')
+!truck10.id := 2010
+!truck10.registrationState := #CT
+!truck10.licensePlateNumber := 'CT9988'
+!truck10.vehicleTypeCode := #TRUCK
+!truck10.registrationLastMaintenanceDate := Date('2023-10-20')
+!truck10.expirationDate := Date('2024-10-20')
+!truck10.odometerReading := 60000
+!truck10.gasTankCapacity := 58.0
+!truck10.workingRadio := false
+!truck10.mileage := 7
+
+!new RentalAgreement('rentalAgreement10')
+!rentalAgreement10.number := 5010
+!rentalAgreement10.rentalDate := Date('2024-06-15')
+!rentalAgreement10.anticipatedDuration := 8
+!rentalAgreement10.depositPaid := 320.0
+!rentalAgreement10.quotedDailyRate := 85.0
+!rentalAgreement10.quotedRatePerMile := 0.42
+
+!new Individual('individual6')
+!individual6.name := 'David Wilson'
+!individual6.address := '123 Maple Ln, AZ'
+!individual6.poorRisk := false
+!individual6.homePhone := '602-555-1122'
+!individual6.driverLicenseState := #AZ
+!individual6.driverLicenseNumber := 111008888
+!individual6.driverLicenseExpirationDate := Date('2027-09-30')
+
+!insert (rentalOffice10, vehicle10) into RentalOfficeVehicle
+!insert (rentalOffice10, truck10) into RentalOfficeVehicle
+
+!insert (rentalOffice10, rentalAgreement10) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice7, rentalAgreement10) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement10, truck10) into RentalAgreementVehicle
+
+!insert (rentalAgreement10, individual6) into RentalAgreementCustomer

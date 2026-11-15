@@ -1,0 +1,29 @@
+!new Client('client13')
+!client13.clientId := 13
+!client13.isSuspended := false
+
+!new Rental('rental13')
+!rental13.date := Date('2023-10-22')
+
+!new Movie('movie13')
+!movie13.title := 'Mystery Adventure'
+!movie13.availableCopies := 3
+!movie13.genre := #Action
+
+!new Series('series12')
+!series12.title := 'Comedy Nights'
+!series12.availableCopies := 4
+!series12.episode := 8
+
+!new Actor('actor22')
+!actor22.name := 'Detective Lead'
+
+!new Actor('actor23')
+!actor23.name := 'Laugh Master'
+
+!insert (client13, rental13) into ClientRental
+!insert (rental13, movie13) into RentalCassette
+!insert (rental13, series12) into RentalCassette
+!insert (movie13, actor22) into CassetteActor
+!insert (series12, actor23) into CassetteActor
+!insert (series12, actor22) into CassetteActor

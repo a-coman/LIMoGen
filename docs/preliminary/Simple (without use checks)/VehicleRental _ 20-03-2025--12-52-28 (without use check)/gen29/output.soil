@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice30')
+!rentalOffice30.name := 'Riverside Rentals'
+!rentalOffice30.number := 3030
+!rentalOffice30.address := '789 Riverbend Dr, TN'
+
+!new Vehicle('vehicle30')
+!vehicle30.id := 1030
+!vehicle30.registrationState := #KY
+!vehicle30.licensePlateNumber := 'KY7654'
+!vehicle30.vehicleTypeCode := #OPEN_TRAILER
+!vehicle30.registrationLastMaintenanceDate := Date('2024-02-15')
+!vehicle30.expirationDate := Date('2025-02-15')
+
+!new Truck('truck30')
+!truck30.id := 2030
+!truck30.registrationState := #TN
+!truck30.licensePlateNumber := 'TN9090'
+!truck30.vehicleTypeCode := #TRUCK
+!truck30.registrationLastMaintenanceDate := Date('2024-05-05')
+!truck30.expirationDate := Date('2025-05-05')
+!truck30.odometerReading := 8000
+!truck30.gasTankCapacity := 53.0
+!truck30.workingRadio := false
+!truck30.mileage := 15
+
+!new RentalAgreement('rentalAgreement30')
+!rentalAgreement30.number := 5030
+!rentalAgreement30.rentalDate := Date('2026-03-10')
+!rentalAgreement30.anticipatedDuration := 12
+!rentalAgreement30.depositPaid := 700.0
+!rentalAgreement30.quotedDailyRate := 105.0
+!rentalAgreement30.quotedRatePerMile := 0.40
+
+!new Individual('individual16')
+!individual16.name := 'Emma Thompson'
+!individual16.address := '321 Bluegrass Ln, KY'
+!individual16.poorRisk := false
+!individual16.homePhone := '859-555-1212'
+!individual16.driverLicenseState := #KY
+!individual16.driverLicenseNumber := 123123123
+!individual16.driverLicenseExpirationDate := Date('2031-11-10')
+
+!insert (rentalOffice30, vehicle30) into RentalOfficeVehicle
+!insert (rentalOffice30, truck30) into RentalOfficeVehicle
+
+!insert (rentalOffice30, rentalAgreement30) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice9, rentalAgreement30) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement30, truck30) into RentalAgreementVehicle
+
+!insert (rentalAgreement30, individual16) into RentalAgreementCustomer

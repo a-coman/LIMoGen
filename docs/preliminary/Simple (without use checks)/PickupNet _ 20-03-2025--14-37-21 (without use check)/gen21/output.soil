@@ -1,0 +1,42 @@
+!new Driver('driver22')
+!driver22.id := 'D022'
+!driver22.name := 'Bilbo Baggins'
+
+!new Shipment('shipment23')
+!shipment23.id := 'S023'
+!shipment23.status := #UNDERWAY
+
+!new Address('address42')
+!address42.text := '5555 Hobbiton Path, Shire District'
+
+!new Address('address43')
+!address43.text := '6666 Rivendell Ct, Elven Realm'
+
+!new GeoLocation('geolocation42')
+!geolocation42.latitude := 48.8566
+!geolocation42.longitude := 2.3522
+
+!new GeoLocation('geolocation43')
+!geolocation43.latitude := 41.8902
+!geolocation43.longitude := 12.4922
+
+!new Customer('customer22')
+!customer22.id := 'C022'
+!customer22.name := 'Samwise Gamgee'
+!customer22.twitterUserName := '@faithfulSam'
+
+!new Station('station21')
+
+!insert (driver22, shipment23) into DriverShipment
+
+!insert (shipment23, address42) into ShipmentContainsPickUpAddress
+!insert (shipment23, address43) into ShipmentContainsDeliveryAddress
+
+!insert (address42, geolocation42) into AddressContainsGeoLocation
+!insert (address43, geolocation43) into AddressContainsGeoLocation
+
+!insert (customer22, shipment23) into CustomerConsistsOfShipment
+!insert (station21, shipment23) into StationShipment
+
+!insert (station21, customer22) into StationContainsCustomer
+!insert (station21, driver22) into StationContainsDriver

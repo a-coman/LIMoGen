@@ -1,0 +1,29 @@
+!new Client('client4')
+!client4.clientId := 4
+!client4.isSuspended := false
+
+!new Rental('rental4')
+!rental4.date := Date('2023-10-13')
+
+!new Movie('movie4')
+!movie4.title := 'Thriller Night'
+!movie4.availableCopies := 2
+!movie4.genre := #Action
+
+!new Series('series3')
+!series3.title := 'Comedy Series'
+!series3.availableCopies := 3
+!series3.episode := 2
+
+!new Actor('actor4')
+!actor4.name := 'Legendary Actor'
+
+!new Actor('actor5')
+!actor5.name := 'Comic Actor'
+
+!insert (client4, rental4) into ClientRental
+!insert (rental4, movie4) into RentalCassette
+!insert (rental4, series3) into RentalCassette
+!insert (movie4, actor4) into CassetteActor
+!insert (series3, actor4) into CassetteActor
+!insert (series3, actor5) into CassetteActor

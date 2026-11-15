@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice29')
+!rentalOffice29.name := 'Greenfield Rentals'
+!rentalOffice29.number := 2929
+!rentalOffice29.address := '234 Emerald Rd, OR'
+
+!new Vehicle('vehicle29')
+!vehicle29.id := 1029
+!vehicle29.registrationState := #OR
+!vehicle29.licensePlateNumber := 'OR1234'
+!vehicle29.vehicleTypeCode := #TRUCK24
+!vehicle29.registrationLastMaintenanceDate := Date('2023-10-30')
+!vehicle29.expirationDate := Date('2024-10-30')
+
+!new Truck('truck29')
+!truck29.id := 2029
+!truck29.registrationState := #WA
+!truck29.licensePlateNumber := 'WA5678'
+!truck29.vehicleTypeCode := #TRUCK10
+!truck29.registrationLastMaintenanceDate := Date('2024-07-01')
+!truck29.expirationDate := Date('2025-07-01')
+!truck29.odometerReading := 55000
+!truck29.gasTankCapacity := 61.0
+!truck29.workingRadio := true
+!truck29.mileage := 7
+
+!new RentalAgreement('rentalAgreement29')
+!rentalAgreement29.number := 5029
+!rentalAgreement29.rentalDate := Date('2026-01-20')
+!rentalAgreement29.anticipatedDuration := 7
+!rentalAgreement29.depositPaid := 380.0
+!rentalAgreement29.quotedDailyRate := 95.0
+!rentalAgreement29.quotedRatePerMile := 0.32
+
+!new Company('company15')
+!company15.name := 'Evergreen Transport LLC'
+!company15.address := '123 Forest Ln, WA'
+!company15.poorRisk := false
+!company15.idNumber := 7070707070
+
+!insert (rentalOffice29, vehicle29) into RentalOfficeVehicle
+!insert (rentalOffice29, truck29) into RentalOfficeVehicle
+
+!insert (rentalOffice29, rentalAgreement29) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice22, rentalAgreement29) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement29, vehicle29) into RentalAgreementVehicle
+
+!insert (rentalAgreement29, company15) into RentalAgreementCustomer

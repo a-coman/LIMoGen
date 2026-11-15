@@ -1,0 +1,42 @@
+!new Driver('driver13')
+!driver13.id := 'D013'
+!driver13.name := 'Lara Croft'
+
+!new Shipment('shipment14')
+!shipment14.id := 'S014'
+!shipment14.status := #ASSIGNED
+
+!new Address('address24')
+!address24.text := '5050 Chestnut Rd, Emerald City'
+
+!new Address('address25')
+!address25.text := '6060 Pine Lane, Neverland'
+
+!new GeoLocation('geolocation24')
+!geolocation24.latitude := 55.7558
+!geolocation24.longitude := 37.6173
+
+!new GeoLocation('geolocation25')
+!geolocation25.latitude := -33.8688
+!geolocation25.longitude := 151.2093
+
+!new Customer('customer13')
+!customer13.id := 'C013'
+!customer13.name := 'Peter Parker'
+!customer13.twitterUserName := '@spidey'
+
+!new Station('station12')
+
+!insert (driver13, shipment14) into DriverShipment
+
+!insert (shipment14, address24) into ShipmentContainsPickUpAddress
+!insert (shipment14, address25) into ShipmentContainsDeliveryAddress
+
+!insert (address24, geolocation24) into AddressContainsGeoLocation
+!insert (address25, geolocation25) into AddressContainsGeoLocation
+
+!insert (customer13, shipment14) into CustomerConsistsOfShipment
+!insert (station12, shipment14) into StationShipment
+
+!insert (station12, customer13) into StationContainsCustomer
+!insert (station12, driver13) into StationContainsDriver

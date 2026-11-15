@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice31')
+!rentalOffice31.name := 'Canyon Rentals'
+!rentalOffice31.number := 3131
+!rentalOffice31.address := '456 Desert Canyon Rd, UT'
+
+!new Vehicle('vehicle31')
+!vehicle31.id := 1031
+!vehicle31.registrationState := #CO
+!vehicle31.licensePlateNumber := 'CO9080'
+!vehicle31.vehicleTypeCode := #TRUCK
+!vehicle31.registrationLastMaintenanceDate := Date('2024-04-18')
+!vehicle31.expirationDate := Date('2025-04-18')
+
+!new Truck('truck31')
+!truck31.id := 2031
+!truck31.registrationState := #UT
+!truck31.licensePlateNumber := 'UT5656'
+!truck31.vehicleTypeCode := #TRUCK24
+!truck31.registrationLastMaintenanceDate := Date('2024-02-22')
+!truck31.expirationDate := Date('2025-02-22')
+!truck31.odometerReading := 35000
+!truck31.gasTankCapacity := 68.0
+!truck31.workingRadio := true
+!truck31.mileage := 17
+
+!new RentalAgreement('rentalAgreement31')
+!rentalAgreement31.number := 5031
+!rentalAgreement31.rentalDate := Date('2026-05-15')
+!rentalAgreement31.anticipatedDuration := 9
+!rentalAgreement31.depositPaid := 480.0
+!rentalAgreement31.quotedDailyRate := 90.0
+!rentalAgreement31.quotedRatePerMile := 0.35
+
+!new Company('company16')
+!company16.name := 'Rocky Transport Inc.'
+!company16.address := '789 Plateau Blvd, CO'
+!company16.poorRisk := true
+!company16.idNumber := 1616161616
+
+!insert (rentalOffice31, vehicle31) into RentalOfficeVehicle
+!insert (rentalOffice31, truck31) into RentalOfficeVehicle
+
+!insert (rentalOffice31, rentalAgreement31) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice10, rentalAgreement31) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement31, vehicle31) into RentalAgreementVehicle
+
+!insert (rentalAgreement31, company16) into RentalAgreementCustomer

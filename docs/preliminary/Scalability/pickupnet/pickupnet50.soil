@@ -1,0 +1,278 @@
+-- Creating 5 stations
+!new Station('station1')
+!new Station('station2')
+!new Station('station3')
+!new Station('station4')
+!new Station('station5')
+
+-- Creating 10 drivers
+!new Driver('driver1')
+!driver1.id := 'D001'
+!driver1.name := 'Alice'
+
+!new Driver('driver2')
+!driver2.id := 'D002'
+!driver2.name := 'Bob'
+
+!new Driver('driver3')
+!driver3.id := 'D003'
+!driver3.name := 'Charlie'
+
+!new Driver('driver4')
+!driver4.id := 'D004'
+!driver4.name := 'David'
+
+!new Driver('driver5')
+!driver5.id := 'D005'
+!driver5.name := 'Eve'
+
+!new Driver('driver6')
+!driver6.id := 'D006'
+!driver6.name := 'Frank'
+
+!new Driver('driver7')
+!driver7.id := 'D007'
+!driver7.name := 'Grace'
+
+!new Driver('driver8')
+!driver8.id := 'D008'
+!driver8.name := 'Hank'
+
+!new Driver('driver9')
+!driver9.id := 'D009'
+!driver9.name := 'Ivy'
+
+!new Driver('driver10')
+!driver10.id := 'D010'
+!driver10.name := 'Jack'
+
+-- Creating 10 customers
+!new Customer('customer1')
+!customer1.id := 'C001'
+!customer1.name := 'Aaron'
+!customer1.twitterUserName := '@aaron'
+
+!new Customer('customer2')
+!customer2.id := 'C002'
+!customer2.name := 'Bella'
+!customer2.twitterUserName := '@bella'
+
+!new Customer('customer3')
+!customer3.id := 'C003'
+!customer3.name := 'Clara'
+!customer3.twitterUserName := '@clara'
+
+!new Customer('customer4')
+!customer4.id := 'C004'
+!customer4.name := 'Daniel'
+!customer4.twitterUserName := '@daniel'
+
+!new Customer('customer5')
+!customer5.id := 'C005'
+!customer5.name := 'Ella'
+!customer5.twitterUserName := '@ella'
+
+!new Customer('customer6')
+!customer6.id := 'C006'
+!customer6.name := 'Felix'
+!customer6.twitterUserName := '@felix'
+
+!new Customer('customer7')
+!customer7.id := 'C007'
+!customer7.name := 'Gina'
+!customer7.twitterUserName := '@gina'
+
+!new Customer('customer8')
+!customer8.id := 'C008'
+!customer8.name := 'Hugo'
+!customer8.twitterUserName := '@hugo'
+
+!new Customer('customer9')
+!customer9.id := 'C009'
+!customer9.name := 'Irene'
+!customer9.twitterUserName := '@irene'
+
+!new Customer('customer10')
+!customer10.id := 'C010'
+!customer10.name := 'John'
+!customer10.twitterUserName := '@john'
+
+-- Creating 15 shipments
+!new Shipment('shipment1')
+!shipment1.id := 'S001'
+!shipment1.status := #NEW
+
+!new Shipment('shipment2')
+!shipment2.id := 'S002'
+!shipment2.status := #ASSIGNED
+
+!new Shipment('shipment3')
+!shipment3.id := 'S003'
+!shipment3.status := #UNDERWAY
+
+!new Shipment('shipment4')
+!shipment4.id := 'S004'
+!shipment4.status := #DELIVERED
+
+!new Shipment('shipment5')
+!shipment5.id := 'S005'
+!shipment5.status := #NEW
+
+!new Shipment('shipment6')
+!shipment6.id := 'S006'
+!shipment6.status := #ASSIGNED
+
+!new Shipment('shipment7')
+!shipment7.id := 'S007'
+!shipment7.status := #UNDERWAY
+
+!new Shipment('shipment8')
+!shipment8.id := 'S008'
+!shipment8.status := #DELIVERED
+
+!new Shipment('shipment9')
+!shipment9.id := 'S009'
+!shipment9.status := #NEW
+
+!new Shipment('shipment10')
+!shipment10.id := 'S010'
+!shipment10.status := #ASSIGNED
+
+!new Shipment('shipment11')
+!shipment11.id := 'S011'
+!shipment11.status := #UNDERWAY
+
+!new Shipment('shipment12')
+!shipment12.id := 'S012'
+!shipment12.status := #DELIVERED
+
+!new Shipment('shipment13')
+!shipment13.id := 'S013'
+!shipment13.status := #NEW
+
+!new Shipment('shipment14')
+!shipment14.id := 'S014'
+!shipment14.status := #ASSIGNED
+
+!new Shipment('shipment15')
+!shipment15.id := 'S015'
+!shipment15.status := #UNDERWAY
+
+-- Creating 5 addresses with geolocations
+!new Address('address1')
+!address1.text := '123 Elm St'
+!new GeoLocation('geo1')
+!geo1.latitude := 40.7128
+!geo1.longitude := -74.0060
+!insert (address1, geo1) into AddressContainsGeoLocation
+
+!new Address('address2')
+!address2.text := '456 Maple Rd'
+!new GeoLocation('geo2')
+!geo2.latitude := 34.0522
+!geo2.longitude := -118.2437
+!insert (address2, geo2) into AddressContainsGeoLocation
+
+!new Address('address3')
+!address3.text := '789 Pine Ave'
+!new GeoLocation('geo3')
+!geo3.latitude := 41.8781
+!geo3.longitude := -87.6298
+!insert (address3, geo3) into AddressContainsGeoLocation
+
+!new Address('address4')
+!address4.text := '101 Oak St'
+!new GeoLocation('geo4')
+!geo4.latitude := 51.5074
+!geo4.longitude := -0.1278
+!insert (address4, geo4) into AddressContainsGeoLocation
+
+!new Address('address5')
+!address5.text := '102 Cedar Blvd'
+!new GeoLocation('geo5')
+!geo5.latitude := 48.8566
+!geo5.longitude := 2.3522
+!insert (address5, geo5) into AddressContainsGeoLocation
+
+-- Assigning shipments to customers
+!insert (customer1, shipment1) into CustomerConsistsOfShipment
+!insert (customer2, shipment2) into CustomerConsistsOfShipment
+!insert (customer3, shipment3) into CustomerConsistsOfShipment
+!insert (customer4, shipment4) into CustomerConsistsOfShipment
+!insert (customer5, shipment5) into CustomerConsistsOfShipment
+!insert (customer6, shipment6) into CustomerConsistsOfShipment
+!insert (customer7, shipment7) into CustomerConsistsOfShipment
+!insert (customer8, shipment8) into CustomerConsistsOfShipment
+!insert (customer9, shipment9) into CustomerConsistsOfShipment
+!insert (customer10, shipment10) into CustomerConsistsOfShipment
+!insert (customer1, shipment11) into CustomerConsistsOfShipment
+!insert (customer2, shipment12) into CustomerConsistsOfShipment
+!insert (customer3, shipment13) into CustomerConsistsOfShipment
+!insert (customer4, shipment14) into CustomerConsistsOfShipment
+!insert (customer5, shipment15) into CustomerConsistsOfShipment
+
+-- Creating relations between shipments and addresses
+!insert (shipment1, address1) into ShipmentContainsPickUpAddress
+!insert (shipment2, address2) into ShipmentContainsPickUpAddress
+!insert (shipment3, address3) into ShipmentContainsPickUpAddress
+!insert (shipment4, address4) into ShipmentContainsPickUpAddress
+!insert (shipment5, address5) into ShipmentContainsPickUpAddress
+!insert (shipment1, address2) into ShipmentContainsDeliveryAddress
+!insert (shipment2, address3) into ShipmentContainsDeliveryAddress
+!insert (shipment3, address4) into ShipmentContainsDeliveryAddress
+!insert (shipment4, address5) into ShipmentContainsDeliveryAddress
+!insert (shipment5, address1) into ShipmentContainsDeliveryAddress
+
+-- Assigning drivers to stations
+!insert (station1, driver1) into StationContainsDriver
+!insert (station1, driver2) into StationContainsDriver
+!insert (station2, driver3) into StationContainsDriver
+!insert (station2, driver4) into StationContainsDriver
+!insert (station3, driver5) into StationContainsDriver
+!insert (station3, driver6) into StationContainsDriver
+!insert (station4, driver7) into StationContainsDriver
+!insert (station4, driver8) into StationContainsDriver
+!insert (station5, driver9) into StationContainsDriver
+!insert (station5, driver10) into StationContainsDriver
+
+-- Assigning customers to stations
+!insert (station1, customer1) into StationContainsCustomer
+!insert (station1, customer2) into StationContainsCustomer
+!insert (station2, customer3) into StationContainsCustomer
+!insert (station2, customer4) into StationContainsCustomer
+!insert (station3, customer5) into StationContainsCustomer
+!insert (station3, customer6) into StationContainsCustomer
+!insert (station4, customer7) into StationContainsCustomer
+!insert (station4, customer8) into StationContainsCustomer
+!insert (station5, customer9) into StationContainsCustomer
+!insert (station5, customer10) into StationContainsCustomer
+
+-- Assigning shipments to stations
+!insert (station1, shipment1) into StationShipment
+!insert (station1, shipment2) into StationShipment
+!insert (station2, shipment3) into StationShipment
+!insert (station2, shipment4) into StationShipment
+!insert (station3, shipment5) into StationShipment
+!insert (station3, shipment6) into StationShipment
+!insert (station4, shipment7) into StationShipment
+!insert (station4, shipment8) into StationShipment
+!insert (station5, shipment9) into StationShipment
+!insert (station5, shipment10) into StationShipment
+!insert (station1, shipment11) into StationShipment
+!insert (station2, shipment12) into StationShipment
+!insert (station3, shipment13) into StationShipment
+!insert (station4, shipment14) into StationShipment
+!insert (station5, shipment15) into StationShipment
+
+-- Assigning shipments to drivers
+!insert (driver1, shipment1) into DriverShipment
+!insert (driver2, shipment2) into DriverShipment
+!insert (driver3, shipment3) into DriverShipment
+!insert (driver4, shipment4) into DriverShipment
+!insert (driver5, shipment5) into DriverShipment
+!insert (driver6, shipment6) into DriverShipment
+!insert (driver7, shipment7) into DriverShipment
+!insert (driver8, shipment8) into DriverShipment
+!insert (driver9, shipment9) into DriverShipment
+!insert (driver10, shipment10) into DriverShipment
+

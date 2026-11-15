@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice3')
+!rentalOffice3.name := 'Mountain Rentals'
+!rentalOffice3.number := 303
+!rentalOffice3.address := '789 Alpine Rd, CO'
+
+!new Vehicle('vehicle3')
+!vehicle3.id := 1003
+!vehicle3.registrationState := #CO
+!vehicle3.licensePlateNumber := 'CO4567'
+!vehicle3.vehicleTypeCode := #OPEN_TRAILER
+!vehicle3.registrationLastMaintenanceDate := Date('2023-02-01')
+!vehicle3.expirationDate := Date('2024-02-01')
+
+!new Truck('truck3')
+!truck3.id := 2003
+!truck3.registrationState := #AK
+!truck3.licensePlateNumber := 'AK1234'
+!truck3.vehicleTypeCode := #TRUCK
+!truck3.registrationLastMaintenanceDate := Date('2023-07-01')
+!truck3.expirationDate := Date('2024-07-01')
+!truck3.odometerReading := 75000
+!truck3.gasTankCapacity := 45.0
+!truck3.workingRadio := true
+!truck3.mileage := 10
+
+!new RentalAgreement('rentalAgreement3')
+!rentalAgreement3.number := 5003
+!rentalAgreement3.rentalDate := Date('2023-11-01')
+!rentalAgreement3.anticipatedDuration := 2
+!rentalAgreement3.depositPaid := 200.0
+!rentalAgreement3.quotedDailyRate := 60.0
+!rentalAgreement3.quotedRatePerMile := 0.45
+
+!new Company('company2')
+!company2.name := 'Construction Solutions'
+!company2.address := '456 Industrial Way, AZ'
+!company2.poorRisk := true
+!company2.idNumber := 444555666
+
+!insert (rentalOffice3, vehicle3) into RentalOfficeVehicle
+!insert (rentalOffice3, truck3) into RentalOfficeVehicle
+
+!insert (rentalOffice3, rentalAgreement3) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice1, rentalAgreement3) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement3, vehicle3) into RentalAgreementVehicle
+
+!insert (rentalAgreement3, company2) into RentalAgreementCustomer

@@ -1,0 +1,29 @@
+!new Client('client27')
+!client27.clientId := 27
+!client27.isSuspended := false
+
+!new Rental('rental27')
+!rental27.date := Date('2023-11-05')
+
+!new Movie('movie27')
+!movie27.title := 'Galactic Battles'
+!movie27.availableCopies := 7
+!movie27.genre := #Action
+
+!new Series('series26')
+!series26.title := 'Daily Sitcom'
+!series26.availableCopies := 6
+!series26.episode := 12
+
+!new Actor('actor50')
+!actor50.name := 'Space Commander'
+
+!new Actor('actor51')
+!actor51.name := 'Sitcom Star'
+
+!insert (client27, rental27) into ClientRental
+!insert (rental27, movie27) into RentalCassette
+!insert (rental27, series26) into RentalCassette
+!insert (movie27, actor50) into CassetteActor
+!insert (series26, actor51) into CassetteActor
+!insert (series26, actor50) into CassetteActor

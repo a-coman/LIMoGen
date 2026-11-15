@@ -1,0 +1,42 @@
+!new Driver('driver8')
+!driver8.id := 'D008'
+!driver8.name := 'Natalie Williams'
+
+!new Shipment('shipment9')
+!shipment9.id := 'S009'
+!shipment9.status := #ASSIGNED
+
+!new Address('address14')
+!address14.text := '3333 Summer St, Starling City'
+
+!new Address('address15')
+!address15.text := '4444 Winter Rd, Central City'
+
+!new GeoLocation('geolocation14')
+!geolocation14.latitude := 40.7306
+!geolocation14.longitude := -73.9352
+
+!new GeoLocation('geolocation15')
+!geolocation15.latitude := 34.0522
+!geolocation15.longitude := -118.2437
+
+!new Customer('customer8')
+!customer8.id := 'C008'
+!customer8.name := 'Bruce Banner'
+!customer8.twitterUserName := '@bruceB'
+
+!new Station('station7')
+
+!insert (driver8, shipment9) into DriverShipment
+
+!insert (shipment9, address14) into ShipmentContainsPickUpAddress
+!insert (shipment9, address15) into ShipmentContainsDeliveryAddress
+
+!insert (address14, geolocation14) into AddressContainsGeoLocation
+!insert (address15, geolocation15) into AddressContainsGeoLocation
+
+!insert (customer8, shipment9) into CustomerConsistsOfShipment
+!insert (station7, shipment9) into StationShipment
+
+!insert (station7, customer8) into StationContainsCustomer
+!insert (station7, driver8) into StationContainsDriver

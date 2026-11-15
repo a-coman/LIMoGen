@@ -1,0 +1,95 @@
+!new Bank('bank18')
+!bank18.country := 'Argentina'
+!bank18.name := 'Banco de la Nación Argentina'
+!bank18.bic := 'NACNARBA'
+
+!new Bank('bank19')
+!bank19.country := 'China'
+!bank19.name := 'ICBC'
+!bank19.bic := 'ICBKCNBJ'
+
+!new Account('account49')
+!account49.iban := 'AR00NACN123456789'
+!account49.balance := 1450
+
+!new Account('account50')
+!account50.iban := 'AR00NACN987654321'
+!account50.balance := 680
+
+!new Account('account51')
+!account51.iban := 'CN00ICBK123456789'
+!account51.balance := 5200
+
+!new Account('account52')
+!account52.iban := 'CN00ICBK987654321'
+!account52.balance := 750
+
+!new Person('person58')
+!person58.firstName := 'Frodo'
+!person58.lastName := 'Baggins'
+!person58.age := 39
+
+!new Person('person59')
+!person59.firstName := 'Galadriel'
+!person59.lastName := 'Elves'
+!person59.age := 7000
+
+!new Person('person60')
+!person60.firstName := 'Hermione'
+!person60.lastName := 'Granger'
+!person60.age := 28
+
+!new Person('person61')
+!person61.firstName := 'Indiana'
+!person61.lastName := 'Jones'
+!person61.age := 47
+
+!insert (person58, account49) into Ownership
+!insert (person58, account50) into Ownership
+!insert (person59, account51) into Ownership
+!insert (person60, account52) into Ownership
+
+!insert (person61, account49) into Use
+!insert (person60, account50) into Use
+!insert (person61, account51) into Use
+!insert (person59, account52) into Use
+
+!insert (bank18, account49) into AccountOfBanks
+!insert (bank18, account50) into AccountOfBanks
+!insert (bank19, account51) into AccountOfBanks
+!insert (bank19, account52) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account53')
+!account53.iban := 'AR00NACN111111111'
+!account53.balance := 350
+
+!new Person('person62')
+!person62.firstName := 'Jack'
+!person62.lastName := 'Sparrow'
+!person62.age := 56
+
+!insert (person62, account53) into Ownership
+!insert (person62, account53) into Use
+
+!insert (bank18, account53) into AccountOfBanks
+
+!new Person('person63')
+!person63.firstName := 'Kara'
+!person63.lastName := 'Zor-El'
+!person63.age := 32
+
+!new Account('account54')
+!account54.iban := 'CN00ICBK222222222'
+!account54.balance := 2800
+
+!insert (person63, account54) into Ownership
+!insert (person58, account54) into Use
+!insert (bank19, account54) into AccountOfBanks
+
+!new Person('person64')
+!person64.firstName := 'Luke'
+!person64.lastName := 'Skywalker'
+!person64.age := 33
+
+!insert (person64, account54) into Use

@@ -1,0 +1,29 @@
+!new Client('client19')
+!client19.clientId := 19
+!client19.isSuspended := true
+
+!new Rental('rental19')
+!rental19.date := Date('2023-10-28')
+
+!new Movie('movie19')
+!movie19.title := 'Fantasy Quest'
+!movie19.availableCopies := 2
+!movie19.genre := #Action
+
+!new Series('series18')
+!series18.title := 'Stand-Up Specials'
+!series18.availableCopies := 6
+!series18.episode := 1
+
+!new Actor('actor34')
+!actor34.name := 'Fantasy Hero'
+
+!new Actor('actor35')
+!actor35.name := 'Stand-Up Star'
+
+!insert (client19, rental19) into ClientRental
+!insert (rental19, movie19) into RentalCassette
+!insert (rental19, series18) into RentalCassette
+!insert (movie19, actor34) into CassetteActor
+!insert (series18, actor35) into CassetteActor
+!insert (series18, actor34) into CassetteActor

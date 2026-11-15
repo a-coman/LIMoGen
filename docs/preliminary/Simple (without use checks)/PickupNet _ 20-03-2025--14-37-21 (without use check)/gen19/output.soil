@@ -1,0 +1,42 @@
+!new Driver('driver20')
+!driver20.id := 'D020'
+!driver20.name := 'Katniss Everdeen'
+
+!new Shipment('shipment21')
+!shipment21.id := 'S021'
+!shipment21.status := #UNDERWAY
+
+!new Address('address38')
+!address38.text := '1111 Capitol Rd, Panem City'
+
+!new Address('address39')
+!address39.text := '2222 District Ave, Seam Village'
+
+!new GeoLocation('geolocation38')
+!geolocation38.latitude := 40.7128
+!geolocation38.longitude := -74.0060
+
+!new GeoLocation('geolocation39')
+!geolocation39.latitude := 37.7749
+!geolocation39.longitude := -122.4194
+
+!new Customer('customer20')
+!customer20.id := 'C020'
+!customer20.name := 'Peeta Mellark'
+!customer20.twitterUserName := '@peetaM'
+
+!new Station('station19')
+
+!insert (driver20, shipment21) into DriverShipment
+
+!insert (shipment21, address38) into ShipmentContainsPickUpAddress
+!insert (shipment21, address39) into ShipmentContainsDeliveryAddress
+
+!insert (address38, geolocation38) into AddressContainsGeoLocation
+!insert (address39, geolocation39) into AddressContainsGeoLocation
+
+!insert (customer20, shipment21) into CustomerConsistsOfShipment
+!insert (station19, shipment21) into StationShipment
+
+!insert (station19, customer20) into StationContainsCustomer
+!insert (station19, driver20) into StationContainsDriver

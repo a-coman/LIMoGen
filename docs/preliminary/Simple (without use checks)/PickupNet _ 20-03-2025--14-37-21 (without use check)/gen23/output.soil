@@ -1,0 +1,42 @@
+!new Driver('driver24')
+!driver24.id := 'D024'
+!driver24.name := 'Ellen Ripley'
+
+!new Shipment('shipment25')
+!shipment25.id := 'S025'
+!shipment25.status := #NEW
+
+!new Address('address46')
+!address46.text := '9999 Nostromo St, LV-426 Colony'
+
+!new Address('address47')
+!address47.text := '1010 Sulaco Ave, Gateway Station'
+
+!new GeoLocation('geolocation46')
+!geolocation46.latitude := 48.2082
+!geolocation46.longitude := 16.3738
+
+!new GeoLocation('geolocation47')
+!geolocation47.latitude := 35.6895
+!geolocation47.longitude := 139.6917
+
+!new Customer('customer24')
+!customer24.id := 'C024'
+!customer24.name := 'Amanda Ripley'
+!customer24.twitterUserName := '@survivorAmanda'
+
+!new Station('station23')
+
+!insert (driver24, shipment25) into DriverShipment
+
+!insert (shipment25, address46) into ShipmentContainsPickUpAddress
+!insert (shipment25, address47) into ShipmentContainsDeliveryAddress
+
+!insert (address46, geolocation46) into AddressContainsGeoLocation
+!insert (address47, geolocation47) into AddressContainsGeoLocation
+
+!insert (customer24, shipment25) into CustomerConsistsOfShipment
+!insert (station23, shipment25) into StationShipment
+
+!insert (station23, customer24) into StationContainsCustomer
+!insert (station23, driver24) into StationContainsDriver

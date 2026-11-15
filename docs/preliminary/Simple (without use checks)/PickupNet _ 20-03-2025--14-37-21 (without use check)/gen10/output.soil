@@ -1,0 +1,42 @@
+!new Driver('driver11')
+!driver11.id := 'D011'
+!driver11.name := 'Jack Reacher'
+
+!new Shipment('shipment12')
+!shipment12.id := 'S012'
+!shipment12.status := #DELIVERED
+
+!new Address('address20')
+!address20.text := '1010 Cypress St, Elms Town'
+
+!new Address('address21')
+!address21.text := '2020 Maple Rd, Timber City'
+
+!new GeoLocation('geolocation20')
+!geolocation20.latitude := 23.6345
+!geolocation20.longitude := -102.5528
+
+!new GeoLocation('geolocation21')
+!geolocation21.latitude := 19.4326
+!geolocation21.longitude := -99.1332
+
+!new Customer('customer11')
+!customer11.id := 'C011'
+!customer11.name := 'Steve Rogers'
+!customer11.twitterUserName := '@captainAmerica'
+
+!new Station('station10')
+
+!insert (driver11, shipment12) into DriverShipment
+
+!insert (shipment12, address20) into ShipmentContainsPickUpAddress
+!insert (shipment12, address21) into ShipmentContainsDeliveryAddress
+
+!insert (address20, geolocation20) into AddressContainsGeoLocation
+!insert (address21, geolocation21) into AddressContainsGeoLocation
+
+!insert (customer11, shipment12) into CustomerConsistsOfShipment
+!insert (station10, shipment12) into StationShipment
+
+!insert (station10, customer11) into StationContainsCustomer
+!insert (station10, driver11) into StationContainsDriver

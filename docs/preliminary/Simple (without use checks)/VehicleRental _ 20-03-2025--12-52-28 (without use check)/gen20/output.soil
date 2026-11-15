@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice21')
+!rentalOffice21.name := 'Coastal Rentals'
+!rentalOffice21.number := 2121
+!rentalOffice21.address := '100 Shoreline Dr, CA'
+
+!new Vehicle('vehicle21')
+!vehicle21.id := 1021
+!vehicle21.registrationState := #CA
+!vehicle21.licensePlateNumber := 'CA7654'
+!vehicle21.vehicleTypeCode := #OPEN_TRAILER
+!vehicle21.registrationLastMaintenanceDate := Date('2023-10-01')
+!vehicle21.expirationDate := Date('2024-10-01')
+
+!new Truck('truck21')
+!truck21.id := 2021
+!truck21.registrationState := #OR
+!truck21.licensePlateNumber := 'OR6789'
+!truck21.vehicleTypeCode := #TRUCK
+!truck21.registrationLastMaintenanceDate := Date('2024-01-15')
+!truck21.expirationDate := Date('2025-01-15')
+!truck21.odometerReading := 9000
+!truck21.gasTankCapacity := 65.0
+!truck21.workingRadio := true
+!truck21.mileage := 16
+
+!new RentalAgreement('rentalAgreement21')
+!rentalAgreement21.number := 5021
+!rentalAgreement21.rentalDate := Date('2025-06-01')
+!rentalAgreement21.anticipatedDuration := 12
+!rentalAgreement21.depositPaid := 600.0
+!rentalAgreement21.quotedDailyRate := 105.0
+!rentalAgreement21.quotedRatePerMile := 0.55
+
+!new Company('company11')
+!company11.name := 'Seaside Haulers'
+!company11.address := '456 Wave Ave, WA'
+!company11.poorRisk := false
+!company11.idNumber := 212121212
+
+!insert (rentalOffice21, vehicle21) into RentalOfficeVehicle
+!insert (rentalOffice21, truck21) into RentalOfficeVehicle
+
+!insert (rentalOffice21, rentalAgreement21) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice16, rentalAgreement21) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement21, vehicle21) into RentalAgreementVehicle
+
+!insert (rentalAgreement21, company11) into RentalAgreementCustomer

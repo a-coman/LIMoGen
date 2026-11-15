@@ -1,0 +1,42 @@
+!new Driver('driver30')
+!driver30.id := 'D030'
+!driver30.name := 'James T. Kirk'
+
+!new Shipment('shipment31')
+!shipment31.id := 'S031'
+!shipment31.status := #NEW
+
+!new Address('address58')
+!address58.text := '1112 Starfleet Headquarters, San Francisco'
+
+!new Address('address59')
+!address59.text := '1213 Vulcan Academy, ShiKahr'
+
+!new GeoLocation('geolocation58')
+!geolocation58.latitude := 37.7749
+!geolocation58.longitude := -122.4194
+
+!new GeoLocation('geolocation59')
+!geolocation59.latitude := -33.8688
+!geolocation59.longitude := 151.2093
+
+!new Customer('customer30')
+!customer30.id := 'C030'
+!customer30.name := 'Leonard McCoy'
+!customer30.twitterUserName := '@bonesMcCoy'
+
+!new Station('station29')
+
+!insert (driver30, shipment31) into DriverShipment
+
+!insert (shipment31, address58) into ShipmentContainsPickUpAddress
+!insert (shipment31, address59) into ShipmentContainsDeliveryAddress
+
+!insert (address58, geolocation58) into AddressContainsGeoLocation
+!insert (address59, geolocation59) into AddressContainsGeoLocation
+
+!insert (customer30, shipment31) into CustomerConsistsOfShipment
+!insert (station29, shipment31) into StationShipment
+
+!insert (station29, customer30) into StationContainsCustomer
+!insert (station29, driver30) into StationContainsDriver

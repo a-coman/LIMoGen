@@ -1,0 +1,95 @@
+!new Bank('bank36')
+!bank36.country := 'Ireland'
+!bank36.name := 'Bank of Ireland'
+!bank36.bic := 'BOFIIE2D'
+
+!new Bank('bank37')
+!bank37.country := 'South Africa'
+!bank37.name := 'Absa Bank'
+!bank37.bic := 'ABSAZAJJ'
+
+!new Account('account103')
+!account103.iban := 'IE00BOFI123456789'
+!account103.balance := 3100
+
+!new Account('account104')
+!account104.iban := 'IE00BOFI987654321'
+!account104.balance := 850
+
+!new Account('account105')
+!account105.iban := 'ZA00ABSA123456789'
+!account105.balance := 2700
+
+!new Account('account106')
+!account106.iban := 'ZA00ABSA987654321'
+!account106.balance := 980
+
+!new Person('person121')
+!person121.firstName := 'Quincy'
+!person121.lastName := 'Jones'
+!person121.age := 88
+
+!new Person('person122')
+!person122.firstName := 'Regina'
+!person122.lastName := 'King'
+!person122.age := 50
+
+!new Person('person123')
+!person123.firstName := 'Steve'
+!person123.lastName := 'Jobs'
+!person123.age := 56
+
+!new Person('person124')
+!person124.firstName := 'Tina'
+!person124.lastName := 'Fey'
+!person124.age := 51
+
+!insert (person121, account103) into Ownership
+!insert (person122, account104) into Ownership
+!insert (person123, account105) into Ownership
+!insert (person124, account106) into Ownership
+
+!insert (person122, account103) into Use
+!insert (person123, account104) into Use
+!insert (person124, account105) into Use
+!insert (person121, account106) into Use
+
+!insert (bank36, account103) into AccountOfBanks
+!insert (bank36, account104) into AccountOfBanks
+!insert (bank37, account105) into AccountOfBanks
+!insert (bank37, account106) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account107')
+!account107.iban := 'IE00BOFI555555555'
+!account107.balance := 1100
+
+!new Person('person125')
+!person125.firstName := 'Uma'
+!person125.lastName := 'Thurman'
+!person125.age := 52
+
+!insert (person125, account107) into Ownership
+!insert (person125, account107) into Use
+
+!insert (bank36, account107) into AccountOfBanks
+
+!new Person('person126')
+!person126.firstName := 'Vince'
+!person126.lastName := 'Vaughn'
+!person126.age := 51
+
+!new Account('account108')
+!account108.iban := 'ZA00ABSA333333333'
+!account108.balance := 1800
+
+!insert (person126, account108) into Ownership
+!insert (person121, account108) into Use
+!insert (bank37, account108) into AccountOfBanks
+
+!new Person('person127')
+!person127.firstName := 'Willow'
+!person127.lastName := 'Smith'
+!person127.age := 20
+
+!insert (person127, account108) into Use

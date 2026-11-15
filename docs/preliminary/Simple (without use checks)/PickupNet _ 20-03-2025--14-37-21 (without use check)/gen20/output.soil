@@ -1,0 +1,42 @@
+!new Driver('driver21')
+!driver21.id := 'D021'
+!driver21.name := 'Arya Stark'
+
+!new Shipment('shipment22')
+!shipment22.id := 'S022'
+!shipment22.status := #DELIVERED
+
+!new Address('address40')
+!address40.text := '3333 Kings Landing Rd, Westeros'
+
+!new Address('address41')
+!address41.text := '4444 Winterfell Way, North Kingdom'
+
+!new GeoLocation('geolocation40')
+!geolocation40.latitude := 51.1657
+!geolocation40.longitude := 10.4515
+
+!new GeoLocation('geolocation41')
+!geolocation41.latitude := 55.7558
+!geolocation41.longitude := 37.6173
+
+!new Customer('customer21')
+!customer21.id := 'C021'
+!customer21.name := 'Jon Snow'
+!customer21.twitterUserName := '@kingInTheNorth'
+
+!new Station('station20')
+
+!insert (driver21, shipment22) into DriverShipment
+
+!insert (shipment22, address40) into ShipmentContainsPickUpAddress
+!insert (shipment22, address41) into ShipmentContainsDeliveryAddress
+
+!insert (address40, geolocation40) into AddressContainsGeoLocation
+!insert (address41, geolocation41) into AddressContainsGeoLocation
+
+!insert (customer21, shipment22) into CustomerConsistsOfShipment
+!insert (station20, shipment22) into StationShipment
+
+!insert (station20, customer21) into StationContainsCustomer
+!insert (station20, driver21) into StationContainsDriver

@@ -1,0 +1,42 @@
+!new Driver('driver27')
+!driver27.id := 'D027'
+!driver27.name := 'Han Solo'
+
+!new Shipment('shipment28')
+!shipment28.id := 'S028'
+!shipment28.status := #NEW
+
+!new Address('address52')
+!address52.text := '5050 Millennium Falcon Path, Corellia System'
+
+!new Address('address53')
+!address53.text := '6060 Tatooine Circle, Outer Rim Territories'
+
+!new GeoLocation('geolocation52')
+!geolocation52.latitude := 29.9792
+!geolocation52.longitude := 31.1342
+
+!new GeoLocation('geolocation53')
+!geolocation53.latitude := 21.3069
+!geolocation53.longitude := -157.8583
+
+!new Customer('customer27')
+!customer27.id := 'C027'
+!customer27.name := 'Leia Organa'
+!customer27.twitterUserName := '@princessLeia'
+
+!new Station('station26')
+
+!insert (driver27, shipment28) into DriverShipment
+
+!insert (shipment28, address52) into ShipmentContainsPickUpAddress
+!insert (shipment28, address53) into ShipmentContainsDeliveryAddress
+
+!insert (address52, geolocation52) into AddressContainsGeoLocation
+!insert (address53, geolocation53) into AddressContainsGeoLocation
+
+!insert (customer27, shipment28) into CustomerConsistsOfShipment
+!insert (station26, shipment28) into StationShipment
+
+!insert (station26, customer27) into StationContainsCustomer
+!insert (station26, driver27) into StationContainsDriver

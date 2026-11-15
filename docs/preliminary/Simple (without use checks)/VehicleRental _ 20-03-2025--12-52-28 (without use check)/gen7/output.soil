@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice8')
+!rentalOffice8.name := 'Urban Mobility Rentals'
+!rentalOffice8.number := 808
+!rentalOffice8.address := '400 Downtown Cir, AZ'
+
+!new Vehicle('vehicle8')
+!vehicle8.id := 1008
+!vehicle8.registrationState := #AZ
+!vehicle8.licensePlateNumber := 'AZ2233'
+!vehicle8.vehicleTypeCode := #COVERED_TRAILER
+!vehicle8.registrationLastMaintenanceDate := Date('2023-08-15')
+!vehicle8.expirationDate := Date('2024-08-15')
+
+!new Truck('truck8')
+!truck8.id := 2008
+!truck8.registrationState := #NV
+!truck8.licensePlateNumber := 'NV5566'
+!truck8.vehicleTypeCode := #TRUCK10
+!truck8.registrationLastMaintenanceDate := Date('2023-12-01')
+!truck8.expirationDate := Date('2024-12-01')
+!truck8.odometerReading := 70000
+!truck8.gasTankCapacity := 52.0
+!truck8.workingRadio := false
+!truck8.mileage := 13
+
+!new RentalAgreement('rentalAgreement8')
+!rentalAgreement8.number := 5008
+!rentalAgreement8.rentalDate := Date('2024-04-15')
+!rentalAgreement8.anticipatedDuration := 12
+!rentalAgreement8.depositPaid := 400.0
+!rentalAgreement8.quotedDailyRate := 80.0
+!rentalAgreement8.quotedRatePerMile := 0.32
+
+!new Individual('individual5')
+!individual5.name := 'Emily Clark'
+!individual5.address := '100 Lakeside Ave, CT'
+!individual5.poorRisk := true
+!individual5.homePhone := '860-555-9988'
+!individual5.driverLicenseState := #CT
+!individual5.driverLicenseNumber := 222333444
+!individual5.driverLicenseExpirationDate := Date('2026-12-10')
+
+!insert (rentalOffice8, vehicle8) into RentalOfficeVehicle
+!insert (rentalOffice8, truck8) into RentalOfficeVehicle
+
+!insert (rentalOffice8, rentalAgreement8) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice6, rentalAgreement8) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement8, truck8) into RentalAgreementVehicle
+
+!insert (rentalAgreement8, individual5) into RentalAgreementCustomer

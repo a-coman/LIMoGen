@@ -1,0 +1,95 @@
+!new Bank('bank22')
+!bank22.country := 'Thailand'
+!bank22.name := 'Bangkok Bank'
+!bank22.bic := 'BKKBTHBK'
+
+!new Bank('bank23')
+!bank23.country := 'New Zealand'
+!bank23.name := 'ANZ Bank New Zealand'
+!bank23.bic := 'ANZBNZ22'
+
+!new Account('account61')
+!account61.iban := 'TH00BKKB123456789'
+!account61.balance := 4100
+
+!new Account('account62')
+!account62.iban := 'TH00BKKB987654321'
+!account62.balance := 90
+
+!new Account('account63')
+!account63.iban := 'NZ00ANZB123456789'
+!account63.balance := 1500
+
+!new Account('account64')
+!account64.iban := 'NZ00ANZB987654321'
+!account64.balance := 3000
+
+!new Person('person72')
+!person72.firstName := 'Uma'
+!person72.lastName := 'Thurman'
+!person72.age := 51
+
+!new Person('person73')
+!person73.firstName := 'Victor'
+!person73.lastName := 'Von Doom'
+!person73.age := 39
+
+!new Person('person74')
+!person74.firstName := 'Walt'
+!person74.lastName := 'Disney'
+!person74.age := 43
+
+!new Person('person75')
+!person75.firstName := 'Xander'
+!person75.lastName := 'Cage'
+!person75.age := 33
+
+!insert (person72, account61) into Ownership
+!insert (person73, account62) into Ownership
+!insert (person74, account63) into Ownership
+!insert (person75, account64) into Ownership
+
+!insert (person73, account61) into Use
+!insert (person74, account62) into Use
+!insert (person75, account63) into Use
+!insert (person72, account64) into Use
+
+!insert (bank22, account61) into AccountOfBanks
+!insert (bank22, account62) into AccountOfBanks
+!insert (bank23, account63) into AccountOfBanks
+!insert (bank23, account64) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account65')
+!account65.iban := 'TH00BKKB555555555'
+!account65.balance := 100
+
+!new Person('person76')
+!person76.firstName := 'Yolanda'
+!person76.lastName := 'Foster'
+!person76.age := 58
+
+!insert (person76, account65) into Ownership
+!insert (person76, account65) into Use
+
+!insert (bank22, account65) into AccountOfBanks
+
+!new Person('person77')
+!person77.firstName := 'Zayn'
+!person77.lastName := 'Malik'
+!person77.age := 33
+
+!new Account('account66')
+!account66.iban := 'NZ00ANZB777777777'
+!account66.balance := 1200
+
+!insert (person77, account66) into Ownership
+!insert (person72, account66) into Use
+!insert (bank23, account66) into AccountOfBanks
+
+!new Person('person78')
+!person78.firstName := 'Aiden'
+!person78.lastName := 'Pearce'
+!person78.age := 37
+
+!insert (person78, account66) into Use

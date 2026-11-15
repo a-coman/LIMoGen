@@ -1,0 +1,29 @@
+!new Client('client5')
+!client5.clientId := 5
+!client5.isSuspended := true
+
+!new Rental('rental5')
+!rental5.date := Date('2023-10-14')
+
+!new Movie('movie5')
+!movie5.title := 'Classic Comedy'
+!movie5.availableCopies := 4
+!movie5.genre := #Comedy
+
+!new Series('series4')
+!series4.title := 'Drama Chronicles'
+!series4.availableCopies := 8
+!series4.episode := 3
+
+!new Actor('actor6')
+!actor6.name := 'Dramatic Actor'
+
+!new Actor('actor7')
+!actor7.name := 'Comedian Legend'
+
+!insert (client5, rental5) into ClientRental
+!insert (rental5, movie5) into RentalCassette
+!insert (rental5, series4) into RentalCassette
+!insert (movie5, actor7) into CassetteActor
+!insert (series4, actor6) into CassetteActor
+!insert (series4, actor7) into CassetteActor

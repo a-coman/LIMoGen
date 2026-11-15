@@ -1,0 +1,95 @@
+!new Bank('bank26')
+!bank26.country := 'Malaysia'
+!bank26.name := 'Malayan Banking Berhad'
+!bank26.bic := 'MBBEMYKL'
+
+!new Bank('bank27')
+!bank27.country := 'Switzerland'
+!bank27.name := 'Credit Suisse'
+!bank27.bic := 'CRESCHZZ'
+
+!new Account('account73')
+!account73.iban := 'MY00MBBE123456789'
+!account73.balance := 3600
+
+!new Account('account74')
+!account74.iban := 'MY00MBBE987654321'
+!account74.balance := 450
+
+!new Account('account75')
+!account75.iban := 'CH00CRES123456789'
+!account75.balance := 3100
+
+!new Account('account76')
+!account76.iban := 'CH00CRES987654321'
+!account76.balance := 1700
+
+!new Person('person86')
+!person86.firstName := 'Irene'
+!person86.lastName := 'Adler'
+!person86.age := 39
+
+!new Person('person87')
+!person87.firstName := 'Jon'
+!person87.lastName := 'Snow'
+!person87.age := 32
+
+!new Person('person88')
+!person88.firstName := 'Kevin'
+!person88.lastName := 'Flynn'
+!person88.age := 55
+
+!new Person('person89')
+!person89.firstName := 'Leslie'
+!person89.lastName := 'Knope'
+!person89.age := 40
+
+!insert (person86, account73) into Ownership
+!insert (person87, account74) into Ownership
+!insert (person88, account75) into Ownership
+!insert (person89, account76) into Ownership
+
+!insert (person87, account73) into Use
+!insert (person88, account74) into Use
+!insert (person89, account75) into Use
+!insert (person86, account76) into Use
+
+!insert (bank26, account73) into AccountOfBanks
+!insert (bank26, account74) into AccountOfBanks
+!insert (bank27, account75) into AccountOfBanks
+!insert (bank27, account76) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account77')
+!account77.iban := 'MY00MBBE555555555'
+!account77.balance := 1200
+
+!new Person('person90')
+!person90.firstName := 'Marty'
+!person90.lastName := 'McFly'
+!person90.age := 47
+
+!insert (person90, account77) into Ownership
+!insert (person90, account77) into Use
+
+!insert (bank26, account77) into AccountOfBanks
+
+!new Person('person91')
+!person91.firstName := 'Nancy'
+!person91.lastName := 'Drew'
+!person91.age := 33
+
+!new Account('account78')
+!account78.iban := 'CH00CRES333333333'
+!account78.balance := 2300
+
+!insert (person91, account78) into Ownership
+!insert (person86, account78) into Use
+!insert (bank27, account78) into AccountOfBanks
+
+!new Person('person92')
+!person92.firstName := 'Olivia'
+!person92.lastName := 'Benson'
+!person92.age := 44
+
+!insert (person92, account78) into Use

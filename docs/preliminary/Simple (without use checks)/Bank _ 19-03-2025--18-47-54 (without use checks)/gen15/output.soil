@@ -1,0 +1,95 @@
+!new Bank('bank30')
+!bank30.country := 'Canada'
+!bank30.name := 'RBC Royal Bank'
+!bank30.bic := 'ROYCCAT2'
+
+!new Bank('bank31')
+!bank31.country := 'Singapore'
+!bank31.name := 'DBS Bank'
+!bank31.bic := 'DBSSSGSG'
+
+!new Account('account85')
+!account85.iban := 'CA00ROYCC123456789'
+!account85.balance := 3200
+
+!new Account('account86')
+!account86.iban := 'CA00ROYCC987654321'
+!account86.balance := 510
+
+!new Account('account87')
+!account87.iban := 'SG00DBSS123456789'
+!account87.balance := 2750
+
+!new Account('account88')
+!account88.iban := 'SG00DBSS987654321'
+!account88.balance := 400
+
+!new Person('person100')
+!person100.firstName := 'Warren'
+!person100.lastName := 'Buffett'
+!person100.age := 91
+
+!new Person('person101')
+!person101.firstName := 'Xavier'
+!person101.lastName := 'Dolan'
+!person101.age := 32
+
+!new Person('person102')
+!person102.firstName := 'Yara'
+!person102.lastName := 'Greyjoy'
+!person102.age := 36
+
+!new Person('person103')
+!person103.firstName := 'Zoe'
+!person103.lastName := 'Saldana'
+!person103.age := 44
+
+!insert (person100, account85) into Ownership
+!insert (person101, account86) into Ownership
+!insert (person102, account87) into Ownership
+!insert (person103, account88) into Ownership
+
+!insert (person101, account85) into Use
+!insert (person102, account86) into Use
+!insert (person103, account87) into Use
+!insert (person100, account88) into Use
+
+!insert (bank30, account85) into AccountOfBanks
+!insert (bank30, account86) into AccountOfBanks
+!insert (bank31, account87) into AccountOfBanks
+!insert (bank31, account88) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account89')
+!account89.iban := 'CA00ROYCC555555555'
+!account89.balance := 500
+
+!new Person('person104')
+!person104.firstName := 'Albert'
+!person104.lastName := 'Einstein'
+!person104.age := 76
+
+!insert (person104, account89) into Ownership
+!insert (person104, account89) into Use
+
+!insert (bank30, account89) into AccountOfBanks
+
+!new Person('person105')
+!person105.firstName := 'Beatrice'
+!person105.lastName := 'Kiddo'
+!person105.age := 41
+
+!new Account('account90')
+!account90.iban := 'SG00DBSS333333333'
+!account90.balance := 800
+
+!insert (person105, account90) into Ownership
+!insert (person100, account90) into Use
+!insert (bank31, account90) into AccountOfBanks
+
+!new Person('person106')
+!person106.firstName := 'Charlie'
+!person106.lastName := 'Chaplin'
+!person106.age := 77
+
+!insert (person106, account90) into Use

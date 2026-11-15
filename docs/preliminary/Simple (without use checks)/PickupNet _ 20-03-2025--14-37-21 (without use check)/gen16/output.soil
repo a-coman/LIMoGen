@@ -1,0 +1,42 @@
+!new Driver('driver17')
+!driver17.id := 'D017'
+!driver17.name := 'Rick Deckard'
+
+!new Shipment('shipment18')
+!shipment18.id := 'S018'
+!shipment18.status := #DELIVERED
+
+!new Address('address32')
+!address32.text := '4040 Oak Road, Deckard City'
+
+!new Address('address33')
+!address33.text := '5050 Spruce Street, Replicant Town'
+
+!new GeoLocation('geolocation32')
+!geolocation32.latitude := 40.4168
+!geolocation32.longitude := -3.7038
+
+!new GeoLocation('geolocation33')
+!geolocation33.latitude := -23.5505
+!geolocation33.longitude := -46.6333
+
+!new Customer('customer17')
+!customer17.id := 'C017'
+!customer17.name := 'Ellen Ripley'
+!customer17.twitterUserName := '@alienHunter'
+
+!new Station('station16')
+
+!insert (driver17, shipment18) into DriverShipment
+
+!insert (shipment18, address32) into ShipmentContainsPickUpAddress
+!insert (shipment18, address33) into ShipmentContainsDeliveryAddress
+
+!insert (address32, geolocation32) into AddressContainsGeoLocation
+!insert (address33, geolocation33) into AddressContainsGeoLocation
+
+!insert (customer17, shipment18) into CustomerConsistsOfShipment
+!insert (station16, shipment18) into StationShipment
+
+!insert (station16, customer17) into StationContainsCustomer
+!insert (station16, driver17) into StationContainsDriver

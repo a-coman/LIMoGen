@@ -1,0 +1,29 @@
+!new Client('client26')
+!client26.clientId := 26
+!client26.isSuspended := true
+
+!new Rental('rental26')
+!rental26.date := Date('2023-11-04')
+
+!new Movie('movie26')
+!movie26.title := 'Mystery Island'
+!movie26.availableCopies := 1
+!movie26.genre := #Action
+
+!new Series('series25')
+!series25.title := 'Classic Comedies'
+!series25.availableCopies := 8
+!series25.episode := 10
+
+!new Actor('actor48')
+!actor48.name := 'Island Explorer'
+
+!new Actor('actor49')
+!actor49.name := 'Vintage Comedian'
+
+!insert (client26, rental26) into ClientRental
+!insert (rental26, movie26) into RentalCassette
+!insert (rental26, series25) into RentalCassette
+!insert (movie26, actor48) into CassetteActor
+!insert (series25, actor49) into CassetteActor
+!insert (series25, actor48) into CassetteActor

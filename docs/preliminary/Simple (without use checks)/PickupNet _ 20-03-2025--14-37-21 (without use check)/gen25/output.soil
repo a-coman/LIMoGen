@@ -1,0 +1,42 @@
+!new Driver('driver26')
+!driver26.id := 'D026'
+!driver26.name := 'Tyrion Lannister'
+
+!new Shipment('shipment27')
+!shipment27.id := 'S027'
+!shipment27.status := #ASSIGNED
+
+!new Address('address50')
+!address50.text := '3030 Dragonstone St, Westeros Isle'
+
+!new Address('address51')
+!address51.text := '4040 Casterly Rock Dr, Lannister City'
+
+!new GeoLocation('geolocation50')
+!geolocation50.latitude := 33.7490
+!geolocation50.longitude := -84.3880
+
+!new GeoLocation('geolocation51')
+!geolocation51.latitude := 41.3851
+!geolocation51.longitude := 2.1734
+
+!new Customer('customer26')
+!customer26.id := 'C026'
+!customer26.name := 'Daenerys Targaryen'
+!customer26.twitterUserName := '@dragonQueen'
+
+!new Station('station25')
+
+!insert (driver26, shipment27) into DriverShipment
+
+!insert (shipment27, address50) into ShipmentContainsPickUpAddress
+!insert (shipment27, address51) into ShipmentContainsDeliveryAddress
+
+!insert (address50, geolocation50) into AddressContainsGeoLocation
+!insert (address51, geolocation51) into AddressContainsGeoLocation
+
+!insert (customer26, shipment27) into CustomerConsistsOfShipment
+!insert (station25, shipment27) into StationShipment
+
+!insert (station25, customer26) into StationContainsCustomer
+!insert (station25, driver26) into StationContainsDriver

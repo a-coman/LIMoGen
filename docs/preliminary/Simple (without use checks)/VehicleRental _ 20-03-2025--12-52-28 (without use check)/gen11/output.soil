@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice12')
+!rentalOffice12.name := 'Capital Rentals'
+!rentalOffice12.number := 1212
+!rentalOffice12.address := '900 Constitution Ave, DC'
+
+!new Vehicle('vehicle12')
+!vehicle12.id := 1012
+!vehicle12.registrationState := #DC
+!vehicle12.licensePlateNumber := 'DC5678'
+!vehicle12.vehicleTypeCode := #OPEN_TRAILER
+!vehicle12.registrationLastMaintenanceDate := Date('2023-04-20')
+!vehicle12.expirationDate := Date('2024-04-20')
+
+!new Truck('truck12')
+!truck12.id := 2012
+!truck12.registrationState := #NC
+!truck12.licensePlateNumber := 'NC3344'
+!truck12.vehicleTypeCode := #TRUCK
+!truck12.registrationLastMaintenanceDate := Date('2023-11-22')
+!truck12.expirationDate := Date('2024-11-22')
+!truck12.odometerReading := 15000
+!truck12.gasTankCapacity := 68.0
+!truck12.workingRadio := false
+!truck12.mileage := 12
+
+!new RentalAgreement('rentalAgreement12')
+!rentalAgreement12.number := 5012
+!rentalAgreement12.rentalDate := Date('2024-08-05')
+!rentalAgreement12.anticipatedDuration := 20
+!rentalAgreement12.depositPaid := 700.0
+!rentalAgreement12.quotedDailyRate := 120.0
+!rentalAgreement12.quotedRatePerMile := 0.45
+
+!new Individual('individual7')
+!individual7.name := 'Samantha Lee'
+!individual7.address := '301 River Rd, WV'
+!individual7.poorRisk := true
+!individual7.homePhone := '304-555-7766'
+!individual7.driverLicenseState := #WV
+!individual7.driverLicenseNumber := 444555666
+!individual7.driverLicenseExpirationDate := Date('2026-03-15')
+
+!insert (rentalOffice12, vehicle12) into RentalOfficeVehicle
+!insert (rentalOffice12, truck12) into RentalOfficeVehicle
+
+!insert (rentalOffice12, rentalAgreement12) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice9, rentalAgreement12) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement12, truck12) into RentalAgreementVehicle
+
+!insert (rentalAgreement12, individual7) into RentalAgreementCustomer

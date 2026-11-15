@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice16')
+!rentalOffice16.name := 'Global Rentals'
+!rentalOffice16.number := 1616
+!rentalOffice16.address := '300 International Blvd, CA'
+
+!new Vehicle('vehicle16')
+!vehicle16.id := 1016
+!vehicle16.registrationState := #TX
+!vehicle16.licensePlateNumber := 'TX3344'
+!vehicle16.vehicleTypeCode := #COVERED_TRAILER
+!vehicle16.registrationLastMaintenanceDate := Date('2023-05-30')
+!vehicle16.expirationDate := Date('2024-05-30')
+
+!new Truck('truck16')
+!truck16.id := 2016
+!truck16.registrationState := #FL
+!truck16.licensePlateNumber := 'FL8899'
+!truck16.vehicleTypeCode := #TRUCK10
+!truck16.registrationLastMaintenanceDate := Date('2023-10-18')
+!truck16.expirationDate := Date('2024-10-18')
+!truck16.odometerReading := 90000
+!truck16.gasTankCapacity := 40.0
+!truck16.workingRadio := false
+!truck16.mileage := 19
+
+!new RentalAgreement('rentalAgreement16')
+!rentalAgreement16.number := 5016
+!rentalAgreement16.rentalDate := Date('2025-01-01')
+!rentalAgreement16.anticipatedDuration := 7
+!rentalAgreement16.depositPaid := 450.0
+!rentalAgreement16.quotedDailyRate := 75.0
+!rentalAgreement16.quotedRatePerMile := 0.40
+
+!new Individual('individual9')
+!individual9.name := 'Natalie Green'
+!individual9.address := '789 Forest Dr, GA'
+!individual9.poorRisk := true
+!individual9.homePhone := '912-555-0987'
+!individual9.driverLicenseState := #GA
+!individual9.driverLicenseNumber := 101010101
+!individual9.driverLicenseExpirationDate := Date('2027-06-30')
+
+!insert (rentalOffice16, vehicle16) into RentalOfficeVehicle
+!insert (rentalOffice16, truck16) into RentalOfficeVehicle
+
+!insert (rentalOffice16, rentalAgreement16) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice12, rentalAgreement16) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement16, truck16) into RentalAgreementVehicle
+
+!insert (rentalAgreement16, individual9) into RentalAgreementCustomer

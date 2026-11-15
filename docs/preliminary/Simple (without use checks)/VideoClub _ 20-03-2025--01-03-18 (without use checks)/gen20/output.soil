@@ -1,0 +1,29 @@
+!new Client('client22')
+!client22.clientId := 22
+!client22.isSuspended := true
+
+!new Rental('rental22')
+!rental22.date := Date('2023-10-31')
+
+!new Movie('movie22')
+!movie22.title := 'Gothic Mystery'
+!movie22.availableCopies := 4
+!movie22.genre := #Comedy
+
+!new Series('series21')
+!series21.title := 'Reality Adventures'
+!series21.availableCopies := 9
+!series21.episode := 7
+
+!new Actor('actor40')
+!actor40.name := 'Gothic Star'
+
+!new Actor('actor41')
+!actor41.name := 'Reality Show Host'
+
+!insert (client22, rental22) into ClientRental
+!insert (rental22, movie22) into RentalCassette
+!insert (rental22, series21) into RentalCassette
+!insert (movie22, actor40) into CassetteActor
+!insert (series21, actor41) into CassetteActor
+!insert (series21, actor40) into CassetteActor

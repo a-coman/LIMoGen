@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice7')
+!rentalOffice7.name := 'Hillside Rentals'
+!rentalOffice7.number := 707
+!rentalOffice7.address := '789 Cliffside Rd, CO'
+
+!new Vehicle('vehicle7')
+!vehicle7.id := 1007
+!vehicle7.registrationState := #CO
+!vehicle7.licensePlateNumber := 'CO5678'
+!vehicle7.vehicleTypeCode := #TRUCK10
+!vehicle7.registrationLastMaintenanceDate := Date('2023-03-05')
+!vehicle7.expirationDate := Date('2024-03-05')
+
+!new Truck('truck7')
+!truck7.id := 2007
+!truck7.registrationState := #UT
+!truck7.licensePlateNumber := 'UT9999'
+!truck7.vehicleTypeCode := #TRUCK
+!truck7.registrationLastMaintenanceDate := Date('2023-11-01')
+!truck7.expirationDate := Date('2024-11-01')
+!truck7.odometerReading := 45000
+!truck7.gasTankCapacity := 50.0
+!truck7.workingRadio := true
+!truck7.mileage := 14
+
+!new RentalAgreement('rentalAgreement7')
+!rentalAgreement7.number := 5007
+!rentalAgreement7.rentalDate := Date('2024-03-10')
+!rentalAgreement7.anticipatedDuration := 4
+!rentalAgreement7.depositPaid := 250.0
+!rentalAgreement7.quotedDailyRate := 90.0
+!rentalAgreement7.quotedRatePerMile := 0.28
+
+!new Company('company4')
+!company4.name := 'Transport Solutions'
+!company4.address := '567 Corporate Dr, TX'
+!company4.poorRisk := false
+!company4.idNumber := 666777888
+
+!insert (rentalOffice7, vehicle7) into RentalOfficeVehicle
+!insert (rentalOffice7, truck7) into RentalOfficeVehicle
+
+!insert (rentalOffice7, rentalAgreement7) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice2, rentalAgreement7) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement7, vehicle7) into RentalAgreementVehicle
+
+!insert (rentalAgreement7, company4) into RentalAgreementCustomer

@@ -1,0 +1,29 @@
+!new Client('client31')
+!client31.clientId := 31
+!client31.isSuspended := false
+
+!new Rental('rental31')
+!rental31.date := Date('2023-11-09')
+
+!new Movie('movie31')
+!movie31.title := 'Desert Trek'
+!movie31.availableCopies := 4
+!movie31.genre := #Action
+
+!new Series('series30')
+!series30.title := 'Behind the Scenes'
+!series30.availableCopies := 3
+!series30.episode := 7
+
+!new Actor('actor58')
+!actor58.name := 'Explorer Adventurer'
+
+!new Actor('actor59')
+!actor59.name := 'Documentary Host'
+
+!insert (client31, rental31) into ClientRental
+!insert (rental31, movie31) into RentalCassette
+!insert (rental31, series30) into RentalCassette
+!insert (movie31, actor58) into CassetteActor
+!insert (series30, actor59) into CassetteActor
+!insert (series30, actor58) into CassetteActor

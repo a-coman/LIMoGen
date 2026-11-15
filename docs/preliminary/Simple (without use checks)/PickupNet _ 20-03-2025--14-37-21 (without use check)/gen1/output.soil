@@ -1,0 +1,79 @@
+!new Driver('driver1')
+!driver1.id := 'D001'
+!driver1.name := 'Alice Johnson'
+
+!new Driver('driver2')
+!driver2.id := 'D002'
+!driver2.name := 'Bob Smith'
+
+!new Shipment('shipment1')
+!shipment1.id := 'S001'
+!shipment1.status := #NEW
+
+!new Shipment('shipment2')
+!shipment2.id := 'S002'
+!shipment2.status := #UNDERWAY
+
+!new Address('address1')
+!address1.text := '123 Main St, Springfield'
+
+!new Address('address2')
+!address2.text := '456 Elm St, Springfield'
+
+!new Address('address3')
+!address3.text := '789 Maple St, Shelbyville'
+
+!new GeoLocation('geolocation1')
+!geolocation1.latitude := 40.7128
+!geolocation1.longitude := -74.0060
+
+!new GeoLocation('geolocation2')
+!geolocation2.latitude := 34.0522
+!geolocation2.longitude := -118.2437
+
+!new GeoLocation('geolocation3')
+!geolocation3.latitude := 37.7749
+!geolocation3.longitude := -122.4194
+
+!new Customer('customer1')
+!customer1.id := 'C001'
+!customer1.name := 'Charlie Brown'
+!customer1.twitterUserName := '@charlieB'
+
+!new Customer('customer2')
+!customer2.id := 'C002'
+!customer2.name := 'Lucy Van Pelt'
+!customer2.twitterUserName := '@lucyVP'
+
+!new Station('station1')
+
+!insert (driver1, shipment1) into DriverShipment
+
+!insert (shipment1, address1) into ShipmentContainsPickUpAddress
+!insert (shipment1, address2) into ShipmentContainsDeliveryAddress
+
+!insert (address1, geolocation1) into AddressContainsGeoLocation
+!insert (address2, geolocation2) into AddressContainsGeoLocation
+
+!insert (customer1, shipment1) into CustomerConsistsOfShipment
+!insert (station1, shipment1) into StationShipment
+
+!insert (station1, customer1) into StationContainsCustomer
+!insert (station1, driver1) into StationContainsDriver
+
+!new Shipment('shipment3')
+!shipment3.id := 'S003'
+!shipment3.status := #DELIVERED
+
+!insert (shipment3, address2) into ShipmentContainsPickUpAddress
+!insert (shipment3, address3) into ShipmentContainsDeliveryAddress
+
+!insert (address3, geolocation3) into AddressContainsGeoLocation
+
+!insert (driver2, shipment3) into DriverShipment
+
+!insert (customer2, shipment3) into CustomerConsistsOfShipment
+!insert (station1, shipment3) into StationShipment
+
+!insert (station1, customer2) into StationContainsCustomer
+!insert (station1, driver2) into StationContainsDriver

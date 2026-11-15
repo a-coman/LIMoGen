@@ -1,0 +1,319 @@
+# Generation 1
+```
+!new Currency('currency1')
+!currency1.name := 'Dollar'
+!currency1.abbreviation := 'USD'
+
+!new Currency('currency2')
+!currency2.name := 'Euro'
+!currency2.abbreviation := 'EUR'
+
+!new Expense('expense1')
+!expense1.amount := 200.0
+!expense1.startDate := Date('2023-10-01')
+!expense1.endDate := Date('2023-10-15')
+
+!new Expense('expense2')
+!expense2.amount := 300.0
+!expense2.startDate := Date('2023-09-01')
+!expense2.endDate := Date('2023-09-30')
+
+!new Bill('bill1')
+!bill1.amount := 100.0
+!bill1.category := 'Groceries'
+!bill1.date := Date('2023-10-02')
+!bill1.paymentMethod := #CASH
+!bill1.status := #PENDING
+!insert (bill1, currency1) into BillCurrency
+!insert (expense1, bill1) into ExpenseContainsBills
+
+!new Bill('bill2')
+!bill2.amount := 100.0
+!bill2.category := 'Utilities'
+!bill2.date := Date('2023-10-05')
+!bill2.paymentMethod := #CREDIT_CARD
+!bill2.status := #VERIFIED
+!insert (bill2, currency1) into BillCurrency
+!insert (expense1, bill2) into ExpenseContainsBills
+
+!new Bill('bill3')
+!bill3.amount := 100.0
+!bill3.category := 'Groceries'
+!bill3.date := Date('2023-09-05')
+!bill3.paymentMethod := #CHECK
+!bill3.status := #VALIDATED
+!insert (bill3, currency2) into BillCurrency
+!insert (expense2, bill3) into ExpenseContainsBills
+
+!new Bill('bill4')
+!bill4.amount := 200.0
+!bill4.category := 'Transport'
+!bill4.date := Date('2023-09-10')
+!bill4.paymentMethod := #CREDIT_CARD
+!bill4.status := #DRAFT
+!insert (bill4, currency2) into BillCurrency
+!insert (expense2, bill4) into ExpenseContainsBills
+
+!new Comment('comment1')
+!comment1.text := 'Review needed for expense1 bills'
+!insert (expense1, comment1) into ExpenseComment
+
+!new Comment('comment2')
+!comment2.text := 'Monthly review pending for expense2'
+!insert (expense2, comment2) into ExpenseComment
+
+!new Expense('expense3')
+!expense3.amount := 500.0
+!expense3.startDate := Date('2023-08-01')
+!expense3.endDate := Date('2023-08-31')
+
+!new Bill('bill5')
+!bill5.amount := 250.0
+!bill5.category := 'Rent'
+!bill5.date := Date('2023-08-05')
+!bill5.paymentMethod := #CASH
+!bill5.status := #REFUNDED
+!insert (bill5, currency1) into BillCurrency
+!insert (expense3, bill5) into ExpenseContainsBills
+
+!new Bill('bill6')
+!bill6.amount := 250.0
+!bill6.category := 'Entertainment'
+!bill6.date := Date('2023-08-10')
+!bill6.paymentMethod := #CHECK
+!bill6.status := #REFUSED
+!insert (bill6, currency2) into BillCurrency
+!insert (expense3, bill6) into ExpenseContainsBills
+
+!new Comment('comment3')
+!comment3.text := 'Need to verify expense3'
+!insert (expense3, comment3) into ExpenseComment
+
+!new Expense('expense4')
+!expense4.amount := 450.0
+!expense4.startDate := Date('2023-07-01')
+!expense4.endDate := Date('2023-07-31')
+
+!new Bill('bill7')
+!bill7.amount := 450.0
+!bill7.category := 'Travel'
+!bill7.date := Date('2023-07-15')
+!bill7.paymentMethod := #CREDIT_CARD
+!bill7.status := #VALIDATED
+!insert (bill7, currency2) into BillCurrency
+!insert (expense4, bill7) into ExpenseContainsBills
+
+!new Comment('comment4')
+!comment4.text := 'Expense4 needs travel documents'
+!insert (expense4, comment4) into ExpenseComment
+
+!new Currency('currency3')
+!currency3.name := 'Pound'
+!currency3.abbreviation := 'GBP'
+
+!new Expense('expense5')
+!expense5.amount := 600.0
+!expense5.startDate := Date('2023-06-01')
+!expense5.endDate := Date('2023-06-30')
+
+!new Bill('bill8')
+!bill8.amount := 200.0
+!bill8.category := 'Food'
+!bill8.date := Date('2023-06-05')
+!bill8.paymentMethod := #CASH
+!bill8.status := #DRAFT
+!insert (bill8, currency3) into BillCurrency
+!insert (expense5, bill8) into ExpenseContainsBills
+
+!new Bill('bill9')
+!bill9.amount := 200.0
+!bill9.category := 'Rent'
+!bill9.date := Date('2023-06-10')
+!bill9.paymentMethod := #CHECK
+!bill9.status := #VERIFIED
+!insert (bill9, currency3) into BillCurrency
+!insert (expense5, bill9) into ExpenseContainsBills
+
+!new Bill('bill10')
+!bill10.amount := 200.0
+!bill10.category := 'Utilities'
+!bill10.date := Date('2023-06-20')
+!bill10.paymentMethod := #CREDIT_CARD
+!bill10.status := #VALIDATED
+!insert (bill10, currency2) into BillCurrency
+!insert (expense5, bill10) into ExpenseContainsBills
+
+!new Comment('comment5')
+!comment5.text := 'Expense5 rent needs post-dated check'
+!insert (expense5, comment5) into ExpenseComment
+
+!new Currency('currency4')
+!currency4.name := 'Yen'
+!currency4.abbreviation := 'JPY'
+
+!new Expense('expense6')
+!expense6.amount := 400.0
+!expense6.startDate := Date('2023-05-01')
+!expense6.endDate := Date('2023-05-31')
+
+!new Bill('bill11')
+!bill11.amount := 200.0
+!bill11.category := 'Groceries'
+!bill11.date := Date('2023-05-05')
+!bill11.paymentMethod := #CASH
+!bill11.status := #PENDING
+!insert (bill11, currency4) into BillCurrency
+!insert (expense6, bill11) into ExpenseContainsBills
+
+!new Bill('bill12')
+!bill12.amount := 200.0
+!bill12.category := 'Transport'
+!bill12.date := Date('2023-05-15')
+!bill12.paymentMethod := #CHECK
+!bill12.status := #VERIFIED
+!insert (bill12, currency3) into BillCurrency
+!insert (expense6, bill12) into ExpenseContainsBills
+
+!new Comment('comment6')
+!comment6.text := 'Expense6 transport is under review'
+!insert (expense6, comment6) into ExpenseComment
+
+!new Expense('expense7')
+!expense7.amount := 500.0
+!expense7.startDate := Date('2023-04-01')
+!expense7.endDate := Date('2023-04-30')
+
+!new Bill('bill13')
+!bill13.amount := 300.0
+!bill13.category := 'Rent'
+!bill13.date := Date('2023-04-10')
+!bill13.paymentMethod := #CREDIT_CARD
+!bill13.status := #VALIDATED
+!insert (bill13, currency1) into BillCurrency
+!insert (expense7, bill13) into ExpenseContainsBills
+
+!new Bill('bill14')
+!bill14.amount := 200.0
+!bill14.category := 'Entertainment'
+!bill14.date := Date('2023-04-20')
+!bill14.paymentMethod := #CASH
+!bill14.status := #DRAFT
+!insert (bill14, currency4) into BillCurrency
+!insert (expense7, bill14) into ExpenseContainsBills
+
+!new Comment('comment7')
+!comment7.text := 'Entertainment budget exceeded for expense7'
+!insert (expense7, comment7) into ExpenseComment
+
+!new Expense('expense8')
+!expense8.amount := 350.0
+!expense8.startDate := Date('2023-03-01')
+!expense8.endDate := Date('2023-03-31')
+
+!new Bill('bill15')
+!bill15.amount := 150.0
+!bill15.category := 'Food'
+!bill15.date := Date('2023-03-05')
+!bill15.paymentMethod := #CHECK
+!bill15.status := #REFUSED
+!insert (bill15, currency2) into BillCurrency
+!insert (expense8, bill15) into ExpenseContainsBills
+
+!new Bill('bill16')
+!bill16.amount := 200.0
+!bill16.category := 'Utilities'
+!bill16.date := Date('2023-03-15')
+!bill16.paymentMethod := #CASH
+!bill16.status := #REFUNDED
+!insert (bill16, currency4) into BillCurrency
+!insert (expense8, bill16) into ExpenseContainsBills
+
+!new Comment('comment8')
+!comment8.text := 'Expense8 food refund request pending'
+!insert (expense8, comment8) into ExpenseComment
+
+!new Expense('expense9')
+!expense9.amount := 420.0
+!expense9.startDate := Date('2023-02-01')
+!expense9.endDate := Date('2023-02-28')
+
+!new Bill('bill17')
+!bill17.amount := 220.0
+!bill17.category := 'Rent'
+!bill17.date := Date('2023-02-08')
+!bill17.paymentMethod := #CREDIT_CARD
+!bill17.status := #VALIDATED
+!insert (bill17, currency1) into BillCurrency
+!insert (expense9, bill17) into ExpenseContainsBills
+
+!new Bill('bill18')
+!bill18.amount := 200.0
+!bill18.category := 'Travel'
+!bill18.date := Date('2023-02-18')
+!bill18.paymentMethod := #CHECK
+!bill18.status := #VERIFIED
+!insert (bill18, currency3) into BillCurrency
+!insert (expense9, bill18) into ExpenseContainsBills
+
+!new Comment('comment9')
+!comment9.text := 'Expense9 travel documents required'
+!insert (expense9, comment9) into ExpenseComment
+
+!new Expense('expense10')
+!expense10.amount := 480.0
+!expense10.startDate := Date('2023-01-01')
+!expense10.endDate := Date('2023-01-31')
+
+!new Bill('bill19')
+!bill19.amount := 280.0
+!bill19.category := 'Groceries'
+!bill19.date := Date('2023-01-12')
+!bill19.paymentMethod := #CASH
+!bill19.status := #PENDING
+!insert (bill19, currency3) into BillCurrency
+!insert (expense10, bill19) into ExpenseContainsBills
+
+!new Bill('bill20')
+!bill20.amount := 200.0
+!bill20.category := 'Transport'
+!bill20.date := Date('2023-01-22')
+!bill20.paymentMethod := #CREDIT_CARD
+!bill20.status := #DRAFT
+!insert (bill20, currency2) into BillCurrency
+!insert (expense10, bill20) into ExpenseContainsBills
+
+!new Comment('comment10')
+!comment10.text := 'Review expense10 transport costs'
+!insert (expense10, comment10) into ExpenseComment
+
+
+```
+## Generation 1 summary
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 242 | 0.00% |
+| Multiplicities Errors | 0 | 50 | 0.00% |
+| Invariants Errors | 0 | 2 | 0.00% |
+
+| MyExpenses | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Dates | 0 | 10 | 0.00% |
+
+# Summary for all generations
+| Summary | Value | 
+|---|---| 
+| Model | null | 
+| Type |  | 
+| System | myexpenses | 
+| Number of generations | 1 | 
+
+| General | Errors | Total | Failure (%) | 
+|---|---|---|---| 
+| Syntax Errors | 0 | 242 | 0.00% |
+| Multiplicities Errors | 0 | 50 | 0.00% |
+| Invariants Errors | 0 | 2 | 0.00% |
+
+| MyExpenses | Invalid | Total | Failure (%) | 
+|---|---|---|---| 
+| Dates | 0 | 10 | 0.00% |
+

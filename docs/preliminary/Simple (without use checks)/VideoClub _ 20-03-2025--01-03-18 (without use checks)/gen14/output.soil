@@ -1,0 +1,29 @@
+!new Client('client16')
+!client16.clientId := 16
+!client16.isSuspended := false
+
+!new Rental('rental16')
+!rental16.date := Date('2023-10-25')
+
+!new Movie('movie16')
+!movie16.title := 'Comedy of Errors'
+!movie16.availableCopies := 6
+!movie16.genre := #Comedy
+
+!new Series('series15')
+!series15.title := 'Uncharted Depths'
+!series15.availableCopies := 7
+!series15.episode := 12
+
+!new Actor('actor28')
+!actor28.name := 'Comedy King'
+
+!new Actor('actor29')
+!actor29.name := 'Depth Explorer'
+
+!insert (client16, rental16) into ClientRental
+!insert (rental16, movie16) into RentalCassette
+!insert (rental16, series15) into RentalCassette
+!insert (movie16, actor28) into CassetteActor
+!insert (series15, actor29) into CassetteActor
+!insert (series15, actor28) into CassetteActor

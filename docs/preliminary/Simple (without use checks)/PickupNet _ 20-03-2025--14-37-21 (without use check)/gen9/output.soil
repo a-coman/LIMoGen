@@ -1,0 +1,42 @@
+!new Driver('driver10')
+!driver10.id := 'D010'
+!driver10.name := 'Oliver Queen'
+
+!new Shipment('shipment11')
+!shipment11.id := 'S011'
+!shipment11.status := #DELIVERED
+
+!new Address('address18')
+!address18.text := '7777 Oak Dr, Atlantis'
+
+!new Address('address19')
+!address19.text := '8888 Birch St, Wakanda'
+
+!new GeoLocation('geolocation18')
+!geolocation18.latitude := 60.1699
+!geolocation18.longitude := 24.9384
+
+!new GeoLocation('geolocation19')
+!geolocation19.latitude := 35.6895
+!geolocation19.longitude := 139.6917
+
+!new Customer('customer10')
+!customer10.id := 'C010'
+!customer10.name := 'Diana Prince'
+!customer10.twitterUserName := '@wonderWoman'
+
+!new Station('station9')
+
+!insert (driver10, shipment11) into DriverShipment
+
+!insert (shipment11, address18) into ShipmentContainsPickUpAddress
+!insert (shipment11, address19) into ShipmentContainsDeliveryAddress
+
+!insert (address18, geolocation18) into AddressContainsGeoLocation
+!insert (address19, geolocation19) into AddressContainsGeoLocation
+
+!insert (customer10, shipment11) into CustomerConsistsOfShipment
+!insert (station9, shipment11) into StationShipment
+
+!insert (station9, customer10) into StationContainsCustomer
+!insert (station9, driver10) into StationContainsDriver

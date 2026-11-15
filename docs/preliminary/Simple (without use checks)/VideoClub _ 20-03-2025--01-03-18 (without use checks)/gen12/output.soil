@@ -1,0 +1,29 @@
+!new Client('client14')
+!client14.clientId := 14
+!client14.isSuspended := true
+
+!new Rental('rental14')
+!rental14.date := Date('2023-10-23')
+
+!new Movie('movie14')
+!movie14.title := 'Epic Journey'
+!movie14.availableCopies := 5
+!movie14.genre := #Action
+
+!new Series('series13')
+!series13.title := 'Sitcom Chronicles'
+!series13.availableCopies := 6
+!series13.episode := 11
+
+!new Actor('actor24')
+!actor24.name := 'Epic Hero'
+
+!new Actor('actor25')
+!actor25.name := 'Sitcom Star'
+
+!insert (client14, rental14) into ClientRental
+!insert (rental14, movie14) into RentalCassette
+!insert (rental14, series13) into RentalCassette
+!insert (movie14, actor24) into CassetteActor
+!insert (series13, actor25) into CassetteActor
+!insert (series13, actor24) into CassetteActor

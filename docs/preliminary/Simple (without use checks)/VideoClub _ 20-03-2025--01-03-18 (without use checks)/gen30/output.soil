@@ -1,0 +1,29 @@
+!new Client('client32')
+!client32.clientId := 32
+!client32.isSuspended := true
+
+!new Rental('rental32')
+!rental32.date := Date('2023-11-10')
+
+!new Movie('movie32')
+!movie32.title := 'Canyon Climb'
+!movie32.availableCopies := 1
+!movie32.genre := #Action
+
+!new Series('series31')
+!series31.title := 'Art Expression'
+!series31.availableCopies := 8
+!series31.episode := 3
+
+!new Actor('actor60')
+!actor60.name := 'Climbing Champion'
+
+!new Actor('actor61')
+!actor61.name := 'Art Curator'
+
+!insert (client32, rental32) into ClientRental
+!insert (rental32, movie32) into RentalCassette
+!insert (rental32, series31) into RentalCassette
+!insert (movie32, actor60) into CassetteActor
+!insert (series31, actor61) into CassetteActor
+!insert (series31, actor60) into CassetteActor

@@ -1,0 +1,96 @@
+!new Bank('bank8')
+!bank8.country := 'Brazil'
+!bank8.name := 'Banco do Brasil'
+!bank8.bic := 'BRASBRRJ'
+
+!new Bank('bank9')
+!bank9.country := 'Russia'
+!bank9.name := 'Sberbank'
+!bank9.bic := 'SABRRUMM'
+
+!new Account('account19')
+!account19.iban := 'BR00BRAS123456789'
+!account19.balance := 600
+
+!new Account('account20')
+!account20.iban := 'BR00BRAS987654321'
+!account20.balance := 2500
+
+!new Account('account21')
+!account21.iban := 'RU00SABR123456789'
+!account21.balance := 200
+
+!new Account('account22')
+!account22.iban := 'RU00SABR987654321'
+!account22.balance := 1000
+
+!new Person('person23')
+!person23.firstName := 'Xander'
+!person23.lastName := 'Cage'
+!person23.age := 30
+
+!new Person('person24')
+!person24.firstName := 'Yasmine'
+!person24.lastName := 'Alves'
+!person24.age := 27
+
+!new Person('person25')
+!person25.firstName := 'Zachary'
+!person25.lastName := 'Levi'
+!person25.age := 43
+
+!new Person('person26')
+!person26.firstName := 'Anna'
+!person26.lastName := 'Karenina'
+!person26.age := 50
+
+!insert (person23, account19) into Ownership
+!insert (person24, account20) into Ownership
+!insert (person24, account21) into Ownership
+!insert (person25, account22) into Ownership
+
+!insert (person23, account21) into Use
+!insert (person24, account19) into Use
+!insert (person25, account20) into Use
+!insert (person26, account22) into Use
+!insert (person26, account19) into Use
+
+!insert (bank8, account19) into AccountOfBanks
+!insert (bank8, account20) into AccountOfBanks
+!insert (bank9, account21) into AccountOfBanks
+!insert (bank9, account22) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account23')
+!account23.iban := 'BR00BRAS333333333'
+!account23.balance := 50
+
+!new Person('person27')
+!person27.firstName := 'Boris'
+!person27.lastName := 'Yeltsin'
+!person27.age := 59
+
+!insert (person27, account23) into Ownership
+!insert (person27, account23) into Use
+
+!insert (bank8, account23) into AccountOfBanks
+
+!new Person('person28')
+!person28.firstName := 'Clark'
+!person28.lastName := 'Kent'
+!person28.age := 35
+
+!new Account('account24')
+!account24.iban := 'RU00SABR444444444'
+!account24.balance := 900
+
+!insert (person28, account24) into Ownership
+!insert (person26, account24) into Use
+!insert (bank9, account24) into AccountOfBanks
+
+!new Person('person29')
+!person29.firstName := 'Diana'
+!person29.lastName := 'Prince'
+!person29.age := 38
+
+!insert (person29, account24) into Use

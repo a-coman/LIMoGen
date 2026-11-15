@@ -1,0 +1,95 @@
+!new Bank('bank6')
+!bank6.country := 'Japan'
+!bank6.name := 'Mitsubishi UFJ Financial'
+!bank6.bic := 'MUFGJPJT'
+
+!new Bank('bank7')
+!bank7.country := 'India'
+!bank7.name := 'State Bank of India'
+!bank7.bic := 'SBININBB'
+
+!new Account('account13')
+!account13.iban := 'JP00MUFG123456789'
+!account13.balance := 4000
+
+!new Account('account14')
+!account14.iban := 'JP00MUFG987654321'
+!account14.balance := 800
+
+!new Account('account15')
+!account15.iban := 'IN00SBIN123456789'
+!account15.balance := 500
+
+!new Account('account16')
+!account16.iban := 'IN00SBIN987654321'
+!account16.balance := 1500
+
+!new Person('person16')
+!person16.firstName := 'Peter'
+!person16.lastName := 'Parker'
+!person16.age := 28
+
+!new Person('person17')
+!person17.firstName := 'Quincy'
+!person17.lastName := 'Adams'
+!person17.age := 35
+
+!new Person('person18')
+!person18.firstName := 'Rachel'
+!person18.lastName := 'McAdams'
+!person18.age := 42
+
+!new Person('person19')
+!person19.firstName := 'Steve'
+!person19.lastName := 'Jobs'
+!person19.age := 56
+
+!insert (person16, account13) into Ownership
+!insert (person16, account14) into Ownership
+!insert (person17, account15) into Ownership
+!insert (person18, account16) into Ownership
+
+!insert (person17, account13) into Use
+!insert (person18, account14) into Use
+!insert (person19, account15) into Use
+!insert (person19, account16) into Use
+
+!insert (bank6, account13) into AccountOfBanks
+!insert (bank6, account14) into AccountOfBanks
+!insert (bank7, account15) into AccountOfBanks
+!insert (bank7, account16) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account17')
+!account17.iban := 'JP00MUFG999999999'
+!account17.balance := 10
+
+!new Person('person20')
+!person20.firstName := 'Uma'
+!person20.lastName := 'Thurman'
+!person20.age := 40
+
+!insert (person20, account17) into Ownership
+!insert (person20, account17) into Use
+
+!insert (bank6, account17) into AccountOfBanks
+
+!new Person('person21')
+!person21.firstName := 'Victor'
+!person21.lastName := 'Frankenstein'
+!person21.age := 37
+
+!new Account('account18')
+!account18.iban := 'IN00SBIN555555555'
+!account18.balance := 300
+
+!insert (person21, account18) into Ownership
+!insert (person17, account18) into Use
+!insert (bank7, account18) into AccountOfBanks
+
+!new Person('person22')
+!person22.firstName := 'William'
+!person22.lastName := 'Wallace'
+!person22.age := 45
+
+!insert (person22, account18) into Use

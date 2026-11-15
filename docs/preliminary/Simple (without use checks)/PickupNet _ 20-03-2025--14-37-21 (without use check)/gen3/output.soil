@@ -1,0 +1,42 @@
+!new Driver('driver4')
+!driver4.id := 'D004'
+!driver4.name := 'Olivia Brown'
+
+!new Shipment('shipment5')
+!shipment5.id := 'S005'
+!shipment5.status := #NEW
+
+!new Address('address6')
+!address6.text := '555 Cedar St, Star City'
+
+!new Address('address7')
+!address7.text := '666 Birch St, Central City'
+
+!new GeoLocation('geolocation6')
+!geolocation6.latitude := 35.6895
+!geolocation6.longitude := 139.6917
+
+!new GeoLocation('geolocation7')
+!geolocation7.latitude := 55.7558
+!geolocation7.longitude := 37.6173
+
+!new Customer('customer4')
+!customer4.id := 'C004'
+!customer4.name := 'Diana Prince'
+!customer4.twitterUserName := '@dianaP'
+
+!new Station('station3')
+
+!insert (driver4, shipment5) into DriverShipment
+
+!insert (shipment5, address6) into ShipmentContainsPickUpAddress
+!insert (shipment5, address7) into ShipmentContainsDeliveryAddress
+
+!insert (address6, geolocation6) into AddressContainsGeoLocation
+!insert (address7, geolocation7) into AddressContainsGeoLocation
+
+!insert (customer4, shipment5) into CustomerConsistsOfShipment
+!insert (station3, shipment5) into StationShipment
+
+!insert (station3, customer4) into StationContainsCustomer
+!insert (station3, driver4) into StationContainsDriver

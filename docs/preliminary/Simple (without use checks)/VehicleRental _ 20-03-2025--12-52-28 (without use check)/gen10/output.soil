@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice11')
+!rentalOffice11.name := 'Transport Hub Rentals'
+!rentalOffice11.number := 1111
+!rentalOffice11.address := '1500 Industry Pkwy, AL'
+
+!new Vehicle('vehicle11')
+!vehicle11.id := 1011
+!vehicle11.registrationState := #GA
+!vehicle11.licensePlateNumber := 'GA7894'
+!vehicle11.vehicleTypeCode := #TRUCK24
+!vehicle11.registrationLastMaintenanceDate := Date('2023-02-15')
+!vehicle11.expirationDate := Date('2024-02-15')
+
+!new Truck('truck11')
+!truck11.id := 2011
+!truck11.registrationState := #TN
+!truck11.licensePlateNumber := 'TN1552'
+!truck11.vehicleTypeCode := #TRUCK10
+!truck11.registrationLastMaintenanceDate := Date('2023-09-05')
+!truck11.expirationDate := Date('2024-09-05')
+!truck11.odometerReading := 82000
+!truck11.gasTankCapacity := 75.0
+!truck11.workingRadio := true
+!truck11.mileage := 16
+
+!new RentalAgreement('rentalAgreement11')
+!rentalAgreement11.number := 5011
+!rentalAgreement11.rentalDate := Date('2024-07-25')
+!rentalAgreement11.anticipatedDuration := 14
+!rentalAgreement11.depositPaid := 500.0
+!rentalAgreement11.quotedDailyRate := 95.0
+!rentalAgreement11.quotedRatePerMile := 0.40
+
+!new Company('company6')
+!company6.name := 'Big Transport Co.'
+!company6.address := '456 Logistics Ave, TX'
+!company6.poorRisk := false
+!company6.idNumber := 88889999
+
+!insert (rentalOffice11, vehicle11) into RentalOfficeVehicle
+!insert (rentalOffice11, truck11) into RentalOfficeVehicle
+
+!insert (rentalOffice11, rentalAgreement11) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice3, rentalAgreement11) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement11, vehicle11) into RentalAgreementVehicle
+
+!insert (rentalAgreement11, company6) into RentalAgreementCustomer

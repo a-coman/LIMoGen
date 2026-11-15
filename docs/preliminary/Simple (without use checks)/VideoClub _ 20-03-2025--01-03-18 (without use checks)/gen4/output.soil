@@ -1,0 +1,29 @@
+!new Client('client6')
+!client6.clientId := 6
+!client6.isSuspended := false
+
+!new Rental('rental6')
+!rental6.date := Date('2023-10-15')
+
+!new Movie('movie6')
+!movie6.title := 'Sci-Fi Adventure'
+!movie6.availableCopies := 6
+!movie6.genre := #Action
+
+!new Series('series5')
+!series5.title := 'Mysterious Tales'
+!series5.availableCopies := 5
+!series5.episode := 2
+
+!new Actor('actor8')
+!actor8.name := 'Mysterious Actor'
+
+!new Actor('actor9')
+!actor9.name := 'Adventure Hero'
+
+!insert (client6, rental6) into ClientRental
+!insert (rental6, movie6) into RentalCassette
+!insert (rental6, series5) into RentalCassette
+!insert (movie6, actor9) into CassetteActor
+!insert (series5, actor8) into CassetteActor
+!insert (series5, actor9) into CassetteActor

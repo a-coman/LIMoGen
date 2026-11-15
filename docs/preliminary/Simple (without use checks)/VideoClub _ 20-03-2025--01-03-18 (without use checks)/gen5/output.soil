@@ -1,0 +1,28 @@
+!new Client('client7')
+!client7.clientId := 7
+!client7.isSuspended := true
+
+!new Rental('rental7')
+!rental7.date := Date('2023-10-16')
+
+!new Movie('movie7')
+!movie7.title := 'Historical Drama'
+!movie7.availableCopies := 1
+!movie7.genre := #Comedy
+
+!new Series('series6')
+!series6.title := 'Epic Voyage'
+!series6.availableCopies := 7
+!series6.episode := 5
+
+!new Actor('actor10')
+!actor10.name := 'Epic Actor'
+
+!new Actor('actor11')
+!actor11.name := 'Historic Figure'
+
+!insert (client7, rental7) into ClientRental
+!insert (rental7, movie7) into RentalCassette
+!insert (rental7, series6) into RentalCassette
+!insert (movie7, actor11) into CassetteActor
+!insert (series6, actor10) into CassetteActor

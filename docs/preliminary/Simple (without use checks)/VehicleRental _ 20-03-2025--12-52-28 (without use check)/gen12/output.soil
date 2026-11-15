@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice13')
+!rentalOffice13.name := 'Seaside Rentals'
+!rentalOffice13.number := 1313
+!rentalOffice13.address := '1600 Oceanview Blvd, FL'
+
+!new Vehicle('vehicle13')
+!vehicle13.id := 1013
+!vehicle13.registrationState := #VA
+!vehicle13.licensePlateNumber := 'VA8910'
+!vehicle13.vehicleTypeCode := #COVERED_TRAILER
+!vehicle13.registrationLastMaintenanceDate := Date('2023-06-10')
+!vehicle13.expirationDate := Date('2024-06-10')
+
+!new Truck('truck13')
+!truck13.id := 2013
+!truck13.registrationState := #GA
+!truck13.licensePlateNumber := 'GA4455'
+!truck13.vehicleTypeCode := #TRUCK24
+!truck13.registrationLastMaintenanceDate := Date('2023-12-05')
+!truck13.expirationDate := Date('2024-12-05')
+!truck13.odometerReading := 92000
+!truck13.gasTankCapacity := 62.0
+!truck13.workingRadio := true
+!truck13.mileage := 10
+
+!new RentalAgreement('rentalAgreement13')
+!rentalAgreement13.number := 5013
+!rentalAgreement13.rentalDate := Date('2024-09-10')
+!rentalAgreement13.anticipatedDuration := 3
+!rentalAgreement13.depositPaid := 180.0
+!rentalAgreement13.quotedDailyRate := 70.0
+!rentalAgreement13.quotedRatePerMile := 0.33
+
+!new Company('company7')
+!company7.name := 'Atlantic Freight'
+!company7.address := '880 Harbor Lane, NY'
+!company7.poorRisk := false
+!company7.idNumber := 123123123
+
+!insert (rentalOffice13, vehicle13) into RentalOfficeVehicle
+!insert (rentalOffice13, truck13) into RentalOfficeVehicle
+
+!insert (rentalOffice13, rentalAgreement13) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice10, rentalAgreement13) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement13, vehicle13) into RentalAgreementVehicle
+
+!insert (rentalAgreement13, company7) into RentalAgreementCustomer

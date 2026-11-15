@@ -1,0 +1,95 @@
+!new Bank('bank14')
+!bank14.country := 'Turkey'
+!bank14.name := 'Türkiye İş Bankası'
+!bank14.bic := 'ISBKTRIS'
+
+!new Bank('bank15')
+!bank15.country := 'Sweden'
+!bank15.name := 'Svenska Handelsbanken'
+!bank15.bic := 'HANDSESS'
+
+!new Account('account37')
+!account37.iban := 'TR00ISBK123456789'
+!account37.balance := 3200
+
+!new Account('account38')
+!account38.iban := 'TR00ISBK987654321'
+!account38.balance := 50
+
+!new Account('account39')
+!account39.iban := 'SE00HAND123456789'
+!account39.balance := 900
+
+!new Account('account40')
+!account40.iban := 'SE00HAND987654321'
+!account40.balance := 3100
+
+!new Person('person44')
+!person44.firstName := 'Sam'
+!person44.lastName := 'Winchester'
+!person44.age := 35
+
+!new Person('person45')
+!person45.firstName := 'Dean'
+!person45.lastName := 'Winchester'
+!person45.age := 38
+
+!new Person('person46')
+!person46.firstName := 'Tina'
+!person46.lastName := 'Fey'
+!person46.age := 45
+
+!new Person('person47')
+!person47.firstName := 'Ulysses'
+!person47.lastName := 'Grant'
+!person47.age := 50
+
+!insert (person44, account37) into Ownership
+!insert (person44, account38) into Ownership
+!insert (person45, account39) into Ownership
+!insert (person46, account40) into Ownership
+
+!insert (person45, account37) into Use
+!insert (person46, account38) into Use
+!insert (person47, account39) into Use
+!insert (person47, account40) into Use
+
+!insert (bank14, account37) into AccountOfBanks
+!insert (bank14, account38) into AccountOfBanks
+!insert (bank15, account39) into AccountOfBanks
+!insert (bank15, account40) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account41')
+!account41.iban := 'TR00ISBK222222222'
+!account41.balance := 150
+
+!new Person('person48')
+!person48.firstName := 'Victoria'
+!person48.lastName := 'Beckham'
+!person48.age := 47
+
+!insert (person48, account41) into Ownership
+!insert (person48, account41) into Use
+
+!insert (bank14, account41) into AccountOfBanks
+
+!new Person('person49')
+!person49.firstName := 'Walter'
+!person49.lastName := 'White'
+!person49.age := 52
+
+!new Account('account42')
+!account42.iban := 'SE00HAND444444444'
+!account42.balance := 1800
+
+!insert (person49, account42) into Ownership
+!insert (person44, account42) into Use
+!insert (bank15, account42) into AccountOfBanks
+
+!new Person('person50')
+!person50.firstName := 'Xena'
+!person50.lastName := 'Warrior'
+!person50.age := 40
+
+!insert (person50, account42) into Use

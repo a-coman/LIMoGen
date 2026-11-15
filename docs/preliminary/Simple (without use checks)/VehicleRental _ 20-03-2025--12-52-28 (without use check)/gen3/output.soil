@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice4')
+!rentalOffice4.name := 'City Central Rentals'
+!rentalOffice4.number := 404
+!rentalOffice4.address := '321 City Center Blvd, CT'
+
+!new Vehicle('vehicle4')
+!vehicle4.id := 1004
+!vehicle4.registrationState := #CT
+!vehicle4.licensePlateNumber := 'CT7890'
+!vehicle4.vehicleTypeCode := #TRUCK24
+!vehicle4.registrationLastMaintenanceDate := Date('2023-04-15')
+!vehicle4.expirationDate := Date('2024-04-15')
+
+!new Truck('truck4')
+!truck4.id := 2004
+!truck4.registrationState := #NY
+!truck4.licensePlateNumber := 'NY4567'
+!truck4.vehicleTypeCode := #TRUCK
+!truck4.registrationLastMaintenanceDate := Date('2023-08-01')
+!truck4.expirationDate := Date('2024-08-01')
+!truck4.odometerReading := 25000
+!truck4.gasTankCapacity := 60.0
+!truck4.workingRadio := false
+!truck4.mileage := 8
+
+!new RentalAgreement('rentalAgreement4')
+!rentalAgreement4.number := 5004
+!rentalAgreement4.rentalDate := Date('2023-12-01')
+!rentalAgreement4.anticipatedDuration := 7
+!rentalAgreement4.depositPaid := 350.0
+!rentalAgreement4.quotedDailyRate := 70.0
+!rentalAgreement4.quotedRatePerMile := 0.35
+
+!new Individual('individual3')
+!individual3.name := 'Alice Johnson'
+!individual3.address := '654 Hill Top Rd, AL'
+!individual3.poorRisk := false
+!individual3.homePhone := '205-555-0678'
+!individual3.driverLicenseState := #AL
+!individual3.driverLicenseNumber := 555666777
+!individual3.driverLicenseExpirationDate := Date('2027-01-01')
+
+!insert (rentalOffice4, vehicle4) into RentalOfficeVehicle
+!insert (rentalOffice4, truck4) into RentalOfficeVehicle
+
+!insert (rentalOffice4, rentalAgreement4) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice3, rentalAgreement4) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement4, truck4) into RentalAgreementVehicle
+
+!insert (rentalAgreement4, individual3) into RentalAgreementCustomer

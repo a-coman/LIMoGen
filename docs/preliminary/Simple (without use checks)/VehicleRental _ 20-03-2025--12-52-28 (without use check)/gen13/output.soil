@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice14')
+!rentalOffice14.name := 'Urban Drive Rentals'
+!rentalOffice14.number := 1414
+!rentalOffice14.address := '222 Central Park Ave, NY'
+
+!new Vehicle('vehicle14')
+!vehicle14.id := 1014
+!vehicle14.registrationState := #NY
+!vehicle14.licensePlateNumber := 'NY1235'
+!vehicle14.vehicleTypeCode := #TRUCK10
+!vehicle14.registrationLastMaintenanceDate := Date('2023-07-25')
+!vehicle14.expirationDate := Date('2024-07-25')
+
+!new Truck('truck14')
+!truck14.id := 2014
+!truck14.registrationState := #MA
+!truck14.licensePlateNumber := 'MA6677'
+!truck14.vehicleTypeCode := #TRUCK24
+!truck14.registrationLastMaintenanceDate := Date('2023-10-30')
+!truck14.expirationDate := Date('2024-10-30')
+!truck14.odometerReading := 55000
+!truck14.gasTankCapacity := 48.0
+!truck14.workingRadio := false
+!truck14.mileage := 11
+
+!new RentalAgreement('rentalAgreement14')
+!rentalAgreement14.number := 5014
+!rentalAgreement14.rentalDate := Date('2024-10-01')
+!rentalAgreement14.anticipatedDuration := 5
+!rentalAgreement14.depositPaid := 250.0
+!rentalAgreement14.quotedDailyRate := 85.0
+!rentalAgreement14.quotedRatePerMile := 0.29
+
+!new Individual('individual8')
+!individual8.name := 'Chris Evans'
+!individual8.address := '456 Liberty Ave, DE'
+!individual8.poorRisk := false
+!individual8.homePhone := '302-555-4455'
+!individual8.driverLicenseState := #DE
+!individual8.driverLicenseNumber := 889977665
+!individual8.driverLicenseExpirationDate := Date('2028-02-22')
+
+!insert (rentalOffice14, vehicle14) into RentalOfficeVehicle
+!insert (rentalOffice14, truck14) into RentalOfficeVehicle
+
+!insert (rentalOffice14, rentalAgreement14) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice1, rentalAgreement14) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement14, truck14) into RentalAgreementVehicle
+
+!insert (rentalAgreement14, individual8) into RentalAgreementCustomer

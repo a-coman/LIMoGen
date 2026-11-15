@@ -1,0 +1,52 @@
+!new RentalOffice('rentalOffice24')
+!rentalOffice24.name := 'Pinewood Rentals'
+!rentalOffice24.number := 2424
+!rentalOffice24.address := '400 Pine St, ME'
+
+!new Vehicle('vehicle24')
+!vehicle24.id := 1024
+!vehicle24.registrationState := #ME
+!vehicle24.licensePlateNumber := 'ME2345'
+!vehicle24.vehicleTypeCode := #TRUCK
+!vehicle24.registrationLastMaintenanceDate := Date('2023-08-12')
+!vehicle24.expirationDate := Date('2024-08-12')
+
+!new Truck('truck24')
+!truck24.id := 2024
+!truck24.registrationState := #NH
+!truck24.licensePlateNumber := 'NH9999'
+!truck24.vehicleTypeCode := #TRUCK24
+!truck24.registrationLastMaintenanceDate := Date('2024-01-03')
+!truck24.expirationDate := Date('2025-01-03')
+!truck24.odometerReading := 120000
+!truck24.gasTankCapacity := 62.5
+!truck24.workingRadio := false
+!truck24.mileage := 20
+
+!new RentalAgreement('rentalAgreement24')
+!rentalAgreement24.number := 5024
+!rentalAgreement24.rentalDate := Date('2025-11-20')
+!rentalAgreement24.anticipatedDuration := 4
+!rentalAgreement24.depositPaid := 220.0
+!rentalAgreement24.quotedDailyRate := 78.0
+!rentalAgreement24.quotedRatePerMile := 0.43
+
+!new Individual('individual13')
+!individual13.name := 'Lucy Hill'
+!individual13.address := '567 Birch Ave, NH'
+!individual13.poorRisk := true
+!individual13.homePhone := '603-555-7894'
+!individual13.driverLicenseState := #NH
+!individual13.driverLicenseNumber := 212343121
+!individual13.driverLicenseExpirationDate := Date('2030-06-15')
+
+!insert (rentalOffice24, vehicle24) into RentalOfficeVehicle
+!insert (rentalOffice24, truck24) into RentalOfficeVehicle
+
+!insert (rentalOffice24, rentalAgreement24) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice9, rentalAgreement24) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement24, truck24) into RentalAgreementVehicle
+
+!insert (rentalAgreement24, individual13) into RentalAgreementCustomer

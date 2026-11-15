@@ -1,0 +1,95 @@
+!new Bank('bank28')
+!bank28.country := 'Portugal'
+!bank28.name := 'Caixa Geral de Depósitos'
+!bank28.bic := 'CGDIPTPL'
+
+!new Bank('bank29')
+!bank29.country := 'Denmark'
+!bank29.name := 'Danske Bank'
+!bank29.bic := 'DABADKKK'
+
+!new Account('account79')
+!account79.iban := 'PT00CGDI123456789'
+!account79.balance := 2950
+
+!new Account('account80')
+!account80.iban := 'PT00CGDI987654321'
+!account80.balance := 135
+
+!new Account('account81')
+!account81.iban := 'DK00DABA123456789'
+!account81.balance := 4400
+
+!new Account('account82')
+!account82.iban := 'DK00DABA987654321'
+!account82.balance := 2100
+
+!new Person('person93')
+!person93.firstName := 'Patrick'
+!person93.lastName := 'Jane'
+!person93.age := 37
+
+!new Person('person94')
+!person94.firstName := 'Quentin'
+!person94.lastName := 'Tarantino'
+!person94.age := 59
+
+!new Person('person95')
+!person95.firstName := 'Rita'
+!person95.lastName := 'Hayworth'
+!person95.age := 42
+
+!new Person('person96')
+!person96.firstName := 'Sherlock'
+!person96.lastName := 'Holmes'
+!person96.age := 40
+
+!insert (person93, account79) into Ownership
+!insert (person94, account80) into Ownership
+!insert (person95, account81) into Ownership
+!insert (person96, account82) into Ownership
+
+!insert (person94, account79) into Use
+!insert (person95, account80) into Use
+!insert (person96, account81) into Use
+!insert (person93, account82) into Use
+
+!insert (bank28, account79) into AccountOfBanks
+!insert (bank28, account80) into AccountOfBanks
+!insert (bank29, account81) into AccountOfBanks
+!insert (bank29, account82) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account83')
+!account83.iban := 'PT00CGDI555555555'
+!account83.balance := 990
+
+!new Person('person97')
+!person97.firstName := 'Tina'
+!person97.lastName := 'Turner'
+!person97.age := 63
+
+!insert (person97, account83) into Ownership
+!insert (person97, account83) into Use
+
+!insert (bank28, account83) into AccountOfBanks
+
+!new Person('person98')
+!person98.firstName := 'Ulysses'
+!person98.lastName := 'S. Grant'
+!person98.age := 54
+
+!new Account('account84')
+!account84.iban := 'DK00DABA333333333'
+!account84.balance := 700
+
+!insert (person98, account84) into Ownership
+!insert (person93, account84) into Use
+!insert (bank29, account84) into AccountOfBanks
+
+!new Person('person99')
+!person99.firstName := 'Vincent'
+!person99.lastName := 'Van Gogh'
+!person99.age := 37
+
+!insert (person99, account84) into Use

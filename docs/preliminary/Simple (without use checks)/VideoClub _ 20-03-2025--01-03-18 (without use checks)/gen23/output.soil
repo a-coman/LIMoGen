@@ -1,0 +1,29 @@
+!new Client('client25')
+!client25.clientId := 25
+!client25.isSuspended := false
+
+!new Rental('rental25')
+!rental25.date := Date('2023-11-03')
+
+!new Movie('movie25')
+!movie25.title := 'Virtual Reality'
+!movie25.availableCopies := 6
+!movie25.genre := #Comedy
+
+!new Series('series24')
+!series24.title := 'Myth Busters'
+!series24.availableCopies := 3
+!series24.episode := 9
+
+!new Actor('actor46')
+!actor46.name := 'VR Specialist'
+
+!new Actor('actor47')
+!actor47.name := 'Scientific Investigator'
+
+!insert (client25, rental25) into ClientRental
+!insert (rental25, movie25) into RentalCassette
+!insert (rental25, series24) into RentalCassette
+!insert (movie25, actor46) into CassetteActor
+!insert (series24, actor47) into CassetteActor
+!insert (series24, actor46) into CassetteActor

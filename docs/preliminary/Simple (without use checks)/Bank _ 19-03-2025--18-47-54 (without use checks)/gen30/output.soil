@@ -1,0 +1,95 @@
+!new Bank('bank60')
+!bank60.country := 'China'
+!bank60.name := 'Bank of China'
+!bank60.bic := 'BKCHCNBJ'
+
+!new Bank('bank61')
+!bank61.country := 'Sweden'
+!bank61.name := 'Swedbank'
+!bank61.bic := 'SWEDSESS'
+
+!new Account('account175')
+!account175.iban := 'CN00BKCH123456789'
+!account175.balance := 4200
+
+!new Account('account176')
+!account176.iban := 'CN00BKCH987654321'
+!account176.balance := 540
+
+!new Account('account177')
+!account177.iban := 'SE00SWED123456789'
+!account177.balance := 1900
+
+!new Account('account178')
+!account178.iban := 'SE00SWED987654321'
+!account178.balance := 1020
+
+!new Person('person205')
+!person205.firstName := 'Oscar'
+!person205.lastName := 'Isaac'
+!person205.age := 42
+
+!new Person('person206')
+!person206.firstName := 'Penelope'
+!person206.lastName := 'Cruz'
+!person206.age := 47
+
+!new Person('person207')
+!person207.firstName := 'Quentin'
+!person207.lastName := 'Blake'
+!person207.age := 88
+
+!new Person('person208')
+!person208.firstName := 'Rami'
+!person208.lastName := 'Malek'
+!person208.age := 40
+
+!insert (person205, account175) into Ownership
+!insert (person206, account176) into Ownership
+!insert (person207, account177) into Ownership
+!insert (person208, account178) into Ownership
+
+!insert (person206, account175) into Use
+!insert (person207, account176) into Use
+!insert (person208, account177) into Use
+!insert (person205, account178) into Use
+
+!insert (bank60, account175) into AccountOfBanks
+!insert (bank60, account176) into AccountOfBanks
+!insert (bank61, account177) into AccountOfBanks
+!insert (bank61, account178) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account179')
+!account179.iban := 'CN00BKCH555555555'
+!account179.balance := 1450
+
+!new Person('person209')
+!person209.firstName := 'Sandra'
+!person209.lastName := 'Bullock'
+!person209.age := 57
+
+!insert (person209, account179) into Ownership
+!insert (person209, account179) into Use
+
+!insert (bank60, account179) into AccountOfBanks
+
+!new Person('person210')
+!person210.firstName := 'Tom'
+!person210.lastName := 'Hanks'
+!person210.age := 65
+
+!new Account('account180')
+!account180.iban := 'SE00SWED333333333'
+!account180.balance := 1650
+
+!insert (person210, account180) into Ownership
+!insert (person207, account180) into Use
+!insert (bank61, account180) into AccountOfBanks
+
+!new Person('person211')
+!person211.firstName := 'Uma'
+!person211.lastName := 'Thurman'
+!person211.age := 52
+
+!insert (person211, account180) into Use

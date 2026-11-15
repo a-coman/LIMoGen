@@ -1,0 +1,71 @@
+!new Client('client1')
+!client1.clientId := 1
+!client1.isSuspended := false
+
+!new Client('client2')
+!client2.clientId := 2
+!client2.isSuspended := true
+
+!new Rental('rental1')
+!rental1.date := Date('2023-10-10')
+
+!new Rental('rental2')
+!rental2.date := Date('2023-10-11')
+
+!new Movie('movie1')
+!movie1.title := 'Action Movie'
+!movie1.availableCopies := 5
+!movie1.genre := #Action
+
+!new Movie('movie2')
+!movie2.title := 'Comedy Movie'
+!movie2.availableCopies := 3
+!movie2.genre := #Comedy
+
+!new Series('series1')
+!series1.title := 'Best Series Ever'
+!series1.availableCopies := 10
+!series1.episode := 1
+
+!new Actor('actor1')
+!actor1.name := 'Famous Actor'
+
+!new Actor('actor2')
+!actor2.name := 'New Actor'
+
+!insert (client1, rental1) into ClientRental
+!insert (client1, rental2) into ClientRental
+!insert (rental1, movie1) into RentalCassette
+!insert (rental2, movie1) into RentalCassette
+!insert (rental2, series1) into RentalCassette
+!insert (movie1, actor1) into CassetteActor
+!insert (movie1, actor2) into CassetteActor
+!insert (series1, actor1) into CassetteActor
+
+-- Covering edge cases
+
+!new Client('client3')
+!client3.clientId := 3
+!client3.isSuspended := false
+
+!new Rental('rental3')
+!rental3.date := Date('2023-10-12')
+
+!new Movie('movie3')
+!movie3.title := 'Zero Copies'
+!movie3.availableCopies := 0
+!movie3.genre := #Action
+
+!new Series('series2')
+!series2.title := 'One Episode Wonder'
+!series2.availableCopies := 1
+!series2.episode := 1
+
+!new Actor('actor3')
+!actor3.name := 'Solo Actor'
+
+!insert (client3, rental3) into ClientRental
+!insert (rental3, movie3) into RentalCassette
+!insert (rental3, series2) into RentalCassette
+!insert (movie3, actor3) into CassetteActor
+!insert (series2, actor3) into CassetteActor

@@ -1,0 +1,95 @@
+!new Bank('bank16')
+!bank16.country := 'Netherlands'
+!bank16.name := 'ING Bank'
+!bank16.bic := 'INGBNL2A'
+
+!new Bank('bank17')
+!bank17.country := 'UAE'
+!bank17.name := 'Emirates NBD'
+!bank17.bic := 'EBILAEAD'
+
+!new Account('account43')
+!account43.iban := 'NL00INGB123456789'
+!account43.balance := 2800
+
+!new Account('account44')
+!account44.iban := 'NL00INGB987654321'
+!account44.balance := 400
+
+!new Account('account45')
+!account45.iban := 'AE00EBIL123456789'
+!account45.balance := 1600
+
+!new Account('account46')
+!account46.iban := 'AE00EBIL987654321'
+!account46.balance := 2500
+
+!new Person('person51')
+!person51.firstName := 'Yosemite'
+!person51.lastName := 'Sam'
+!person51.age := 30
+
+!new Person('person52')
+!person52.firstName := 'Zorro'
+!person52.lastName := 'De La Vega'
+!person52.age := 37
+
+!new Person('person53')
+!person53.firstName := 'Alice'
+!person53.lastName := 'Wonderland'
+!person53.age := 50
+
+!new Person('person54')
+!person54.firstName := 'Bruce'
+!person54.lastName := 'Wayne'
+!person54.age := 42
+
+!insert (person51, account43) into Ownership
+!insert (person52, account44) into Ownership
+!insert (person53, account45) into Ownership
+!insert (person54, account46) into Ownership
+
+!insert (person54, account43) into Use
+!insert (person51, account44) into Use
+!insert (person52, account45) into Use
+!insert (person53, account46) into Use
+
+!insert (bank16, account43) into AccountOfBanks
+!insert (bank16, account44) into AccountOfBanks
+!insert (bank17, account45) into AccountOfBanks
+!insert (bank17, account46) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account47')
+!account47.iban := 'NL00INGB555555555'
+!account47.balance := 750
+
+!new Person('person55')
+!person55.firstName := 'Clark'
+!person55.lastName := 'Kent'
+!person55.age := 53
+
+!insert (person55, account47) into Ownership
+!insert (person55, account47) into Use
+
+!insert (bank16, account47) into AccountOfBanks
+
+!new Person('person56')
+!person56.firstName := 'Diana'
+!person56.lastName := 'Prince'
+!person56.age := 46
+
+!new Account('account48')
+!account48.iban := 'AE00EBIL333333333'
+!account48.balance := 3000
+
+!insert (person56, account48) into Ownership
+!insert (person52, account48) into Use
+!insert (bank17, account48) into AccountOfBanks
+
+!new Person('person57')
+!person57.firstName := 'Elon'
+!person57.lastName := 'Musk'
+!person57.age := 49
+
+!insert (person57, account48) into Use

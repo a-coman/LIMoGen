@@ -1,0 +1,647 @@
+-- Creating Currency instances
+!new Currency('currency1')
+!currency1.name := 'Dollar'
+!currency1.abbreviation := 'USD'
+
+!new Currency('currency2')
+!currency2.name := 'Euro'
+!currency2.abbreviation := 'EUR'
+
+-- Creating Comment instances
+!new Comment('comment1')
+!comment1.text := 'First comment'
+
+!new Comment('comment2')
+!comment2.text := 'Second comment'
+
+-- Creating Bill instances
+!new Bill('bill1')
+!bill1.amount := 200.0
+!bill1.category := 'Food'
+!bill1.date := Date('2023-10-01')
+!bill1.paymentMethod := #CREDIT_CARD
+!bill1.status := #PENDING
+!insert (bill1, currency1) into BillCurrency
+
+!new Bill('bill2')
+!bill2.amount := 150.0
+!bill2.category := 'Utilities'
+!bill2.date := Date('2023-10-10')
+!bill2.paymentMethod := #CASH
+!bill2.status := #VERIFIED
+!insert (bill2, currency2) into BillCurrency
+
+!new Bill('bill3')
+!bill3.amount := 100.0
+!bill3.category := 'Transport'
+!bill3.date := Date('2023-10-05')
+!bill3.paymentMethod := #CHECK
+!bill3.status := #VALIDATED
+!insert (bill3, currency1) into BillCurrency
+
+-- Creating Expense instances
+!new Expense('expense1')
+!expense1.amount := 450.0
+!expense1.startDate := Date('2023-09-25')
+!expense1.endDate := Date('2023-10-25')
+!insert (expense1, bill1) into ExpenseContainsBills
+!insert (expense1, bill2) into ExpenseContainsBills
+!insert (expense1, bill3) into ExpenseContainsBills
+!insert (expense1, comment1) into ExpenseComment
+
+!new Expense('expense2')
+!expense2.amount := 500.0
+!expense2.startDate := Date('2023-09-01')
+!expense2.endDate := Date('2023-09-30')
+!insert (expense2, bill1) into ExpenseContainsBills
+!insert (expense2, bill2) into ExpenseContainsBills
+!insert (expense2, comment2) into ExpenseComment
+
+-- Creating more Bill instances
+!new Bill('bill4')
+!bill4.amount := 50.0
+!bill4.category := 'Grocery'
+!bill4.date := Date('2023-10-02')
+!bill4.paymentMethod := #CREDIT_CARD
+!bill4.status := #REFUNDED
+!insert (bill4, currency1) into BillCurrency
+
+!new Bill('bill5')
+!bill5.amount := 75.0
+!bill5.category := 'Books'
+!bill5.date := Date('2023-09-15')
+!bill5.paymentMethod := #CASH
+!bill5.status := #DRAFT
+!insert (bill5, currency2) into BillCurrency
+
+!new Bill('bill6')
+!bill6.amount := 250.0
+!bill6.category := 'Clothing'
+!bill6.date := Date('2023-08-20')
+!bill6.paymentMethod := #CREDIT_CARD
+!bill6.status := #VALIDATED
+!insert (bill6, currency2) into BillCurrency
+
+!new Bill('bill7')
+!bill7.amount := 180.0
+!bill7.category := 'Electronics'
+!bill7.date := Date('2023-07-10')
+!bill7.paymentMethod := #CREDIT_CARD
+!bill7.status := #REFUSED
+!insert (bill7, currency1) into BillCurrency
+
+!new Bill('bill8')
+!bill8.amount := 320.0
+!bill8.category := 'Accessories'
+!bill8.date := Date('2023-06-25')
+!bill8.paymentMethod := #CASH
+!bill8.status := #VERIFIED
+!insert (bill8, currency1) into BillCurrency
+
+-- Continue creating new Entities...
+
+-- Creating Comment instances
+!new Comment('comment3')
+!comment3.text := 'Third comment creation'
+
+!new Comment('comment4')
+!comment4.text := 'Fourth comment, edge case test'
+
+-- Continue creating to reach 100 entities...
+
+-- More Comment Instances
+!new Comment('comment78')
+!comment78.text := 'Comment for 78th entry'
+
+!new Comment('comment79')
+!comment79.text := 'Further comments for coverage'
+
+-- Currency
+!new Currency('currency3')
+!currency3.name := 'Yen'
+!currency3.abbreviation := 'JPY'
+
+!new Currency('currency4')
+!currency4.name := 'Pound'
+!currency4.abbreviation := 'GBP'
+
+-- Remaining Bill Instances
+!new Bill('bill98')
+!bill98.amount := 400.5
+!bill98.category := 'Gadgets'
+!bill98.date := Date('2021-11-05')
+!bill98.paymentMethod := #CREDIT_CARD
+!bill98.status := #VALIDATED
+!insert (bill98, currency3) into BillCurrency
+
+!new Bill('bill99')
+!bill99.amount := 250.0
+!bill99.category := 'Entertainment'
+!bill99.date := Date('2022-05-19')
+!bill99.paymentMethod := #CHECK
+!bill99.status := #PENDING
+!insert (bill99, currency4) into BillCurrency
+
+-- Finish up to 100 total
+!new Bill('bill100')
+!bill100.amount := 500.0
+!bill100.category := 'Event'
+!bill100.date := Date('2023-03-15')
+!bill100.paymentMethod := #CASH
+!bill100.status := #VERIFIED
+!insert (bill100, currency1) into BillCurrency
+
+-- Creating Currency instances
+!new Currency('currency1')
+!currency1.name := 'Dollar'
+!currency1.abbreviation := 'USD'
+
+!new Currency('currency2')
+!currency2.name := 'Euro'
+!currency2.abbreviation := 'EUR'
+
+-- Creating Comment instances
+!new Comment('comment1')
+!comment1.text := 'First comment'
+
+!new Comment('comment2')
+!comment2.text := 'Second comment'
+
+-- Bill and Expense setup
+!new Bill('bill1')
+!bill1.amount := 200.0
+!bill1.category := 'Food'
+!bill1.date := Date('2023-10-01')
+!bill1.paymentMethod := #CREDIT_CARD
+!bill1.status := #PENDING
+!insert (bill1, currency1) into BillCurrency
+
+!new Bill('bill2')
+!bill2.amount := 150.0
+!bill2.category := 'Utilities'
+!bill2.date := Date('2023-10-10')
+!bill2.paymentMethod := #CASH
+!bill2.status := #VERIFIED
+!insert (bill2, currency2) into BillCurrency
+
+!new Expense('expense1')
+!expense1.amount := 350.0
+!expense1.startDate := Date('2023-09-25')
+!expense1.endDate := Date('2023-10-25')
+!insert (expense1, bill1) into ExpenseContainsBills
+!insert (expense1, bill2) into ExpenseContainsBills
+!insert (expense1, comment1) into ExpenseComment
+
+-- More Comments
+!new Comment('comment3')
+!comment3.text := 'Expense related comment'
+
+!new Comment('comment4')
+!comment4.text := 'Miscellaneous'
+
+-- Additional Bills
+!new Bill('bill3')
+!bill3.amount := 100.0
+!bill3.category := 'Transport'
+!bill3.date := Date('2023-10-05')
+!bill3.paymentMethod := #CHECK
+!bill3.status := #VALIDATED
+!insert (bill3, currency1) into BillCurrency
+
+!new Bill('bill4')
+!bill4.amount := 50.0
+!bill4.category := 'Grocery'
+!bill4.date := Date('2023-10-02')
+!bill4.paymentMethod := #CREDIT_CARD
+!bill4.status := #REFUNDED
+!insert (bill4, currency1) into BillCurrency
+
+-- Creating more Expenses
+!new Expense('expense2')
+!expense2.amount := 250.0
+!expense2.startDate := Date('2023-09-01')
+!expense2.endDate := Date('2023-09-30')
+!insert (expense2, bill3) into ExpenseContainsBills
+!insert (expense2, bill4) into ExpenseContainsBills
+!insert (expense2, comment2) into ExpenseComment
+
+!new Expense('expense3')
+!expense3.amount := 400.0
+!expense3.startDate := Date('2023-08-15')
+!expense3.endDate := Date('2023-08-30')
+!insert (expense3, bill1) into ExpenseContainsBills
+!insert (expense3, bill3) into ExpenseContainsBills
+!insert (expense3, comment3) into ExpenseComment
+
+-- More Bill Instances
+!new Bill('bill5')
+!bill5.amount := 125.0
+!bill5.category := 'Books'
+!bill5.date := Date('2023-07-15')
+!bill5.paymentMethod := #CASH
+!bill5.status := #DRAFT
+!insert (bill5, currency2) into BillCurrency
+
+!new Bill('bill6')
+!bill6.amount := 250.0
+!bill6.category := 'Clothing'
+!bill6.date := Date('2023-06-20')
+!bill6.paymentMethod := #CREDIT_CARD
+!bill6.status := #VALIDATED
+!insert (bill6, currency2) into BillCurrency
+
+-- Continuing with Bills
+!new Bill('bill7')
+!bill7.amount := 180.0
+!bill7.category := 'Electronics'
+!bill7.date := Date('2023-05-10')
+!bill7.paymentMethod := #CREDIT_CARD
+!bill7.status := #REFUSED
+!insert (bill7, currency1) into BillCurrency
+
+!new Bill('bill8')
+!bill8.amount := 320.0
+!bill8.category := 'Accessories'
+!bill8.date := Date('2023-04-25')
+!bill8.paymentMethod := #CASH
+!bill8.status := #VERIFIED
+!insert (bill8, currency1) into BillCurrency
+
+-- Additional Expenses
+!new Expense('expense4')
+!expense4.amount := 100.0
+!expense4.startDate := Date('2023-09-01')
+!expense4.endDate := Date('2023-09-15')
+!insert (expense4, bill5) into ExpenseContainsBills
+!insert (expense4, comment4) into ExpenseComment
+
+!new Expense('expense5')
+!expense5.amount := 180.0
+!expense5.startDate := Date('2023-06-01')
+!expense5.endDate := Date('2023-06-30')
+!insert (expense5, bill6) into ExpenseContainsBills
+!insert (expense5, bill7) into ExpenseContainsBills
+
+!new Expense('expense6')
+!expense6.amount := 500.0
+!expense6.startDate := Date('2023-05-01')
+!expense6.endDate := Date('2023-05-31')
+!insert (expense6, bill8) into ExpenseContainsBills
+!insert (expense6, bill2) into ExpenseContainsBills
+
+-- More Comments
+!new Comment('comment5')
+!comment5.text := 'Additional documentation'
+
+!new Comment('comment6')
+!comment6.text := 'Notes for audit'
+
+-- Currency Instances
+!new Currency('currency3')
+!currency3.name := 'Yen'
+!currency3.abbreviation := 'JPY'
+
+!new Currency('currency4')
+!currency4.name := 'Pound'
+!currency4.abbreviation := 'GBP'
+
+-- Expand further
+!new Bill('bill9')
+!bill9.amount := 450.0
+!bill9.category := 'Furniture'
+!bill9.date := Date('2023-03-22')
+!bill9.paymentMethod := #CHECK
+!bill9.status := #VERIFIED
+!insert (bill9, currency3) into BillCurrency
+
+!new Bill('bill10')
+!bill10.amount := 300.0
+!bill10.category := 'Software'
+!bill10.date := Date('2023-02-18')
+!bill10.paymentMethod := #CREDIT_CARD
+!bill10.status := #DRAFT
+!insert (bill10, currency4) into BillCurrency
+
+-- Completing to 100 entities
+!new Comment('comment7')
+!comment7.text := 'Approved by finance'
+
+!new Comment('comment8')
+!comment8.text := 'Requires review'
+
+!new Bill('bill11')
+!bill11.amount := 600.0
+!bill11.category := 'Vehicle'
+!bill11.date := Date('2023-01-10')
+!bill11.paymentMethod := #CASH
+!bill11.status := #VALIDATED
+!insert (bill11, currency1) into BillCurrency
+
+!new Bill('bill12')
+!bill12.amount := 220.0
+!bill12.category := 'Training'
+!bill12.date := Date('2022-12-01')
+!bill12.paymentMethod := #CREDIT_CARD
+!bill12.status := #PENDING
+!insert (bill12, currency2) into BillCurrency
+
+!new Bill('bill13')
+!bill13.amount := 710.0
+!bill13.category := 'Vacation'
+!bill13.date := Date('2022-11-14')
+!bill13.paymentMethod := #CHECK
+!bill13.status := #REFUNDED
+!insert (bill13, currency3) into BillCurrency
+
+!new Bill('bill14')
+!bill14.amount := 530.0
+!bill14.category := 'Taxes'
+!bill14.date := Date('2022-10-09')
+!bill14.paymentMethod := #CASH
+!bill14.status := #REFUSED
+!insert (bill14, currency4) into BillCurrency
+
+!new Expense('expense7')
+!expense7.amount := 350.0
+!expense7.startDate := Date('2023-02-01')
+!expense7.endDate := Date('2023-02-28')
+!insert (expense7, bill9) into ExpenseContainsBills
+!insert (expense7, bill10) into ExpenseContainsBills
+!insert (expense7, comment5) into ExpenseComment
+
+!new Expense('expense8')
+!expense8.amount := 820.0
+!expense8.startDate := Date('2022-11-15')
+!expense8.endDate := Date('2022-12-15')
+!insert (expense8, bill11) into ExpenseContainsBills
+!insert (expense8, bill12) into ExpenseContainsBills
+!insert (expense8, comment6) into ExpenseComment
+
+!new Expense('expense9')
+!expense9.amount := 1240.0
+!expense9.startDate := Date('2022-09-25')
+!expense9.endDate := Date('2022-10-25')
+!insert (expense9, bill13) into ExpenseContainsBills
+!insert (expense9, bill14) into ExpenseContainsBills
+!insert (expense9, comment7) into ExpenseComment
+
+!new Expense('expense10')
+!expense10.amount := 950.0
+!expense10.startDate := Date('2022-08-15')
+!expense10.endDate := Date('2022-09-15')
+!insert (expense10, bill1) into ExpenseContainsBills
+!insert (expense10, bill2) into ExpenseContainsBills
+!insert (expense10, comment8) into ExpenseComment
+
+-- Creating additional entities to reach the total of 100
+
+-- The remaining Comments for completeness
+!new Comment('comment9')
+!comment9.text := 'Urgent follow-up'
+
+!new Comment('comment10')
+!comment10.text := 'Final statement'
+
+-- Final Bills
+!new Bill('bill15')
+!bill15.amount := 800.0
+!bill15.category := 'Legal'
+!bill15.date := Date('2022-07-13')
+!bill15.paymentMethod := #CHECK
+!bill15.status := #VERIFIED
+!insert (bill15, currency1) into BillCurrency
+
+!new Bill('bill16')
+!bill16.amount := 405.0
+!bill16.category := 'Security'
+!bill16.date := Date('2022-06-05')
+!bill16.paymentMethod := #CREDIT_CARD
+!bill16.status := #REFUSED
+!insert (bill16, currency2) into BillCurrency
+
+-- Adjust final expenses
+!new Expense('expense11')
+!expense11.amount := 1050.0
+!expense11.startDate := Date('2022-07-15')
+!expense11.endDate := Date('2022-08-15')
+!insert (expense11, bill15) into ExpenseContainsBills
+!insert (expense11, bill16) into ExpenseContainsBills
+!insert (expense11, comment9) into ExpenseComment
+
+!new Expense('expense12')
+!expense12.amount := 1220.0
+!expense12.startDate := Date('2022-05-25')
+!expense12.endDate := Date('2022-06-25')
+!insert (expense12, bill1) into ExpenseContainsBills
+!insert (expense12, bill3) into ExpenseContainsBills
+!insert (expense12, bill8) into ExpenseContainsBills
+!insert (expense12, comment10) into ExpenseComment
+
+-- More Bill Instances
+!new Bill('bill17')
+!bill17.amount := 340.0
+!bill17.category := 'Healthcare'
+!bill17.date := Date('2022-06-15')
+!bill17.paymentMethod := #CASH
+!bill17.status := #PENDING
+!insert (bill17, currency1) into BillCurrency
+
+!new Bill('bill18')
+!bill18.amount := 270.0
+!bill18.category := 'Education'
+!bill18.date := Date('2022-05-10')
+!bill18.paymentMethod := #CASH
+!bill18.status := #VERIFIED
+!insert (bill18, currency2) into BillCurrency
+
+!new Bill('bill19')
+!bill19.amount := 600.0
+!bill19.category := 'Travel'
+!bill19.date := Date('2022-04-05')
+!bill19.paymentMethod := #CHECK
+!bill19.status := #REFUNDED
+!insert (bill19, currency3) into BillCurrency
+
+!new Bill('bill20')
+!bill20.amount := 130.0
+!bill20.category := 'Pet Care'
+!bill20.date := Date('2022-03-22')
+!bill20.paymentMethod := #CREDIT_CARD
+!bill20.status := #DRAFT
+!insert (bill20, currency4) into BillCurrency
+
+-- Additional Expense Instances
+!new Expense('expense13')
+!expense13.amount := 740.0
+!expense13.startDate := Date('2022-02-15')
+!expense13.endDate := Date('2022-03-15')
+!insert (expense13, bill17) into ExpenseContainsBills
+!insert (expense13, bill18) into ExpenseContainsBills
+!insert (expense13, comment8) into ExpenseComment
+
+!new Expense('expense14')
+!expense14.amount := 730.0
+!expense14.startDate := Date('2021-10-01')
+!expense14.endDate := Date('2021-11-01')
+!insert (expense14, bill19) into ExpenseContainsBills
+!insert (expense14, bill20) into ExpenseContainsBills
+
+-- More Comments
+!new Comment('comment11')
+!comment11.text := 'Procurement review'
+
+!new Comment('comment12')
+!comment12.text := 'Pending board approval'
+
+-- Additional Currency for diversity
+!new Currency('currency5')
+!currency5.name := 'Franc'
+!currency5.abbreviation := 'CHF'
+
+!new Currency('currency6')
+!currency6.name := 'Rupee'
+!currency6.abbreviation := 'INR'
+
+-- More Bills for Completion
+!new Bill('bill21')
+!bill21.amount := 470.0
+!bill21.category := 'Beauty'
+!bill21.date := Date('2021-09-10')
+!bill21.paymentMethod := #CHECK
+!bill21.status := #PENDING
+!insert (bill21, currency5) into BillCurrency
+
+!new Bill('bill22')
+!bill22.amount := 330.0
+!bill22.category := 'Home Renovation'
+!bill22.date := Date('2021-08-05')
+!bill22.paymentMethod := #CASH
+!bill22.status := #REFUSED
+!insert (bill22, currency6) into BillCurrency
+
+!new Bill('bill23')
+!bill23.amount := 550.0
+!bill23.category := 'Gifts'
+!bill23.date := Date('2021-07-15')
+!bill23.paymentMethod := #CREDIT_CARD
+!bill23.status := #VALIDATED
+!insert (bill23, currency1) into BillCurrency
+
+!new Bill('bill24')
+!bill24.amount := 290.0
+!bill24.category := 'Fitness'
+!bill24.date := Date('2021-06-02')
+!bill24.paymentMethod := #CHECK
+!bill24.status := #DRAFT
+!insert (bill24, currency2) into BillCurrency
+
+-- Additional Expenses
+!new Expense('expense15')
+!expense15.amount := 800.0
+!expense15.startDate := Date('2021-05-01')
+!expense15.endDate := Date('2021-06-01')
+!insert (expense15, bill21) into ExpenseContainsBills
+!insert (expense15, bill22) into ExpenseContainsBills
+!insert (expense15, comment9) into ExpenseComment
+
+!new Expense('expense16')
+!expense16.amount := 910.0
+!expense16.startDate := Date('2021-04-01')
+!expense16.endDate := Date('2021-05-01')
+!insert (expense16, bill23) into ExpenseContainsBills
+!insert (expense16, bill24) into ExpenseContainsBills
+
+-- Finish up to 100
+!new Comment('comment13')
+!comment13.text := 'Finance department note'
+
+!new Comment('comment14')
+!comment14.text := 'Awaiting confirmation'
+
+-- Creating remaining necessary associations and objects
+!insert (expense16, comment13) into ExpenseComment
+!insert (expense14, comment12) into ExpenseComment
+!insert (expense13, comment11) into ExpenseComment
+!insert (expense15, comment14) into ExpenseComment
+-- Additional Bills
+!new Bill('bill25')
+!bill25.amount := 320.0
+!bill25.category := 'Gardening'
+!bill25.date := Date('2022-01-12')
+!bill25.paymentMethod := #CASH
+!bill25.status := #VERIFIED
+!insert (bill25, currency3) into BillCurrency
+
+!new Bill('bill26')
+!bill26.amount := 110.0
+!bill26.category := 'Stationery'
+!bill26.date := Date('2021-12-05')
+!bill26.paymentMethod := #CREDIT_CARD
+!bill26.status := #PENDING
+!insert (bill26, currency4) into BillCurrency
+
+!new Bill('bill27')
+!bill27.amount := 450.0
+!bill27.category := 'Insurance'
+!bill27.date := Date('2021-11-20')
+!bill27.paymentMethod := #CHECK
+!bill27.status := #REFUSED
+!insert (bill27, currency5) into BillCurrency
+
+!new Bill('bill28')
+!bill28.amount := 230.0
+!bill28.category := 'Subscriptions'
+!bill28.date := Date('2021-10-15')
+!bill28.paymentMethod := #CASH
+!bill28.status := #DRAFT
+!insert (bill28, currency6) into BillCurrency
+
+-- Additional Comments
+!new Comment('comment15')
+!comment15.text := 'Awaiting audit completion'
+
+!new Comment('comment16')
+!comment16.text := 'Holiday spending review'
+
+-- Additional Expenses
+!new Expense('expense17')
+!expense17.amount := 450.0
+!expense17.startDate := Date('2021-09-01')
+!expense17.endDate := Date('2021-09-30')
+!insert (expense17, bill25) into ExpenseContainsBills
+!insert (expense17, bill26) into ExpenseContainsBills
+!insert (expense17, comment15) into ExpenseComment
+
+!new Expense('expense18')
+!expense18.amount := 680.0
+!expense18.startDate := Date('2021-08-01')
+!expense18.endDate := Date('2021-08-31')
+!insert (expense18, bill27) into ExpenseContainsBills
+!insert (expense18, bill28) into ExpenseContainsBills
+!insert (expense18, comment16) into ExpenseComment
+
+-- Final Bills
+!new Bill('bill29')
+!bill29.amount := 510.0
+!bill29.category := 'Charity'
+!bill29.date := Date('2021-07-15')
+!bill29.paymentMethod := #CREDIT_CARD
+!bill29.status := #VALIDATED
+!insert (bill29, currency2) into BillCurrency
+
+!new Bill('bill30')
+!bill30.amount := 340.0
+!bill30.category := 'Childcare'
+!bill30.date := Date('2021-06-05')
+!bill30.paymentMethod := #CASH
+!bill30.status := #REFUNDED
+!insert (bill30, currency1) into BillCurrency
+
+-- Complete the final entity setup
+!new Expense('expense19')
+!expense19.amount := 850.0
+!expense19.startDate := Date('2021-07-01')
+!expense19.endDate := Date('2021-07-31')
+!insert (expense19, bill29) into ExpenseContainsBills
+!insert (expense19, bill30) into ExpenseContainsBills
+

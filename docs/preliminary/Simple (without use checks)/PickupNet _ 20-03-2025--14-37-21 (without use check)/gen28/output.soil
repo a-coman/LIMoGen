@@ -1,0 +1,42 @@
+!new Driver('driver29')
+!driver29.id := 'D029'
+!driver29.name := 'Indiana Jones'
+
+!new Shipment('shipment30')
+!shipment30.id := 'S030'
+!shipment30.status := #ASSIGNED
+
+!new Address('address56')
+!address56.text := '9090 Adventure Ave, Archaeologist City'
+
+!new Address('address57')
+!address57.text := '1011 Temple St, Lost Kingdom'
+
+!new GeoLocation('geolocation56')
+!geolocation56.latitude := 30.0444
+!geolocation56.longitude := 31.2357
+
+!new GeoLocation('geolocation57')
+!geolocation57.latitude := 27.1751
+!geolocation57.longitude := 78.0421
+
+!new Customer('customer29')
+!customer29.id := 'C029'
+!customer29.name := 'Marion Ravenwood'
+!customer29.twitterUserName := '@marionR'
+
+!new Station('station28')
+
+!insert (driver29, shipment30) into DriverShipment
+
+!insert (shipment30, address56) into ShipmentContainsPickUpAddress
+!insert (shipment30, address57) into ShipmentContainsDeliveryAddress
+
+!insert (address56, geolocation56) into AddressContainsGeoLocation
+!insert (address57, geolocation57) into AddressContainsGeoLocation
+
+!insert (customer29, shipment30) into CustomerConsistsOfShipment
+!insert (station28, shipment30) into StationShipment
+
+!insert (station28, customer29) into StationContainsCustomer
+!insert (station28, driver29) into StationContainsDriver

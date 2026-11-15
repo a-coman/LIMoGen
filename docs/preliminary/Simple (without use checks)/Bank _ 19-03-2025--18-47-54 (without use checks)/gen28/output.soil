@@ -1,0 +1,95 @@
+!new Bank('bank56')
+!bank56.country := 'United States'
+!bank56.name := 'Wells Fargo'
+!bank56.bic := 'WFBIUS6S'
+
+!new Bank('bank57')
+!bank57.country := 'Argentina'
+!bank57.name := 'Banco Galicia'
+!bank57.bic := 'GALICB3A'
+
+!new Account('account163')
+!account163.iban := 'US00WFBI123456789'
+!account163.balance := 3100
+
+!new Account('account164')
+!account164.iban := 'US00WFBI987654321'
+!account164.balance := 450
+
+!new Account('account165')
+!account165.iban := 'AR00GALIC123456789'
+!account165.balance := 2900
+
+!new Account('account166')
+!account166.iban := 'AR00GALIC987654321'
+!account166.balance := 120
+
+!new Person('person191')
+!person191.firstName := 'Anna'
+!person191.lastName := 'Kendrick'
+!person191.age := 35
+
+!new Person('person192')
+!person192.firstName := 'Bradley'
+!person192.lastName := 'Cooper'
+!person192.age := 46
+
+!new Person('person193')
+!person193.firstName := 'Carmen'
+!person193.lastName := 'Sandiego'
+!person193.age := 30
+
+!new Person('person194')
+!person194.firstName := 'Dexter'
+!person194.lastName := 'Morgan'
+!person194.age := 42
+
+!insert (person191, account163) into Ownership
+!insert (person192, account164) into Ownership
+!insert (person193, account165) into Ownership
+!insert (person194, account166) into Ownership
+
+!insert (person192, account163) into Use
+!insert (person193, account164) into Use
+!insert (person194, account165) into Use
+!insert (person191, account166) into Use
+
+!insert (bank56, account163) into AccountOfBanks
+!insert (bank56, account164) into AccountOfBanks
+!insert (bank57, account165) into AccountOfBanks
+!insert (bank57, account166) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account167')
+!account167.iban := 'US00WFBI555555555'
+!account167.balance := 850
+
+!new Person('person195')
+!person195.firstName := 'Ethan'
+!person195.lastName := 'Hunt'
+!person195.age := 48
+
+!insert (person195, account167) into Ownership
+!insert (person195, account167) into Use
+
+!insert (bank56, account167) into AccountOfBanks
+
+!new Person('person196')
+!person196.firstName := 'Fiona'
+!person196.lastName := 'Gallagher'
+!person196.age := 28
+
+!new Account('account168')
+!account168.iban := 'AR00GALIC333333333'
+!account168.balance := 1650
+
+!insert (person196, account168) into Ownership
+!insert (person193, account168) into Use
+!insert (bank57, account168) into AccountOfBanks
+
+!new Person('person197')
+!person197.firstName := 'Gabriel'
+!person197.lastName := 'Garcia'
+!person197.age := 40
+
+!insert (person197, account168) into Use

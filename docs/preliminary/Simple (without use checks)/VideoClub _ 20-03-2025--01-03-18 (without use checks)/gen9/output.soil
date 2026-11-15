@@ -1,0 +1,29 @@
+!new Client('client11')
+!client11.clientId := 11
+!client11.isSuspended := false
+
+!new Rental('rental11')
+!rental11.date := Date('2023-10-20')
+
+!new Movie('movie11')
+!movie11.title := 'Adventure Chronicles'
+!movie11.availableCopies := 5
+!movie11.genre := #Action
+
+!new Series('series10')
+!series10.title := 'Comedy Hour'
+!series10.availableCopies := 8
+!series10.episode := 3
+
+!new Actor('actor18')
+!actor18.name := 'Adventure Protagonist'
+
+!new Actor('actor19')
+!actor19.name := 'Funny Sidekick'
+
+!insert (client11, rental11) into ClientRental
+!insert (rental11, movie11) into RentalCassette
+!insert (rental11, series10) into RentalCassette
+!insert (movie11, actor18) into CassetteActor
+!insert (series10, actor19) into CassetteActor
+!insert (series10, actor18) into CassetteActor

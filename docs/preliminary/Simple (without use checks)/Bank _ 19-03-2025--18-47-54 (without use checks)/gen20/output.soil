@@ -1,0 +1,95 @@
+!new Bank('bank40')
+!bank40.country := 'Finland'
+!bank40.name := 'Nordea Bank'
+!bank40.bic := 'NDEAFIHH'
+
+!new Bank('bank41')
+!bank41.country := 'Mexico'
+!bank41.name := 'Banorte'
+!bank41.bic := 'MENOMXMT'
+
+!new Account('account115')
+!account115.iban := 'FI00NDEA123456789'
+!account115.balance := 2900
+
+!new Account('account116')
+!account116.iban := 'FI00NDEA987654321'
+!account116.balance := 110
+
+!new Account('account117')
+!account117.iban := 'MX00MENO123456789'
+!account117.balance := 2150
+
+!new Account('account118')
+!account118.iban := 'MX00MENO987654321'
+!account118.balance := 520
+
+!new Person('person135')
+!person135.firstName := 'Emma'
+!person135.lastName := 'Stone'
+!person135.age := 32
+
+!new Person('person136')
+!person136.firstName := 'Felix'
+!person136.lastName := 'Hernandez'
+!person136.age := 35
+
+!new Person('person137')
+!person137.firstName := 'Gwen'
+!person137.lastName := 'Stacy'
+!person137.age := 29
+
+!new Person('person138')
+!person138.firstName := 'Harry'
+!person138.lastName := 'Potter'
+!person138.age := 41
+
+!insert (person135, account115) into Ownership
+!insert (person136, account116) into Ownership
+!insert (person137, account117) into Ownership
+!insert (person138, account118) into Ownership
+
+!insert (person136, account115) into Use
+!insert (person137, account116) into Use
+!insert (person138, account117) into Use
+!insert (person135, account118) into Use
+
+!insert (bank40, account115) into AccountOfBanks
+!insert (bank40, account116) into AccountOfBanks
+!insert (bank41, account117) into AccountOfBanks
+!insert (bank41, account118) into AccountOfBanks
+
+-- Additional Corner Cases
+!new Account('account119')
+!account119.iban := 'FI00NDEA555555555'
+!account119.balance := 900
+
+!new Person('person139')
+!person139.firstName := 'Ivy'
+!person139.lastName := 'League'
+!person139.age := 39
+
+!insert (person139, account119) into Ownership
+!insert (person139, account119) into Use
+
+!insert (bank40, account119) into AccountOfBanks
+
+!new Person('person140')
+!person140.firstName := 'Joker'
+!person140.lastName := 'Clown'
+!person140.age := 50
+
+!new Account('account120')
+!account120.iban := 'MX00MENO333333333'
+!account120.balance := 1600
+
+!insert (person140, account120) into Ownership
+!insert (person137, account120) into Use
+!insert (bank41, account120) into AccountOfBanks
+
+!new Person('person141')
+!person141.firstName := 'Kai'
+!person141.lastName := 'Lennox'
+!person141.age := 46
+
+!insert (person141, account120) into Use

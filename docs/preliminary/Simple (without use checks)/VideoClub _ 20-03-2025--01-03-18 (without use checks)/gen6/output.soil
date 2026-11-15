@@ -1,0 +1,29 @@
+!new Client('client8')
+!client8.clientId := 8
+!client8.isSuspended := false
+
+!new Rental('rental8')
+!rental8.date := Date('2023-10-17')
+
+!new Movie('movie8')
+!movie8.title := 'Animated Fun'
+!movie8.availableCopies := 2
+!movie8.genre := #Comedy
+
+!new Series('series7')
+!series7.title := 'Sci-Fi Saga'
+!series7.availableCopies := 4
+!series7.episode := 10
+
+!new Actor('actor12')
+!actor12.name := 'Voice Actor One'
+
+!new Actor('actor13')
+!actor13.name := 'Voice Actor Two'
+
+!insert (client8, rental8) into ClientRental
+!insert (rental8, movie8) into RentalCassette
+!insert (rental8, series7) into RentalCassette
+!insert (movie8, actor12) into CassetteActor
+!insert (series7, actor12) into CassetteActor
+!insert (series7, actor13) into CassetteActor

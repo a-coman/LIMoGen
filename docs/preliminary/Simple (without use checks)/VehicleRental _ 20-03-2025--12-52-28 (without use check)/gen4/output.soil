@@ -1,0 +1,49 @@
+!new RentalOffice('rentalOffice5')
+!rentalOffice5.name := 'Suburban Rentals'
+!rentalOffice5.number := 505
+!rentalOffice5.address := '989 Willow Dr, CT'
+
+!new Vehicle('vehicle5')
+!vehicle5.id := 1005
+!vehicle5.registrationState := #DE
+!vehicle5.licensePlateNumber := 'DE2345'
+!vehicle5.vehicleTypeCode := #OPEN_TRAILER
+!vehicle5.registrationLastMaintenanceDate := Date('2023-06-10')
+!vehicle5.expirationDate := Date('2024-06-10')
+
+!new Truck('truck5')
+!truck5.id := 2005
+!truck5.registrationState := #FL
+!truck5.licensePlateNumber := 'FL6789'
+!truck5.vehicleTypeCode := #TRUCK10
+!truck5.registrationLastMaintenanceDate := Date('2023-09-12')
+!truck5.expirationDate := Date('2024-09-12')
+!truck5.odometerReading := 120000
+!truck5.gasTankCapacity := 55.0
+!truck5.workingRadio := true
+!truck5.mileage := 5
+
+!new RentalAgreement('rentalAgreement5')
+!rentalAgreement5.number := 5005
+!rentalAgreement5.rentalDate := Date('2024-01-15')
+!rentalAgreement5.anticipatedDuration := 1
+!rentalAgreement5.depositPaid := 50.0
+!rentalAgreement5.quotedDailyRate := 49.0
+!rentalAgreement5.quotedRatePerMile := 0.25
+
+!new Company('company3')
+!company3.name := 'Logistics Ltd'
+!company3.address := '1122 Distribution Way, AL'
+!company3.poorRisk := false
+!company3.idNumber := 777888999
+
+!insert (rentalOffice5, vehicle5) into RentalOfficeVehicle
+!insert (rentalOffice5, truck5) into RentalOfficeVehicle
+
+!insert (rentalOffice5, rentalAgreement5) into RentalOfficeRentalAgreementOrigin
+
+!insert (rentalOffice1, rentalAgreement5) into RentalOfficeRentalAgreementDrop
+
+!insert (rentalAgreement5, vehicle5) into RentalAgreementVehicle
+
+!insert (rentalAgreement5, company3) into RentalAgreementCustomer

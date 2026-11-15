@@ -1,0 +1,29 @@
+!new Client('client28')
+!client28.clientId := 28
+!client28.isSuspended := true
+
+!new Rental('rental28')
+!rental28.date := Date('2023-11-06')
+
+!new Movie('movie28')
+!movie28.title := 'Crime Thriller'
+!movie28.availableCopies := 5
+!movie28.genre := #Action
+
+!new Series('series27')
+!series27.title := 'Music Legends'
+!series27.availableCopies := 2
+!series27.episode := 5
+
+!new Actor('actor52')
+!actor52.name := 'Detective Pro'
+
+!new Actor('actor53')
+!actor53.name := 'Rock Icon'
+
+!insert (client28, rental28) into ClientRental
+!insert (rental28, movie28) into RentalCassette
+!insert (rental28, series27) into RentalCassette
+!insert (movie28, actor52) into CassetteActor
+!insert (series27, actor53) into CassetteActor
+!insert (series27, actor52) into CassetteActor

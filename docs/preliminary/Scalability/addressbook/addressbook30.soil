@@ -1,0 +1,223 @@
+!new AddressBook('addressBook1')
+
+!new Person('person1')
+!person1.name := 'Alice'
+!person1.phone := '123456789'
+!person1.website := 'www.alice.com'
+!person1.email := 'alice@example.com'
+!person1.title := 'Manager'
+
+!new Person('person2')
+!person2.name := 'Bob'
+!person2.phone := '987654321'
+!person2.website := 'www.bob.com'
+!person2.email := 'bob@example.com'
+!person2.title := 'Engineer'
+
+!new Company('company1')
+!company1.name := 'TechCorp'
+!company1.phone := '111222333'
+!company1.website := 'www.techcorp.com'
+!company1.email := 'info@techcorp.com'
+!company1.industry := 'Technology'
+
+!new Company('company2')
+!company2.name := 'HealthInc'
+!company2.phone := '444555666'
+!company2.website := 'www.healthinc.com'
+!company2.email := 'contact@healthinc.com'
+!company2.industry := 'Healthcare'
+
+!new Note('note1')
+!note1.author := 'Alice'
+!note1.time := Date('2023-01-01')
+!note1.type := #MEETING
+!note1.comment := 'Discuss project milestones.'
+
+!new Note('note2')
+!note2.author := 'Bob'
+!note2.time := Date('2023-01-02')
+!note2.type := #CALL
+!note2.comment := 'Client call regarding feedback.'
+
+!new Note('note3')
+!note3.author := 'Alice'
+!note3.time := Date('2023-01-03')
+!note3.type := #EMAIL
+!note3.comment := 'Follow-up on proposal.'
+
+!new Address('address1')
+!address1.city := 'New York'
+!address1.houseNr := '22'
+!address1.street := '5th Avenue'
+
+!new Address('address2')
+!address2.city := 'Los Angeles'
+!address2.houseNr := '101'
+!address2.street := 'Sunset Blvd'
+
+!new Address('address3')
+!address3.city := 'Chicago'
+!address3.houseNr := '303'
+!address3.street := 'Lake Shore Drive'
+
+!new Relationship('relationship1')
+!relationship1.type := #BOSS
+
+!new Relationship('relationship2')
+!relationship2.type := #COWORKER
+
+!new Relationship('relationship3')
+!relationship3.type := #EMPLOYEE
+
+!insert ('addressBook1', 'person1') into AddressBookMadeOfContact
+!insert ('addressBook1', 'person2') into AddressBookMadeOfContact
+!insert ('addressBook1', 'company1') into AddressBookMadeOfContact
+!insert ('addressBook1', 'company2') into AddressBookMadeOfContact
+
+!insert ('person1', 'note1') into ContactContainsNote
+!insert ('person2', 'note2') into ContactContainsNote
+!insert ('person1', 'note3') into ContactContainsNote
+
+!insert ('person1', 'address1') into ContactContainsAddress
+!insert ('person2', 'address2') into ContactContainsAddress
+!insert ('company1', 'address3') into ContactContainsAddress
+
+!insert ('person1', 'relationship1') into ContactToRelationship
+!insert ('person2', 'relationship2') into ContactToRelationship
+!insert ('company1', 'relationship3') into ContactToRelationship
+
+!insert ('relationship1', 'company1') into RelationshipToContact
+!insert ('relationship2', 'person1') into RelationshipToContact
+!insert ('relationship3', 'person2') into RelationshipToContact
+
+!new Person('person5')
+!person5.name := 'Emma'
+!person5.phone := '555789012'
+!person5.website := 'www.emma.com'
+!person5.email := 'emma@example.com'
+!person5.title := 'Designer'
+
+!new Company('company4')
+!company4.name := 'EduTech'
+!company4.phone := '888999000'
+!company4.website := 'www.edutech.com'
+!company4.email := 'info@edutech.com'
+!company4.industry := 'Education'
+
+!new Note('note6')
+!note6.author := 'Emma'
+!note6.time := Date('2023-03-01')
+!note6.type := #EMAIL
+!note6.comment := 'Update on design specifications.'
+
+!new Address('address6')
+!address6.city := 'Boston'
+!address6.houseNr := '200'
+!address6.street := 'Newbury Street'
+
+!new Address('address7')
+!address7.city := 'Miami'
+!address7.houseNr := '55'
+!address7.street := 'Ocean Drive'
+
+!new Relationship('relationship6')
+!relationship6.type := #EMPLOYEE
+
+!insert ('addressBook1', 'person5') into AddressBookMadeOfContact
+!insert ('addressBook1', 'company4') into AddressBookMadeOfContact
+
+!insert ('person5', 'note6') into ContactContainsNote
+
+!insert ('person5', 'address6') into ContactContainsAddress
+!insert ('company4', 'address7') into ContactContainsAddress
+
+!insert ('person5', 'relationship6') into ContactToRelationship
+
+!insert ('relationship6', 'company1') into RelationshipToContact
+
+!new Person('person6')
+!person6.name := 'Frank'
+!person6.phone := '555345678'
+!person6.website := 'www.frank.com'
+!person6.email := 'frank@example.com'
+!person6.title := 'Consultant'
+
+!new Company('company5')
+!company5.name := 'GreenEnergy'
+!company5.phone := '999111222'
+!company5.website := 'www.greenenergy.com'
+!company5.email := 'contact@greenenergy.com'
+!company5.industry := 'Renewable Energy'
+
+!new Note('note7')
+!note7.author := 'Frank'
+!note7.time := Date('2023-04-01')
+!note7.type := #MEETING
+!note7.comment := 'Strategy meeting with stakeholders.'
+
+!new Address('address8')
+!address8.city := 'Austin'
+!address8.houseNr := '350'
+!address8.street := 'Congress Avenue'
+
+!new Relationship('relationship7')
+!relationship7.type := #COWORKER
+
+!insert ('addressBook1', 'person6') into AddressBookMadeOfContact
+!insert ('addressBook1', 'company5') into AddressBookMadeOfContact
+
+!insert ('person6', 'note7') into ContactContainsNote
+
+!insert ('person6', 'address8') into ContactContainsAddress
+
+!insert ('person6', 'relationship7') into ContactToRelationship
+
+!insert ('relationship7', 'person5') into RelationshipToContact
+
+!new Person('person7')
+!person7.name := 'Grace'
+!person7.phone := '555678901'
+!person7.website := 'www.grace.com'
+!person7.email := 'grace@example.com'
+!person7.title := 'Marketer'
+
+!new Person('person8')
+!person8.name := 'Henry'
+!person8.phone := '555890123'
+!person8.website := 'www.henry.com'
+!person8.email := 'henry@example.com'
+!person8.title := 'Product Manager'
+
+!new Company('company6')
+!company6.name := 'SoftWare'
+!company6.phone := '333444555'
+!company6.website := 'www.software.com'
+!company6.email := 'contact@software.com'
+!company6.industry := 'Software Development'
+
+!new Note('note8')
+!note8.author := 'Grace'
+!note8.time := Date('2023-05-01')
+!note8.type := #EMAIL
+!note8.comment := 'New marketing strategies discussion.'
+
+!new Address('address9')
+!address9.city := 'Denver'
+!address9.houseNr := '500'
+!address9.street := 'Broadway'
+
+!new Relationship('relationship8')
+!relationship8.type := #SUBDIVISION
+
+!insert ('addressBook1', 'person7') into AddressBookMadeOfContact
+!insert ('addressBook1', 'person8') into AddressBookMadeOfContact
+!insert ('addressBook1', 'company6') into AddressBookMadeOfContact
+
+!insert ('person7', 'note8') into ContactContainsNote
+
+!insert ('person7', 'address9') into ContactContainsAddress
+
+!insert ('person7', 'relationship8') into ContactToRelationship
+
+!insert ('relationship8', 'company3') into RelationshipToContact

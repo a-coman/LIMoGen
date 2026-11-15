@@ -1,0 +1,42 @@
+!new Driver('driver18')
+!driver18.id := 'D018'
+!driver18.name := 'Ethan Edwards'
+
+!new Shipment('shipment19')
+!shipment19.id := 'S019'
+!shipment19.status := #NEW
+
+!new Address('address34')
+!address34.text := '6060 Redwood Lane, Frontier City'
+
+!new Address('address35')
+!address35.text := '7070 Aspen Trail, Prairie Town'
+
+!new GeoLocation('geolocation34')
+!geolocation34.latitude := 59.3293
+!geolocation34.longitude := 18.0686
+
+!new GeoLocation('geolocation35')
+!geolocation35.latitude := 35.6895
+!geolocation35.longitude := 139.6917
+
+!new Customer('customer18')
+!customer18.id := 'C018'
+!customer18.name := 'Marty McFly'
+!customer18.twitterUserName := '@back2future'
+
+!new Station('station17')
+
+!insert (driver18, shipment19) into DriverShipment
+
+!insert (shipment19, address34) into ShipmentContainsPickUpAddress
+!insert (shipment19, address35) into ShipmentContainsDeliveryAddress
+
+!insert (address34, geolocation34) into AddressContainsGeoLocation
+!insert (address35, geolocation35) into AddressContainsGeoLocation
+
+!insert (customer18, shipment19) into CustomerConsistsOfShipment
+!insert (station17, shipment19) into StationShipment
+
+!insert (station17, customer18) into StationContainsCustomer
+!insert (station17, driver18) into StationContainsDriver

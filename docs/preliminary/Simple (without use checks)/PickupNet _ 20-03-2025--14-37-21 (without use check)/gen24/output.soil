@@ -1,0 +1,42 @@
+!new Driver('driver25')
+!driver25.id := 'D025'
+!driver25.name := 'Captain Kirk'
+
+!new Shipment('shipment26')
+!shipment26.id := 'S026'
+!shipment26.status := #DELIVERED
+
+!new Address('address48')
+!address48.text := '1212 Enterprise Blvd, Starfleet HQ'
+
+!new Address('address49')
+!address49.text := '2323 Vulcan St, Spock City'
+
+!new GeoLocation('geolocation48')
+!geolocation48.latitude := 45.4642
+!geolocation48.longitude := 9.1900
+
+!new GeoLocation('geolocation49')
+!geolocation49.latitude := 35.6762
+!geolocation49.longitude := 139.6503
+
+!new Customer('customer25')
+!customer25.id := 'C025'
+!customer25.name := 'Mr. Spock'
+!customer25.twitterUserName := '@logicalSpock'
+
+!new Station('station24')
+
+!insert (driver25, shipment26) into DriverShipment
+
+!insert (shipment26, address48) into ShipmentContainsPickUpAddress
+!insert (shipment26, address49) into ShipmentContainsDeliveryAddress
+
+!insert (address48, geolocation48) into AddressContainsGeoLocation
+!insert (address49, geolocation49) into AddressContainsGeoLocation
+
+!insert (customer25, shipment26) into CustomerConsistsOfShipment
+!insert (station24, shipment26) into StationShipment
+
+!insert (station24, customer25) into StationContainsCustomer
+!insert (station24, driver25) into StationContainsDriver

@@ -1,0 +1,225 @@
+!new Driver('driver1')
+!driver1.id := 'D001'
+!driver1.name := 'Alice'
+
+!new Driver('driver2')
+!driver2.id := 'D002'
+!driver2.name := 'Bob'
+
+!new Driver('driver3')
+!driver3.id := 'D003'
+!driver3.name := 'Charlie'
+
+!new Shipment('shipment1')
+!shipment1.id := 'S001'
+!shipment1.status := #NEW
+
+!new Shipment('shipment2')
+!shipment2.id := 'S002'
+!shipment2.status := #ASSIGNED
+
+!new Shipment('shipment3')
+!shipment3.id := 'S003'
+!shipment3.status := #UNDERWAY
+
+!new Address('address1')
+!address1.text := '123 Main St'
+
+!new Address('address2')
+!address2.text := '456 Elm St'
+
+!new Address('address3')
+!address3.text := '789 Oak St'
+
+!new GeoLocation('geo1')
+!geo1.latitude := 40.7128
+!geo1.longitude := -74.0060
+
+!new GeoLocation('geo2')
+!geo2.latitude := 34.0522
+!geo2.longitude := -118.2437
+
+!new GeoLocation('geo3')
+!geo3.latitude := 37.7749
+!geo3.longitude := -122.4194
+
+!new Station('station1')
+
+!new Customer('customer1')
+!customer1.id := 'C001'
+!customer1.name := 'Dave'
+!customer1.twitterUserName := '@dave'
+
+!new Customer('customer2')
+!customer2.id := 'C002'
+!customer2.name := 'Eva'
+!customer2.twitterUserName := '@eva'
+
+!new Customer('customer3')
+!customer3.id := 'C003'
+!customer3.name := 'Frank'
+!customer3.twitterUserName := '@frank'
+
+!insert (driver1, shipment1) into DriverShipment
+!insert (driver2, shipment2) into DriverShipment
+
+!insert (shipment1, address1) into ShipmentContainsPickUpAddress
+!insert (shipment1, address2) into ShipmentContainsDeliveryAddress
+
+!insert (shipment2, address2) into ShipmentContainsPickUpAddress
+!insert (shipment2, address3) into ShipmentContainsDeliveryAddress
+
+!insert (shipment3, address3) into ShipmentContainsPickUpAddress
+!insert (shipment3, address1) into ShipmentContainsDeliveryAddress
+
+!insert (address1, geo1) into AddressContainsGeoLocation
+!insert (address2, geo2) into AddressContainsGeoLocation
+!insert (address3, geo3) into AddressContainsGeoLocation
+
+!insert (customer1, shipment1) into CustomerConsistsOfShipment
+!insert (customer2, shipment2) into CustomerConsistsOfShipment
+!insert (customer3, shipment3) into CustomerConsistsOfShipment
+
+!insert (station1, customer1) into StationContainsCustomer
+!insert (station1, customer2) into StationContainsCustomer
+!insert (station1, customer3) into StationContainsCustomer
+
+!insert (station1, shipment1) into StationShipment
+!insert (station1, shipment2) into StationShipment
+!insert (station1, shipment3) into StationShipment
+
+!insert (station1, driver1) into StationContainsDriver
+!insert (station1, driver2) into StationContainsDriver
+!insert (station1, driver3) into StationContainsDriver
+ç!new Driver('driver1')
+!driver1.id := 'D001'
+!driver1.name := 'Alice'
+
+!new Driver('driver2')
+!driver2.id := 'D002'
+!driver2.name := 'Bob'
+
+!new Driver('driver3')
+!driver3.id := 'D003'
+!driver3.name := 'Charlie'
+
+!new Driver('driver4')
+!driver4.id := 'D004'
+!driver4.name := 'Diana'
+
+!new Driver('driver5')
+!driver5.id := 'D005'
+!driver5.name := 'Eli'
+
+!new Shipment('shipment1')
+!shipment1.id := 'S001'
+!shipment1.status := #NEW
+
+!new Shipment('shipment2')
+!shipment2.id := 'S002'
+!shipment2.status := #ASSIGNED
+
+!new Shipment('shipment3')
+!shipment3.id := 'S003'
+!shipment3.status := #UNDERWAY
+
+!new Shipment('shipment4')
+!shipment4.id := 'S004'
+!shipment4.status := #DELIVERED
+
+!new Shipment('shipment5')
+!shipment5.id := 'S005'
+!shipment5.status := #NEW
+
+!new Shipment('shipment6')
+!shipment6.id := 'S006'
+!shipment6.status := #ASSIGNED
+
+!new Address('address1')
+!address1.text := '123 Main St'
+
+!new Address('address2')
+!address2.text := '456 Elm St'
+
+!new Address('address3')
+!address3.text := '789 Oak St'
+
+!new Address('address4')
+!address4.text := '987 Pine St'
+
+!new GeoLocation('geo1')
+!geo1.latitude := 40.7128
+!geo1.longitude := -74.0060
+
+!new GeoLocation('geo2')
+!geo2.latitude := 34.0522
+!geo2.longitude := -118.2437
+
+!new GeoLocation('geo3')
+!geo3.latitude := 37.7749
+!geo3.longitude := -122.4194
+
+!new GeoLocation('geo4')
+!geo4.latitude := 51.5074
+!geo4.longitude := -0.1278
+
+!new Station('station1')
+
+!new Station('station2')
+
+!new Customer('customer1')
+!customer1.id := 'C001'
+!customer1.name := 'Dave'
+!customer1.twitterUserName := '@dave'
+
+!new Customer('customer2')
+!customer2.id := 'C002'
+!customer2.name := 'Eva'
+!customer2.twitterUserName := '@eva'
+
+!new Customer('customer3')
+!customer3.id := 'C003'
+!customer3.name := 'Frank'
+!customer3.twitterUserName := '@frank'
+
+!new Customer('customer4')
+!customer4.id := 'C004'
+!customer4.name := 'Grace'
+!customer4.twitterUserName := '@grace'
+
+!insert (driver1, shipment1) into DriverShipment
+!insert (driver2, shipment2) into DriverShipment
+
+!insert (shipment1, address1) into ShipmentContainsPickUpAddress
+!insert (shipment1, address2) into ShipmentContainsDeliveryAddress
+
+!insert (shipment2, address2) into ShipmentContainsPickUpAddress
+!insert (shipment2, address3) into ShipmentContainsDeliveryAddress
+
+!insert (shipment3, address3) into ShipmentContainsPickUpAddress
+!insert (shipment3, address4) into ShipmentContainsDeliveryAddress
+
+!insert (address1, geo1) into AddressContainsGeoLocation
+!insert (address2, geo2) into AddressContainsGeoLocation
+!insert (address3, geo3) into AddressContainsGeoLocation
+!insert (address4, geo4) into AddressContainsGeoLocation
+
+!insert (customer1, shipment1) into CustomerConsistsOfShipment
+!insert (customer2, shipment2) into CustomerConsistsOfShipment
+!insert (customer3, shipment3) into CustomerConsistsOfShipment
+!insert (customer4, shipment4) into CustomerConsistsOfShipment
+
+!insert (station1, customer1) into StationContainsCustomer
+!insert (station1, customer2) into StationContainsCustomer
+!insert (station1, customer3) into StationContainsCustomer
+!insert (station1, customer4) into StationContainsCustomer
+
+!insert (station1, shipment1) into StationShipment
+!insert (station1, shipment2) into StationShipment
+!insert (station1, shipment3) into StationShipment
+!insert (station2, shipment4) into StationShipment
+
+!insert (station1, driver1) into StationContainsDriver
+!insert (station1, driver2) into StationContainsDriver
+!insert (station2, driver3) into StationContainsDriver
+!insert (station2, driver4) into StationContainsDriver

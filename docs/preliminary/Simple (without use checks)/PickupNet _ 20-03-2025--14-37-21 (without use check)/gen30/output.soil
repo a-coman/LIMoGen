@@ -1,0 +1,42 @@
+!new Driver('driver31')
+!driver31.id := 'D031'
+!driver31.name := 'Yoda'
+
+!new Shipment('shipment32')
+!shipment32.id := 'S032'
+!shipment32.status := #DELIVERED
+
+!new Address('address60')
+!address60.text := '1414 Jedi Temple, Coruscant'
+
+!new Address('address61')
+!address61.text := '1515 Dagobah System, Outer Rim'
+
+!new GeoLocation('geolocation60')
+!geolocation60.latitude := 36.2048
+!geolocation60.longitude := 138.2529
+
+!new GeoLocation('geolocation61')
+!geolocation61.latitude := 19.8968
+!geolocation61.longitude := -155.5828
+
+!new Customer('customer31')
+!customer31.id := 'C031'
+!customer31.name := 'Obi-Wan Kenobi'
+!customer31.twitterUserName := '@generalKenobi'
+
+!new Station('station30')
+
+!insert (driver31, shipment32) into DriverShipment
+
+!insert (shipment32, address60) into ShipmentContainsPickUpAddress
+!insert (shipment32, address61) into ShipmentContainsDeliveryAddress
+
+!insert (address60, geolocation60) into AddressContainsGeoLocation
+!insert (address61, geolocation61) into AddressContainsGeoLocation
+
+!insert (customer31, shipment32) into CustomerConsistsOfShipment
+!insert (station30, shipment32) into StationShipment
+
+!insert (station30, customer31) into StationContainsCustomer
+!insert (station30, driver31) into StationContainsDriver
