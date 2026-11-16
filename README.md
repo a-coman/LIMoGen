@@ -88,7 +88,7 @@ uv run pytest -q
 
 [https://github.com/a-coman/graphdiff](https://github.com/a-coman/graphdiff)
 
-An alternative to GED. Converts SOIL instances to labeled graphs and compares them with the Weisfeiler-Lehman subtree kernel from GraKeL. Each experiment directory receives a `grakel.md` file with a normalized similarity matrix and a dissimilarity matrix. Dissimilarity is the square root of one minus the similarity.
+An alternative to GED. Converts SOIL instances to labeled graphs and compares them with the shortest-path kernel from GraKeL. Node labels (classes) are used, edge labels (associations) are not. Each experiment directory receives a `grakel.md` file with a normalized similarity matrix and a dissimilarity matrix. Dissimilarity is the square root of one minus the similarity.
 
 GraKeL in this repository requires Python 2.7.18. [pyenv](https://github.com/pyenv/pyenv) is the straightforward way to get it.
 
