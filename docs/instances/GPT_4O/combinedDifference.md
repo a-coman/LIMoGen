@@ -9,7 +9,7 @@
 ## pickupnet
 |  Across Systems | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9989 | 0.9999 | 0.9008 |
+| ALL Generations | 0.9993 | 0.9999 | 0.9008 |
 ## bank
 |  Across Systems | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -46,3 +46,9 @@
 |  Across Systems | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | ALL Generations | 0.9603 | 0.9997 | 0.8369 |
+
+## ALL Experiments
+
+| ALL Experiments | Numeric | StringEquals | StringLv |
+|---|---|---|---|
+| ALL Systems | 0.9875 | 0.9999 | 0.9137 |

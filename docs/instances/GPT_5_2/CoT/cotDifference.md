@@ -12,47 +12,47 @@
 | gen1 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.8250 |
-| edge | 0.9744 | 1.0000 | 0.8736 |
+| edge | 0.9780 | 1.0000 | 0.8736 |
 | invalid | 1.0000 | 0.9739 | 0.8589 |
 | baseline | 1.0000 | 1.0000 | 0.8347 |
 | boundary | 1.0000 | 1.0000 | 0.8870 |
-| ALL Categories | 0.9987 | 0.9993 | 0.8787 |
+| ALL Categories | 0.9988 | 0.9993 | 0.8787 |
 
 | gen2 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.8383 |
-| edge | 0.6444 | 1.0000 | 0.8479 |
+| edge | 0.7576 | 1.0000 | 0.8479 |
 | invalid | 0.9697 | 0.9952 | 0.8581 |
 | baseline | 1.0000 | 1.0000 | 0.8556 |
-| boundary | 0.6667 | 1.0000 | 0.8792 |
-| ALL Categories | 0.9759 | 0.9998 | 0.8913 |
+| boundary | 0.9643 | 1.0000 | 0.8792 |
+| ALL Categories | 0.9841 | 0.9998 | 0.8913 |
 
 | gen3 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.8514 |
-| edge | 0.9818 | 1.0000 | 0.8337 |
-| invalid | NaN | 1.0000 | 0.8601 |
+| edge | 0.9917 | 1.0000 | 0.8337 |
+| invalid | 1.0000 | 1.0000 | 0.8601 |
 | baseline | 1.0000 | 1.0000 | 0.8694 |
 | boundary | 1.0000 | 1.0000 | 0.8158 |
-| ALL Categories | 0.9972 | 1.0000 | 0.8846 |
+| ALL Categories | 0.9997 | 1.0000 | 0.8846 |
 
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.7885 |
-| edge | 1.0000 | 0.9967 | 0.8120 |
+| edge | 0.9643 | 0.9967 | 0.8120 |
 | invalid | 1.0000 | 0.9905 | 0.8414 |
-| baseline | NaN | 1.0000 | 0.8544 |
+| baseline | 1.0000 | 1.0000 | 0.8544 |
 | boundary | NaN | 1.0000 | 0.8770 |
-| ALL Categories | 1.0000 | 0.9996 | 0.8686 |
+| ALL Categories | 0.9990 | 0.9996 | 0.8686 |
 
 | gen5 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.8621 |
-| edge | 0.9926 | 1.0000 | 0.8457 |
+| edge | 0.9964 | 1.0000 | 0.8457 |
 | invalid | 1.0000 | 1.0000 | 0.8628 |
 | baseline | 1.0000 | 1.0000 | 0.8202 |
 | boundary | 1.0000 | 0.9972 | 0.8722 |
-| ALL Categories | 0.9988 | 0.9997 | 0.8899 |
+| ALL Categories | 0.9991 | 0.9997 | 0.8899 |
 
 | gen6 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -65,7 +65,7 @@
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9977 | 0.9999 | 0.8897 |
+| ALL Generations | 0.9985 | 0.9999 | 0.8897 |
 
 ## bank
 
@@ -76,7 +76,7 @@
 | invalid | 1.0000 | 1.0000 | 0.9221 |
 | baseline | 1.0000 | 0.9818 | 0.9396 |
 | boundary | 0.9722 | 1.0000 | 0.9197 |
-| ALL Categories | 0.9814 | 0.9985 | 0.9212 |
+| ALL Categories | 0.9823 | 0.9985 | 0.9212 |
 
 | gen2 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -94,7 +94,7 @@
 | invalid | 1.0000 | 1.0000 | 0.9134 |
 | baseline | 1.0000 | 1.0000 | 0.9230 |
 | boundary | 0.9667 | 1.0000 | 0.9019 |
-| ALL Categories | 0.9801 | 0.9987 | 0.9175 |
+| ALL Categories | 0.9807 | 0.9987 | 0.9175 |
 
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -125,7 +125,7 @@
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9797 | 0.9992 | 0.9192 |
+| ALL Generations | 0.9799 | 0.9992 | 0.9192 |
 
 ## hotelmanagement
 
@@ -141,29 +141,29 @@
 | gen2 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9754 | 0.9810 | 0.8287 |
-| edge | 0.8762 | 0.9417 | 0.8995 |
+| edge | 0.9044 | 0.9417 | 0.8995 |
 | invalid | 0.9579 | 0.9667 | 0.7768 |
 | baseline | 0.9810 | 0.9697 | 0.8763 |
 | boundary | 0.9939 | 0.9802 | 0.7986 |
-| ALL Categories | 0.9814 | 0.9934 | 0.8439 |
+| ALL Categories | 0.9820 | 0.9934 | 0.8439 |
 
 | gen3 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9785 | 0.9853 | 0.8430 |
-| edge | 0.9656 | 0.9935 | 0.8613 |
+| edge | 0.9720 | 0.9935 | 0.8613 |
 | invalid | 0.9714 | 0.9341 | 0.8025 |
 | baseline | 0.9785 | 0.9667 | 0.7561 |
 | boundary | 0.9333 | 0.9667 | 0.7788 |
-| ALL Categories | 0.9742 | 0.9944 | 0.8254 |
+| ALL Categories | 0.9755 | 0.9944 | 0.8254 |
 
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9630 | 0.9583 | 0.7559 |
-| edge | 0.9606 | 0.9709 | 0.8144 |
-| invalid | 0.9455 | 0.9286 | 0.7751 |
+| edge | 0.9623 | 0.9709 | 0.8144 |
+| invalid | 0.9545 | 0.9286 | 0.7751 |
 | baseline | 0.9789 | 0.9231 | 0.8141 |
-| boundary | 0.9038 | 0.9289 | 0.7509 |
-| ALL Categories | 0.9524 | 0.9860 | 0.8037 |
+| boundary | 0.9169 | 0.9289 | 0.7509 |
+| ALL Categories | 0.9555 | 0.9860 | 0.8037 |
 
 | gen5 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -171,21 +171,21 @@
 | edge | 0.9714 | 1.0000 | 0.8635 |
 | invalid | 0.9532 | 0.9556 | 0.8290 |
 | baseline | 0.9697 | 0.9619 | 0.7264 |
-| boundary | 0.8667 | 0.9673 | 0.8488 |
-| ALL Categories | 0.9702 | 0.9940 | 0.8364 |
+| boundary | 0.8824 | 0.9673 | 0.8488 |
+| ALL Categories | 0.9707 | 0.9940 | 0.8364 |
 
 | gen6 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9630 | 0.9737 | 0.7699 |
-| edge | 0.8132 | 0.9848 | 0.9089 |
+| edge | 0.8750 | 0.9848 | 0.9089 |
 | invalid | 0.9780 | 0.9556 | 0.8290 |
 | baseline | 0.9632 | 0.9619 | 0.8199 |
-| boundary | 0.8188 | 0.9455 | 0.7666 |
-| ALL Categories | 0.9472 | 0.9917 | 0.8388 |
+| boundary | 0.8272 | 0.9455 | 0.7666 |
+| ALL Categories | 0.9502 | 0.9917 | 0.8388 |
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9665 | 0.9974 | 0.8231 |
+| ALL Generations | 0.9677 | 0.9974 | 0.8231 |
 
 ## addressbook
 
@@ -252,11 +252,11 @@
 | gen1 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.8881 |
-| edge | 0.8333 | 1.0000 | 0.9194 |
+| edge | 0.9000 | 1.0000 | 0.9194 |
 | invalid | 1.0000 | 1.0000 | 0.9322 |
 | baseline | 1.0000 | 1.0000 | 0.9445 |
 | boundary | 1.0000 | NaN | NaN |
-| ALL Categories | 0.9938 | 0.9857 | 0.8963 |
+| ALL Categories | 0.9943 | 0.9857 | 0.8963 |
 
 | gen2 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -265,7 +265,7 @@
 | invalid | 1.0000 | 1.0000 | 0.8710 |
 | baseline | 1.0000 | 1.0000 | 0.9173 |
 | boundary | 0.8000 | 1.0000 | 0.9128 |
-| ALL Categories | 0.9419 | 0.9935 | 0.8860 |
+| ALL Categories | 0.9444 | 0.9935 | 0.8860 |
 
 | gen3 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -279,33 +279,33 @@
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 1.0000 | 1.0000 | 0.8690 |
-| edge | 0.9048 | 1.0000 | 0.9106 |
+| edge | 0.9455 | 1.0000 | 0.9106 |
 | invalid | 1.0000 | 1.0000 | 0.8998 |
 | baseline | 1.0000 | 0.9000 | 0.8287 |
 | boundary | 0.0000 | 1.0000 | 0.8276 |
-| ALL Categories | 0.9844 | 0.9986 | 0.8818 |
+| ALL Categories | 0.9861 | 0.9986 | 0.8818 |
 
 | gen5 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9957 | 1.0000 | 0.8739 |
-| edge | 0.9000 | 1.0000 | 0.9090 |
+| edge | 0.9333 | 1.0000 | 0.9090 |
 | invalid | 1.0000 | 1.0000 | 0.8854 |
 | baseline | 1.0000 | 1.0000 | 0.9158 |
 | boundary | 1.0000 | 1.0000 | 0.9248 |
-| ALL Categories | 0.9900 | 0.9989 | 0.9005 |
+| ALL Categories | 0.9905 | 0.9989 | 0.9005 |
 
 | gen6 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9952 | 1.0000 | 0.8648 |
-| edge | 0.8571 | 0.9926 | 0.9006 |
+| edge | 0.8889 | 0.9926 | 0.9006 |
 | invalid | 1.0000 | 1.0000 | 0.7973 |
 | baseline | 1.0000 | 1.0000 | 0.8897 |
 | boundary | 0.7143 | 1.0000 | 0.8406 |
-| ALL Categories | 0.9756 | 0.9993 | 0.8801 |
+| ALL Categories | 0.9767 | 0.9993 | 0.8801 |
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9789 | 0.9984 | 0.8903 |
+| ALL Generations | 0.9802 | 0.9984 | 0.8903 |
 
 ## restaurant
 
@@ -339,11 +339,11 @@
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9864 | 0.9976 | 0.8393 |
-| edge | 0.9661 | 0.9957 | 0.8762 |
+| edge | 0.9681 | 0.9957 | 0.8762 |
 | invalid | 0.9917 | 0.9972 | 0.8365 |
 | baseline | 0.9848 | 0.9940 | 0.8802 |
 | boundary | 0.9360 | 0.9942 | 0.8024 |
-| ALL Categories | 0.9802 | 0.9991 | 0.8703 |
+| ALL Categories | 0.9804 | 0.9991 | 0.8703 |
 
 | gen5 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -365,7 +365,7 @@
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9784 | 0.9998 | 0.8754 |
+| ALL Generations | 0.9785 | 0.9998 | 0.8754 |
 
 ## vehiclerental
 
@@ -381,29 +381,29 @@
 | gen2 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9915 | 1.0000 | 0.8780 |
-| edge | 0.9094 | 1.0000 | 0.8963 |
+| edge | 0.9231 | 1.0000 | 0.8963 |
 | invalid | 0.9890 | 1.0000 | 0.8797 |
 | baseline | 0.9893 | 1.0000 | 0.8783 |
 | boundary | 0.9840 | 1.0000 | 0.9050 |
-| ALL Categories | 0.9833 | 1.0000 | 0.8865 |
+| ALL Categories | 0.9837 | 1.0000 | 0.8865 |
 
 | gen3 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9895 | 1.0000 | 0.8729 |
-| edge | 0.8564 | 0.9942 | 0.8888 |
+| edge | 0.8699 | 0.9942 | 0.8888 |
 | invalid | 1.0000 | 1.0000 | 0.8359 |
 | baseline | 0.9974 | 1.0000 | 0.8762 |
 | boundary | 0.9649 | 1.0000 | 0.8907 |
-| ALL Categories | 0.9721 | 0.9998 | 0.8839 |
+| ALL Categories | 0.9730 | 0.9998 | 0.8839 |
 
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9889 | 1.0000 | 0.8718 |
-| edge | 0.9872 | 0.9804 | 0.9140 |
+| edge | 0.9926 | 0.9804 | 0.9140 |
 | invalid | 1.0000 | 1.0000 | 0.8911 |
 | baseline | 0.9970 | 1.0000 | 0.8631 |
 | boundary | 0.8366 | 1.0000 | 0.8783 |
-| ALL Categories | 0.9829 | 0.9991 | 0.8906 |
+| ALL Categories | 0.9837 | 0.9991 | 0.8906 |
 
 | gen5 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -417,15 +417,15 @@
 | gen6 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9876 | 1.0000 | 0.8555 |
-| edge | 0.7794 | 1.0000 | 0.8820 |
+| edge | 0.8246 | 1.0000 | 0.8820 |
 | invalid | 1.0000 | 1.0000 | 0.8331 |
 | baseline | 1.0000 | 1.0000 | 0.8652 |
 | boundary | 0.9218 | 1.0000 | 0.8681 |
-| ALL Categories | 0.9753 | 1.0000 | 0.8751 |
+| ALL Categories | 0.9758 | 1.0000 | 0.8751 |
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9755 | 0.9999 | 0.8831 |
+| ALL Generations | 0.9759 | 0.9999 | 0.8831 |
 
 ## statemachine
 
@@ -501,29 +501,29 @@
 | gen2 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9354 | 0.9961 | 0.8139 |
-| edge | 0.9805 | 0.9883 | 0.8191 |
+| edge | 0.9812 | 0.9883 | 0.8191 |
 | invalid | 0.9733 | 0.9953 | 0.8088 |
 | baseline | 0.9149 | 0.9964 | 0.8197 |
 | boundary | 0.9732 | 0.9944 | 0.7994 |
-| ALL Categories | 0.9516 | 0.9976 | 0.8172 |
+| ALL Categories | 0.9519 | 0.9976 | 0.8172 |
 
 | gen3 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9390 | 0.9969 | 0.8119 |
-| edge | 0.9467 | 0.9865 | 0.8116 |
+| edge | 0.9508 | 0.9865 | 0.8116 |
 | invalid | 0.9678 | 0.9958 | 0.8176 |
 | baseline | 0.9441 | 0.9968 | 0.8229 |
 | boundary | 0.9616 | 0.9952 | 0.8176 |
-| ALL Categories | 0.9441 | 0.9977 | 0.8209 |
+| ALL Categories | 0.9445 | 0.9977 | 0.8209 |
 
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
 | complex | 0.9510 | 0.9963 | 0.8140 |
-| edge | 0.8615 | 0.9921 | 0.8094 |
+| edge | 0.8735 | 0.9921 | 0.8094 |
 | invalid | 0.9640 | 0.9931 | 0.8151 |
 | baseline | 0.9598 | 0.9959 | 0.8132 |
 | boundary | 0.5211 | 0.9899 | 0.8064 |
-| ALL Categories | 0.9355 | 0.9976 | 0.8176 |
+| ALL Categories | 0.9361 | 0.9976 | 0.8176 |
 
 | gen5 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -545,7 +545,7 @@
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9414 | 0.9990 | 0.8233 |
+| ALL Generations | 0.9416 | 0.9990 | 0.8233 |
 
 ## videoclub
 
@@ -571,10 +571,10 @@
 |---|---|---|---|
 | complex | 0.9415 | 1.0000 | 0.8258 |
 | edge | 0.8526 | 0.9960 | 0.8853 |
-| invalid | 0.9000 | 1.0000 | 0.8425 |
+| invalid | 0.9333 | 1.0000 | 0.8425 |
 | baseline | 0.9778 | 0.9848 | 0.8189 |
 | boundary | 0.9333 | 1.0000 | 0.8877 |
-| ALL Categories | 0.8915 | 0.9987 | 0.8528 |
+| ALL Categories | 0.8951 | 0.9987 | 0.8528 |
 
 | gen4 | Numeric | StringEquals | StringLv |
 |---|---|---|---|
@@ -605,10 +605,10 @@
 
 | ALL Generations | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Generations | 0.9074 | 0.9994 | 0.8573 |
+| ALL Generations | 0.9080 | 0.9994 | 0.8573 |
 
 ## ALL Experiments
 
 | ALL Experiments | Numeric | StringEquals | StringLv |
 |---|---|---|---|
-| ALL Systems | 0.9729 | 0.9998 | 0.9051 |
+| ALL Systems | 0.9742 | 0.9998 | 0.9051 |
